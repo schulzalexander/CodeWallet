@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		C956DFB1215A9253005F1822 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFB0215A9253005F1822 /* AppDelegate.swift */; };
-		C956DFB3215A9253005F1822 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFB2215A9253005F1822 /* ViewController.swift */; };
+		C956DFB3215A9253005F1822 /* CodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFB2215A9253005F1822 /* CodeTableViewController.swift */; };
 		C956DFB6215A9253005F1822 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C956DFB4215A9253005F1822 /* Main.storyboard */; };
 		C956DFB8215A9255005F1822 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C956DFB7215A9255005F1822 /* Assets.xcassets */; };
 		C956DFBB215A9255005F1822 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C956DFB9215A9255005F1822 /* LaunchScreen.storyboard */; };
 		C956DFC6215A9255005F1822 /* CodeWalletWidgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFC5215A9255005F1822 /* CodeWalletWidgetTests.swift */; };
 		C956DFD1215A9255005F1822 /* CodeWalletWidgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFD0215A9255005F1822 /* CodeWalletWidgetUITests.swift */; };
+		C956DFE0215A95C8005F1822 /* CodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFDF215A95C8005F1822 /* CodeTableViewCell.swift */; };
+		C956DFE3215A9673005F1822 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE2215A9673005F1822 /* Code.swift */; };
+		C956DFE5215A97C0005F1822 /* CodeTableViewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE4215A97C0005F1822 /* CodeTableViewNavigationController.swift */; };
+		C956DFE7215AA0F3005F1822 /* AddCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE6215AA0F3005F1822 /* AddCodeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,7 @@
 /* Begin PBXFileReference section */
 		C956DFAD215A9253005F1822 /* CodeWalletWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeWalletWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C956DFB0215A9253005F1822 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C956DFB2215A9253005F1822 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C956DFB2215A9253005F1822 /* CodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewController.swift; sourceTree = "<group>"; };
 		C956DFB5215A9253005F1822 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C956DFB7215A9255005F1822 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C956DFBA215A9255005F1822 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,10 @@
 		C956DFCC215A9255005F1822 /* CodeWalletWidgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeWalletWidgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C956DFD0215A9255005F1822 /* CodeWalletWidgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeWalletWidgetUITests.swift; sourceTree = "<group>"; };
 		C956DFD2215A9255005F1822 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C956DFDF215A95C8005F1822 /* CodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewCell.swift; sourceTree = "<group>"; };
+		C956DFE2215A9673005F1822 /* Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
+		C956DFE4215A97C0005F1822 /* CodeTableViewNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewNavigationController.swift; sourceTree = "<group>"; };
+		C956DFE6215AA0F3005F1822 /* AddCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +105,9 @@
 		C956DFAF215A9253005F1822 /* CodeWalletWidget */ = {
 			isa = PBXGroup;
 			children = (
+				C956DFE1215A965D005F1822 /* Model */,
+				C956DFDE215A95A3005F1822 /* UI */,
 				C956DFB0215A9253005F1822 /* AppDelegate.swift */,
-				C956DFB2215A9253005F1822 /* ViewController.swift */,
 				C956DFB4215A9253005F1822 /* Main.storyboard */,
 				C956DFB7215A9255005F1822 /* Assets.xcassets */,
 				C956DFB9215A9255005F1822 /* LaunchScreen.storyboard */,
@@ -123,6 +132,25 @@
 				C956DFD2215A9255005F1822 /* Info.plist */,
 			);
 			path = CodeWalletWidgetUITests;
+			sourceTree = "<group>";
+		};
+		C956DFDE215A95A3005F1822 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C956DFB2215A9253005F1822 /* CodeTableViewController.swift */,
+				C956DFDF215A95C8005F1822 /* CodeTableViewCell.swift */,
+				C956DFE4215A97C0005F1822 /* CodeTableViewNavigationController.swift */,
+				C956DFE6215AA0F3005F1822 /* AddCodeViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		C956DFE1215A965D005F1822 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C956DFE2215A9673005F1822 /* Code.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +284,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C956DFB3215A9253005F1822 /* ViewController.swift in Sources */,
+				C956DFE5215A97C0005F1822 /* CodeTableViewNavigationController.swift in Sources */,
+				C956DFE7215AA0F3005F1822 /* AddCodeViewController.swift in Sources */,
+				C956DFE3215A9673005F1822 /* Code.swift in Sources */,
+				C956DFE0215A95C8005F1822 /* CodeTableViewCell.swift in Sources */,
+				C956DFB3215A9253005F1822 /* CodeTableViewController.swift in Sources */,
 				C956DFB1215A9253005F1822 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -418,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -433,8 +465,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FGBNPQTMV3;
+				DEVELOPMENT_TEAM = 9WWSXM777M;
 				INFOPLIST_FILE = CodeWalletWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,7 +475,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -451,8 +484,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FGBNPQTMV3;
+				DEVELOPMENT_TEAM = 9WWSXM777M;
 				INFOPLIST_FILE = CodeWalletWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,7 +494,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
