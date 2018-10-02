@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import UIKit
+import RSBarcodes_Swift
 
 class Utils {
 	
@@ -16,25 +17,10 @@ class Utils {
 		return UUID().uuidString
 	}
 	
-	static func generateCode(value: String, codeType: AVMetadataObject.ObjectType) -> UIImage? {
-		var filterName: String = ""
-		switch codeType {
-		case AVMetadataObject.ObjectType.code128:
-			filterName = "CICode128BarcodeGenerator"
-		case AVMetadataObject.ObjectType.qr:
-			filterName = "CIQRCodeGenerator"
-		default:
+	static func generateCode(value: String, codeType: AVMetadataObject.ObjectType, targetSize: CGSize) -> UIImage? {
+		guard let image = RSUnifiedCodeGenerator.shared.generateCode(value, machineReadableCodeObjectType: codeType.rawValue) else {
 			return nil
 		}
-		if let filter = CIFilter(name: filterName) {
-			filter.setValue(value.data(using: .ascii), forKey: "inputMessage")
-			let transform = CGAffineTransform(scaleX: 3, y: 3)
-			
-			if let output = filter.outputImage?.transformed(by: transform) {
-				return UIImage(ciImage: output)
-			}
-		}
-		
-		return nil
+		return RSAbstractCodeGenerator.resizeImage(image, targetSize: targetSize, contentMode: UIView.ContentMode.scaleAspectFit)
 	}
 }

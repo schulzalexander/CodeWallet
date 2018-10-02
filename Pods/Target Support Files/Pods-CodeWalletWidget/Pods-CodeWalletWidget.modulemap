@@ -1,0 +1,6 @@
+framework module Pods_CodeWalletWidget {
+  umbrella header "Pods-CodeWalletWidget-umbrella.h"
+
+  export *
+  module * { export * }
+}

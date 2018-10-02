@@ -44,7 +44,7 @@ class ScanCodeViewController: UIViewController {
 		}
 		dest.barcodeValue = currVal
 		dest.barcodeType = currType
-		dest.barcodeButton.setImage(Utils.generateCode(value: currVal!, codeType: currType!), for: .normal)
+		dest.barcodeButton.setImage(Utils.generateCode(value: currVal!, codeType: currType!, targetSize: dest.barcodeButton.frame.size), for: .normal)
 		navigationController?.popViewController(animated: true)
 	}
 	

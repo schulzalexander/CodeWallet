@@ -1,0 +1,6 @@
+framework module Pods_CodeWalletWidgetUITests {
+  umbrella header "Pods-CodeWalletWidgetUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
