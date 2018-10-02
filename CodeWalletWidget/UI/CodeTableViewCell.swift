@@ -21,12 +21,23 @@ class CodeTableViewCell: UITableViewCell {
 	@IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var codeImageView: UIImageView!
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		
+		logoImageView.layer.cornerRadius = 10
+		logoImageView.layer.shadowOffset = CGSize(width: 2, height: 2)
+		logoImageView.layer.shadowColor = UIColor.lightGray.cgColor
+		logoImageView.layer.shadowOpacity = 1.0
+		logoImageView.clipsToBounds = true
+	}
 
 	private func updateContent() {
 		nameLabel.text = code.name
-		codeImageView.image = Utils.generateCode(value: code.value,
-												 codeType: code.type,
-												 targetSize: codeImageView.frame.size)
+		codeImageView.image = Utils.generateCode(
+			value: code.value,
+			codeType: code.type,
+			targetSize: codeImageView.frame.size)
 	}
 	
 }

@@ -28,7 +28,7 @@ class CodeTableViewController: UIViewController {
 		
 		//TESTING PURPOSES
 		CodeManager.shared.addCode(code: Code(name: "Test Company 1", value: "weofi39283hfoebwwf", type: .qr))
-			CodeManager.shared.addCode(code: Code(name: "Test Company 2", value: "weofi39283hfoebwwf", type: .code93))
+			CodeManager.shared.addCode(code: Code(name: "Test Company 2", value: "weofi39283hfoebwwf", type: .code128))
 		
 		tableView.delegate = self
 		tableView.dataSource = self
@@ -122,29 +122,23 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//		var reload = [indexPath]
-//		if selectedIndex != nil {
-//			reload.append(selectedIndex!)
-//		}
-//		tableView.reloadRows(at: reload, with: .automatic)
-	}
-	
-	func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
 		var reload = [indexPath]
+		var newSelection: IndexPath? = indexPath
 		if selectedIndex != nil {
 			if selectedIndex!.row == indexPath.row {
-				return indexPath
+				newSelection = nil
 			}
 			reload.append(selectedIndex!)
 		}
-		selectedIndex = indexPath
+		selectedIndex = newSelection
 		tableView.reloadRows(at: reload, with: .automatic)
-		return indexPath
 	}
+	
+
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if selectedIndex != nil && selectedIndex!.row == indexPath.row {
-			return 170
+			return 200
 		} else {
 			return 70
 		}
