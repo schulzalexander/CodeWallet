@@ -10,6 +10,9 @@ import UIKit
 
 class CodeTableViewController: UIViewController {
 
+	//MARK: Properties
+	var selectedIndex: IndexPath? // holds the index of the currently opened row
+	
 	//MARK: Outlets
 	@IBOutlet weak var tableView: UITableView!
 	
@@ -22,6 +25,10 @@ class CodeTableViewController: UIViewController {
 			self.navigationController?.navigationBar.prefersLargeTitles = true
 			self.navigationItem.largeTitleDisplayMode = .automatic
 		}
+		
+		//TESTING PURPOSES
+		CodeManager.shared.addCode(code: Code(name: "Test Company 1", value: "weofi39283hfoebwwf", type: .qr))
+			CodeManager.shared.addCode(code: Code(name: "Test Company 2", value: "weofi39283hfoebwwf", type: .code93))
 		
 		tableView.delegate = self
 		tableView.dataSource = self
@@ -38,18 +45,18 @@ class CodeTableViewController: UIViewController {
 	//MARK: AddButton
 
 	private func layoutAddButton() {
-		let height: CGFloat = 40
-		let width: CGFloat = 100
+		let height: CGFloat = 50
+		let width: CGFloat = view.frame.width * 0.4
 		let frame = CGRect(x: (view.frame.width - width) / 2, y: view.frame.maxY - height - 20, width: width, height: height)
 		
 		addButton = UIButton(frame: frame)
 		addButton.layer.cornerRadius = height / 2
-		addButton.layer.shadowRadius = 4
+		addButton.layer.shadowRadius = 3
 		addButton.layer.shadowColor = UIColor.lightGray.cgColor
 		addButton.layer.shadowOpacity = 1.0
-		addButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-		addButton.backgroundColor = UIColor.orange
-		addButton.setAttributedTitle(NSAttributedString(string: "+", attributes: [NSAttributedString.Key.font: UIFont(name: "Times", size: 45)!, NSAttributedString.Key.foregroundColor: UIColor.white]), for: .normal)
+		addButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+		addButton.backgroundColor = .white
+		addButton.setAttributedTitle(NSAttributedString(string: "+", attributes: [NSAttributedString.Key.font: UIFont(name: "Times", size: 45)!, NSAttributedString.Key.foregroundColor: UIColor.black]), for: .normal)
 		view.insertSubview(addButton, aboveSubview: tableView)
 		
 		setupAddButtonActions()
@@ -115,13 +122,32 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		//TODO
-		print()
+//		var reload = [indexPath]
+//		if selectedIndex != nil {
+//			reload.append(selectedIndex!)
+//		}
+//		tableView.reloadRows(at: reload, with: .automatic)
+	}
+	
+	func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+		var reload = [indexPath]
+		if selectedIndex != nil {
+			if selectedIndex!.row == indexPath.row {
+				return indexPath
+			}
+			reload.append(selectedIndex!)
+		}
+		selectedIndex = indexPath
+		tableView.reloadRows(at: reload, with: .automatic)
+		return indexPath
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		//TODO
-		return 70
+		if selectedIndex != nil && selectedIndex!.row == indexPath.row {
+			return 170
+		} else {
+			return 70
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

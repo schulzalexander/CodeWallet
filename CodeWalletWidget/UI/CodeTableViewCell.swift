@@ -20,22 +20,13 @@ class CodeTableViewCell: UITableViewCell {
 	//MARK: Outlets
 	@IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
-	
-	
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+	@IBOutlet weak var codeImageView: UIImageView!
 
 	private func updateContent() {
-		//TODO
 		nameLabel.text = code.name
+		codeImageView.image = Utils.generateCode(value: code.value,
+												 codeType: code.type,
+												 targetSize: codeImageView.frame.size)
 	}
 	
 }

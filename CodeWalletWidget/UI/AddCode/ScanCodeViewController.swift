@@ -44,6 +44,7 @@ class ScanCodeViewController: UIViewController {
 		}
 		dest.barcodeValue = currVal
 		dest.barcodeType = currType
+		dest.codeSelectionLabel.isHidden = true
 		dest.barcodeButton.setImage(Utils.generateCode(value: currVal!, codeType: currType!, targetSize: dest.barcodeButton.frame.size), for: .normal)
 		navigationController?.popViewController(animated: true)
 	}
@@ -88,7 +89,7 @@ class ScanCodeViewController: UIViewController {
 				
 				// Set delegate and use the default dispatch queue to execute the call back
 				captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-				captureMetadataOutput.metadataObjectTypes = [.qr, .code128] //TODO: add more codes here
+				captureMetadataOutput.metadataObjectTypes = [.qr, .code128, .ean8, .aztec, .code39Mod43, .code93, .ean13, .interleaved2of5, .itf14, .pdf417, .upce]
 			} catch {
 				// If any error occurs, simply print it out and don't continue any more.
 				print(error)

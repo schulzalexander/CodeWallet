@@ -18,6 +18,7 @@ class AddCodeViewController: UIViewController {
 	//MARK: Outlets
 	@IBOutlet weak var nameTextField: UITextField!
 	@IBOutlet weak var barcodeButton: UIButton!
+	@IBOutlet weak var codeSelectionLabel: UILabel!
 	
 	
     override func viewDidLoad() {
@@ -30,6 +31,8 @@ class AddCodeViewController: UIViewController {
 		nameTextField.layer.borderColor = UIColor.clear.cgColor
 		
 		nameTextField.delegate = self
+		
+		setupGradientBackground()
     }
 
 	@IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -37,6 +40,23 @@ class AddCodeViewController: UIViewController {
 	}
 	
 	//MARK: Layout Methods
+	
+	private func setupGradientBackground() {
+		let colours:[CGColor] = [UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0).cgColor, UIColor.white.cgColor]
+		let locations:[NSNumber] = [0, 0.6]
+		
+		let gradientLayer = CAGradientLayer()
+		gradientLayer.colors = colours
+		gradientLayer.locations = locations
+		gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+		gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+		gradientLayer.frame = UIScreen.main.bounds
+		
+		let view = UIView(frame: UIScreen.main.bounds)
+		view.layer.addSublayer(gradientLayer)
+		self.view.insertSubview(view, at: 0)
+	}
+	
 	private func layoutBarcodeButton() {
 		barcodeButton.layer.shadowOpacity = 1.0
 		barcodeButton.layer.shadowColor = UIColor.lightGray.cgColor
@@ -46,8 +66,6 @@ class AddCodeViewController: UIViewController {
 	
 	// Called when user clicks on the button that holds the barcode (if selected)
 	@IBAction func selectBarcode(_ sender: UIButton) {
-		barcodeButton.becomeFirstResponder()
-		
 		let imagePickerController = UIImagePickerController()
 		imagePickerController.delegate = self
 		
