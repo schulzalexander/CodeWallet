@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AddCodeViewController: UIViewController {
 	
 	//MARK: Properties
 	var barcodeValue: String?
+	var barcodeType: AVMetadataObject.ObjectType?
 	
 	//MARK: Outlets
 	@IBOutlet weak var nameTextField: UITextField!
@@ -21,11 +23,14 @@ class AddCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//		layoutBarcodeButton()
+		// to highlight when user wants to create code, but barcode info is missing
+		barcodeButton.layer.borderWidth = 2.0
+		nameTextField.layer.borderWidth = 2.0
+		barcodeButton.layer.borderColor = UIColor.clear.cgColor
+		nameTextField.layer.borderColor = UIColor.clear.cgColor
 		
 		nameTextField.delegate = self
     }
-    
 
 	@IBAction func cancel(_ sender: UIBarButtonItem) {
 		dismiss(animated: true, completion: nil)
@@ -36,14 +41,17 @@ class AddCodeViewController: UIViewController {
 		barcodeButton.layer.shadowOpacity = 1.0
 		barcodeButton.layer.shadowColor = UIColor.lightGray.cgColor
 		barcodeButton.layer.shadowRadius = 3.0
+		barcodeButton.layer.borderWidth = 2
 	}
 	
+	// Called when user clicks on the button that holds the barcode (if selected)
 	@IBAction func selectBarcode(_ sender: UIButton) {
 		barcodeButton.becomeFirstResponder()
 		
 		let imagePickerController = UIImagePickerController()
 		imagePickerController.delegate = self
 		
+		// User can either scan a code, or load an image from the photo library
 		let alertController = UIAlertController(title: NSLocalizedString("ImagePickerAlertControllerTitle", comment: ""), message: nil, preferredStyle: .actionSheet)
 		let library = UIAlertAction(title: NSLocalizedString("PhotoLibrary", comment: ""), style: .default, handler: {(action) in
 			if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -79,15 +87,27 @@ class AddCodeViewController: UIViewController {
 		}
 	}
 	
+	// Called when the user wants to add a new code from the currently entered information
 	@IBAction func addBarcode(_ sender: UIBarButtonItem) {
-		guard let barcodeValue = barcodeValue,
-			let name = nameTextField.text,
-			name.count > 0 else {
-				//TODO: Highlight missing parts
-				return
+		var failed = false
+		if barcodeValue == nil || barcodeType == nil {
+			barcodeButton.layer.borderColor = UIColor.red.cgColor
+			failed = true
+		} else {
+			barcodeButton.layer.borderColor = UIColor.clear.cgColor
+		}
+		if nameTextField.text == nil || nameTextField.text!.count == 0 {
+			nameTextField.layer.borderColor = UIColor.red.cgColor
+			failed = true
+		} else {
+			nameTextField.layer.borderColor = UIColor.clear.cgColor
+		}
+		if failed {
+			return
 		}
 		
-		CodeManager.shared.addCode(code: Code(name: name, value: barcodeValue))
+		CodeManager.shared.addCode(code: Code(name: nameTextField.text!, value: barcodeValue!, type: barcodeType!))
+		CodeManagerArchive.saveCodeManager()
 		
 		self.dismiss(animated: true, completion: nil)
 	}

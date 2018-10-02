@@ -29,6 +29,11 @@ class CodeTableViewController: UIViewController {
 		layoutAddButton()
 		setupGradientBackground()
 	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		tableView.reloadData()
+	}
 
 	//MARK: AddButton
 

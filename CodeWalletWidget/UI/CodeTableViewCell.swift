@@ -35,6 +35,7 @@ class CodeTableViewCell: UITableViewCell {
 
 	private func updateContent() {
 		//TODO
+		nameLabel.text = code.name
 	}
 	
 }
