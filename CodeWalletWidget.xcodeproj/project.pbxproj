@@ -18,6 +18,11 @@
 		C956DFE3215A9673005F1822 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE2215A9673005F1822 /* Code.swift */; };
 		C956DFE5215A97C0005F1822 /* CodeTableViewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE4215A97C0005F1822 /* CodeTableViewNavigationController.swift */; };
 		C956DFE7215AA0F3005F1822 /* AddCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE6215AA0F3005F1822 /* AddCodeViewController.swift */; };
+		C9C03A94216348DE000533CE /* CodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A93216348DE000533CE /* CodeManager.swift */; };
+		C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A96216349E8000533CE /* CodeManagerArchive.swift */; };
+		C9C03A9A21634B8F000533CE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9921634B8F000533CE /* Utils.swift */; };
+		C9C03A9C21635332000533CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9C03A9B21635332000533CE /* Localizable.strings */; };
+		C9C03A9F2163597D000533CE /* ScanCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9E2163597D000533CE /* ScanCodeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,11 @@
 		C956DFE2215A9673005F1822 /* Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		C956DFE4215A97C0005F1822 /* CodeTableViewNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewNavigationController.swift; sourceTree = "<group>"; };
 		C956DFE6215AA0F3005F1822 /* AddCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCodeViewController.swift; sourceTree = "<group>"; };
+		C9C03A93216348DE000533CE /* CodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManager.swift; sourceTree = "<group>"; };
+		C9C03A96216349E8000533CE /* CodeManagerArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManagerArchive.swift; sourceTree = "<group>"; };
+		C9C03A9921634B8F000533CE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		C9C03A9B21635332000533CE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		C9C03A9E2163597D000533CE /* ScanCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCodeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +115,8 @@
 		C956DFAF215A9253005F1822 /* CodeWalletWidget */ = {
 			isa = PBXGroup;
 			children = (
+				C9C03A9821634B83000533CE /* Other */,
+				C9C03A95216349D7000533CE /* Storache */,
 				C956DFE1215A965D005F1822 /* Model */,
 				C956DFDE215A95A3005F1822 /* UI */,
 				C956DFB0215A9253005F1822 /* AppDelegate.swift */,
@@ -112,6 +124,7 @@
 				C956DFB7215A9255005F1822 /* Assets.xcassets */,
 				C956DFB9215A9255005F1822 /* LaunchScreen.storyboard */,
 				C956DFBC215A9255005F1822 /* Info.plist */,
+				C9C03A9B21635332000533CE /* Localizable.strings */,
 			);
 			path = CodeWalletWidget;
 			sourceTree = "<group>";
@@ -137,10 +150,10 @@
 		C956DFDE215A95A3005F1822 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C9C03A9D2163595E000533CE /* AddCode */,
 				C956DFB2215A9253005F1822 /* CodeTableViewController.swift */,
 				C956DFDF215A95C8005F1822 /* CodeTableViewCell.swift */,
 				C956DFE4215A97C0005F1822 /* CodeTableViewNavigationController.swift */,
-				C956DFE6215AA0F3005F1822 /* AddCodeViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -148,9 +161,43 @@
 		C956DFE1215A965D005F1822 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C9C03A92216348BA000533CE /* Singletons */,
 				C956DFE2215A9673005F1822 /* Code.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C9C03A92216348BA000533CE /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				C9C03A93216348DE000533CE /* CodeManager.swift */,
+			);
+			path = Singletons;
+			sourceTree = "<group>";
+		};
+		C9C03A95216349D7000533CE /* Storache */ = {
+			isa = PBXGroup;
+			children = (
+				C9C03A96216349E8000533CE /* CodeManagerArchive.swift */,
+			);
+			path = Storache;
+			sourceTree = "<group>";
+		};
+		C9C03A9821634B83000533CE /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C9C03A9921634B8F000533CE /* Utils.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		C9C03A9D2163595E000533CE /* AddCode */ = {
+			isa = PBXGroup;
+			children = (
+				C956DFE6215AA0F3005F1822 /* AddCodeViewController.swift */,
+				C9C03A9E2163597D000533CE /* ScanCodeViewController.swift */,
+			);
+			path = AddCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C956DFBB215A9255005F1822 /* LaunchScreen.storyboard in Resources */,
+				C9C03A9C21635332000533CE /* Localizable.strings in Resources */,
 				C956DFB8215A9255005F1822 /* Assets.xcassets in Resources */,
 				C956DFB6215A9253005F1822 /* Main.storyboard in Resources */,
 			);
@@ -284,8 +332,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9C03A94216348DE000533CE /* CodeManager.swift in Sources */,
 				C956DFE5215A97C0005F1822 /* CodeTableViewNavigationController.swift in Sources */,
+				C9C03A9F2163597D000533CE /* ScanCodeViewController.swift in Sources */,
+				C9C03A9A21634B8F000533CE /* Utils.swift in Sources */,
 				C956DFE7215AA0F3005F1822 /* AddCodeViewController.swift in Sources */,
+				C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */,
 				C956DFE3215A9673005F1822 /* Code.swift in Sources */,
 				C956DFE0215A95C8005F1822 /* CodeTableViewCell.swift in Sources */,
 				C956DFB3215A9253005F1822 /* CodeTableViewController.swift in Sources */,
@@ -395,7 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -450,7 +502,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

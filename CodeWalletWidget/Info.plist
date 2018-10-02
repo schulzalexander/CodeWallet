@@ -32,6 +32,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>In order to scan a barcode, please give access to your camera.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>In order to select a barcode, please give access to your photo library.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

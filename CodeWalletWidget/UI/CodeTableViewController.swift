@@ -61,11 +61,11 @@ class CodeTableViewController: UIViewController {
 	}
 	
 	@objc private func addButtonTouchUpOutside(_ sender: UIButton) {
-		sender.layer.shadowColor = UIColor.black.cgColor
+		sender.layer.shadowColor = UIColor.lightGray.cgColor
 	}
 	
 	@objc private func addButtonTouchUpInside(_ sender: UIButton) {
-		sender.layer.shadowColor = UIColor.black.cgColor
+		sender.layer.shadowColor = UIColor.lightGray.cgColor
 		
 		guard let navigationController = storyboard?.instantiateViewController(withIdentifier: "AddCodeNavigationController") else {
 			return
@@ -96,7 +96,7 @@ class CodeTableViewController: UIViewController {
 extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
+		return CodeManager.shared.count()
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,10 +104,18 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CodeTableViewCell else {
 			fatalError("Dequeued cell is not an instance of TaskTableViewCell!")
 		}
+		cell.selectionStyle = .none
+		cell.code = CodeManager.shared.getCodes()[indexPath.row]
 		return cell
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		//TODO
+		print()
+	}
+	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		//TODO
 		return 70
 	}
 	

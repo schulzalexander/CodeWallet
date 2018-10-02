@@ -10,6 +10,13 @@ import UIKit
 
 class CodeTableViewCell: UITableViewCell {
 
+	//MARK: Properties
+	var code: Code! {
+		didSet {
+			updateContent()
+		}
+	}
+	
 	//MARK: Outlets
 	@IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
@@ -26,4 +33,8 @@ class CodeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+	private func updateContent() {
+		//TODO
+	}
+	
 }
