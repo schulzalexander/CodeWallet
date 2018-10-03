@@ -63,15 +63,13 @@ class SettingsTableViewController: UITableViewController {
 			}
 		}
 		if indexPath.section == 2 {
-			// Replay Tutorial
+			// Privacy Policy
 			if indexPath.row == 0 {
 				guard self.storyboard != nil else {
 					return
 				}
-				let viewController = self.storyboard!.instantiateViewController(withIdentifier: "TutorialPageViewController")
-				DispatchQueue.main.async {
-					self.present(viewController, animated: true, completion: nil)
-				}
+				let viewController = self.storyboard!.instantiateViewController(withIdentifier: "PrivacyPolicyViewController")
+				navigationController?.pushViewController(viewController, animated: true)
 			}
 			
 			// Rate App

@@ -25,6 +25,7 @@
 		C96B7C32216503BC00F9B67F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C31216503BC00F9B67F /* Settings.swift */; };
 		C96B7C34216503F300F9B67F /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C33216503F300F9B67F /* Themes.swift */; };
 		C96B7C362165042400F9B67F /* SettingsArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C352165042400F9B67F /* SettingsArchive.swift */; };
+		C96B7C3821650ECD00F9B67F /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C3721650ECD00F9B67F /* PrivacyPolicyViewController.swift */; };
 		C9C03A94216348DE000533CE /* CodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A93216348DE000533CE /* CodeManager.swift */; };
 		C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A96216349E8000533CE /* CodeManagerArchive.swift */; };
 		C9C03A9A21634B8F000533CE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9921634B8F000533CE /* Utils.swift */; };
@@ -78,6 +79,7 @@
 		C96B7C31216503BC00F9B67F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C96B7C33216503F300F9B67F /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		C96B7C352165042400F9B67F /* SettingsArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsArchive.swift; sourceTree = "<group>"; };
+		C96B7C3721650ECD00F9B67F /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		C9C03A93216348DE000533CE /* CodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManager.swift; sourceTree = "<group>"; };
 		C9C03A96216349E8000533CE /* CodeManagerArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManagerArchive.swift; sourceTree = "<group>"; };
 		C9C03A9921634B8F000533CE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				C96B7C2F2165003100F9B67F /* SettingsTableViewController.swift */,
+				C96B7C3721650ECD00F9B67F /* PrivacyPolicyViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				C956DFE3215A9673005F1822 /* Code.swift in Sources */,
 				C956DFE0215A95C8005F1822 /* CodeTableViewCell.swift in Sources */,
 				C956DFB3215A9253005F1822 /* CodeTableViewController.swift in Sources */,
+				C96B7C3821650ECD00F9B67F /* PrivacyPolicyViewController.swift in Sources */,
 				C956DFB1215A9253005F1822 /* AppDelegate.swift in Sources */,
 				C96B7C362165042400F9B67F /* SettingsArchive.swift in Sources */,
 			);
