@@ -48,6 +48,11 @@ class CodeManager: NSObject, NSCoding {
 		return nil
 	}
 	
+	func deleteAllCodes() {
+		CodeManager.shared = CodeManager()
+		CodeManagerArchive.saveCodeManager()
+	}
+	
 	//MARK: NSCoding
 	
 	func encode(with aCoder: NSCoder) {

@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			CodeManager.shared = savedCodeManager
 		}
 		
+		// Load Settings if saved
+		if let settings = SettingsArchive.load() {
+			Settings.shared = settings
+		}
+		
 		return true
 	}
 

@@ -21,6 +21,10 @@
 		C956DFE3215A9673005F1822 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE2215A9673005F1822 /* Code.swift */; };
 		C956DFE5215A97C0005F1822 /* CodeTableViewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE4215A97C0005F1822 /* CodeTableViewNavigationController.swift */; };
 		C956DFE7215AA0F3005F1822 /* AddCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE6215AA0F3005F1822 /* AddCodeViewController.swift */; };
+		C96B7C302165003100F9B67F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C2F2165003100F9B67F /* SettingsTableViewController.swift */; };
+		C96B7C32216503BC00F9B67F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C31216503BC00F9B67F /* Settings.swift */; };
+		C96B7C34216503F300F9B67F /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C33216503F300F9B67F /* Themes.swift */; };
+		C96B7C362165042400F9B67F /* SettingsArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C352165042400F9B67F /* SettingsArchive.swift */; };
 		C9C03A94216348DE000533CE /* CodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A93216348DE000533CE /* CodeManager.swift */; };
 		C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A96216349E8000533CE /* CodeManagerArchive.swift */; };
 		C9C03A9A21634B8F000533CE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9921634B8F000533CE /* Utils.swift */; };
@@ -70,6 +74,10 @@
 		C956DFE2215A9673005F1822 /* Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		C956DFE4215A97C0005F1822 /* CodeTableViewNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewNavigationController.swift; sourceTree = "<group>"; };
 		C956DFE6215AA0F3005F1822 /* AddCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCodeViewController.swift; sourceTree = "<group>"; };
+		C96B7C2F2165003100F9B67F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		C96B7C31216503BC00F9B67F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C96B7C33216503F300F9B67F /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		C96B7C352165042400F9B67F /* SettingsArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsArchive.swift; sourceTree = "<group>"; };
 		C9C03A93216348DE000533CE /* CodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManager.swift; sourceTree = "<group>"; };
 		C9C03A96216349E8000533CE /* CodeManagerArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManagerArchive.swift; sourceTree = "<group>"; };
 		C9C03A9921634B8F000533CE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -193,6 +201,7 @@
 		C956DFDE215A95A3005F1822 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C96B7C2E2165001400F9B67F /* Settings */,
 				C9C03A9D2163595E000533CE /* AddCode */,
 				C956DFB2215A9253005F1822 /* CodeTableViewController.swift */,
 				C956DFDF215A95C8005F1822 /* CodeTableViewCell.swift */,
@@ -210,6 +219,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C96B7C2E2165001400F9B67F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C96B7C2F2165003100F9B67F /* SettingsTableViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		C9C03A92216348BA000533CE /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				C9C03A96216349E8000533CE /* CodeManagerArchive.swift */,
+				C96B7C352165042400F9B67F /* SettingsArchive.swift */,
 			);
 			path = Storache;
 			sourceTree = "<group>";
@@ -230,6 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				C9C03A9921634B8F000533CE /* Utils.swift */,
+				C96B7C31216503BC00F9B67F /* Settings.swift */,
+				C96B7C33216503F300F9B67F /* Themes.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -462,13 +482,17 @@
 				C9C03A94216348DE000533CE /* CodeManager.swift in Sources */,
 				C956DFE5215A97C0005F1822 /* CodeTableViewNavigationController.swift in Sources */,
 				C9C03A9F2163597D000533CE /* ScanCodeViewController.swift in Sources */,
+				C96B7C302165003100F9B67F /* SettingsTableViewController.swift in Sources */,
 				C9C03A9A21634B8F000533CE /* Utils.swift in Sources */,
 				C956DFE7215AA0F3005F1822 /* AddCodeViewController.swift in Sources */,
+				C96B7C32216503BC00F9B67F /* Settings.swift in Sources */,
 				C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */,
+				C96B7C34216503F300F9B67F /* Themes.swift in Sources */,
 				C956DFE3215A9673005F1822 /* Code.swift in Sources */,
 				C956DFE0215A95C8005F1822 /* CodeTableViewCell.swift in Sources */,
 				C956DFB3215A9253005F1822 /* CodeTableViewController.swift in Sources */,
 				C956DFB1215A9253005F1822 /* AppDelegate.swift in Sources */,
+				C96B7C362165042400F9B67F /* SettingsArchive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

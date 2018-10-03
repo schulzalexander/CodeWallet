@@ -17,6 +17,7 @@ class CodeTableViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	
 	var addButton: UIButton!
+	var gradientBackgroundView: UIView?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -34,7 +35,7 @@ class CodeTableViewController: UIViewController {
 		tableView.dataSource = self
 		
 		layoutAddButton()
-		setupGradientBackground()
+		updateAppearance()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -88,7 +89,7 @@ class CodeTableViewController: UIViewController {
 	//MARK: TableViewLayout
 	
 	private func setupGradientBackground() {
-		let colours:[CGColor] = [UIColor.lightGray.withAlphaComponent(0.1).cgColor, UIColor.white.cgColor]
+		let colours:[CGColor] = Theme.mainBackgroundGradientColors
 		let locations:[NSNumber] = [0, 0.6]
 		
 		let gradientLayer = CAGradientLayer()
@@ -98,9 +99,14 @@ class CodeTableViewController: UIViewController {
 		gradientLayer.endPoint = CGPoint(x: 1, y: 1)
 		gradientLayer.frame = UIScreen.main.bounds
 		
-		let view = UIView(frame: UIScreen.main.bounds)
-		view.layer.addSublayer(gradientLayer)
-		tableView.backgroundView = view
+		// Depending on whether the gradient layer was set before, either create a new one or edit the existing
+		if gradientBackgroundView == nil {
+			gradientBackgroundView = UIView(frame: UIScreen.main.bounds)
+			self.view.insertSubview(gradientBackgroundView!, belowSubview: tableView)
+		} else {
+			gradientBackgroundView!.layer.sublayers?.removeAll()
+		}
+		gradientBackgroundView!.layer.addSublayer(gradientLayer)
 	}
 	
 }
@@ -118,6 +124,8 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 		}
 		cell.selectionStyle = .none
 		cell.code = CodeManager.shared.getCodes()[indexPath.row]
+		cell.backgroundColor = Theme.codeCellBackgroundColor
+		
 		return cell
 	}
 	
@@ -131,7 +139,7 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 			reload.append(selectedIndex!)
 		}
 		selectedIndex = newSelection
-		tableView.reloadRows(at: reload, with: .automatic)
+		tableView.reloadRows(at: reload, with: .fade)
 	}
 	
 
@@ -150,3 +158,12 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 	
 }
 
+extension CodeTableViewController: ThemeDelegate {
+	
+	func updateAppearance() {
+		setupGradientBackground()
+		tableView.reloadData()
+		tableView.separatorColor = Theme.tableViewSeperatorColor
+	}
+	
+}
