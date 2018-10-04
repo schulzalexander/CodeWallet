@@ -16,7 +16,6 @@ class CodeTableViewController: UIViewController {
 	//MARK: Outlets
 	@IBOutlet weak var tableView: UITableView!
 	
-	var addButton: UIButton!
 	var gradientBackgroundView: UIView?
 	
 	override func viewDidLoad() {
@@ -34,56 +33,12 @@ class CodeTableViewController: UIViewController {
 		tableView.delegate = self
 		tableView.dataSource = self
 		
-		layoutAddButton()
 		updateAppearance()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		tableView.reloadData()
-	}
-
-	//MARK: AddButton
-
-	private func layoutAddButton() {
-		let height: CGFloat = 50
-		let width: CGFloat = view.frame.width * 0.4
-		let frame = CGRect(x: (view.frame.width - width) / 2, y: view.frame.maxY - height - 20, width: width, height: height)
-		
-		addButton = UIButton(frame: frame)
-		addButton.layer.cornerRadius = height / 2
-		addButton.layer.shadowRadius = 3
-		addButton.layer.shadowColor = UIColor.lightGray.cgColor
-		addButton.layer.shadowOpacity = 1.0
-		addButton.layer.shadowOffset = CGSize(width: 0, height: 2)
-		addButton.backgroundColor = .white
-		addButton.setAttributedTitle(NSAttributedString(string: "+", attributes: [NSAttributedString.Key.font: UIFont(name: "Times", size: 45)!, NSAttributedString.Key.foregroundColor: UIColor.black]), for: .normal)
-		view.insertSubview(addButton, aboveSubview: tableView)
-		
-		setupAddButtonActions()
-	}
-	
-	private func setupAddButtonActions() {
-		addButton.addTarget(self, action: #selector(self.addButtonTouchUpInside), for: UIControl.Event.touchUpInside)
-		addButton.addTarget(self, action: #selector(self.addButtonTouchDown), for: UIControl.Event.touchDown)
-		addButton.addTarget(self, action: #selector(self.addButtonTouchUpOutside), for: UIControl.Event.touchUpOutside)
-	}
-	
-	@objc private func addButtonTouchDown(_ sender: UIButton) {
-		sender.layer.shadowColor = UIColor.clear.cgColor
-	}
-	
-	@objc private func addButtonTouchUpOutside(_ sender: UIButton) {
-		sender.layer.shadowColor = UIColor.lightGray.cgColor
-	}
-	
-	@objc private func addButtonTouchUpInside(_ sender: UIButton) {
-		sender.layer.shadowColor = UIColor.lightGray.cgColor
-		
-		guard let navigationController = storyboard?.instantiateViewController(withIdentifier: "AddCodeNavigationController") else {
-			return
-		}
-		present(navigationController, animated: true, completion: nil)
 	}
 	
 	//MARK: TableViewLayout

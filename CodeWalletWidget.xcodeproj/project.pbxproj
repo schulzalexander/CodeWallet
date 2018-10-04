@@ -27,6 +27,8 @@
 		C96B7C362165042400F9B67F /* SettingsArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C352165042400F9B67F /* SettingsArchive.swift */; };
 		C96B7C3821650ECD00F9B67F /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C3721650ECD00F9B67F /* PrivacyPolicyViewController.swift */; };
 		C96B7C3A2165320000F9B67F /* Keys.json in Resources */ = {isa = PBXBuildFile; fileRef = C96B7C392165320000F9B67F /* Keys.json */; };
+		C96B7C3E2166094200F9B67F /* SideMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C3C2166094200F9B67F /* SideMenuButton.swift */; };
+		C96B7C3F2166094200F9B67F /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C3D2166094200F9B67F /* SideMenu.swift */; };
 		C9C03A94216348DE000533CE /* CodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A93216348DE000533CE /* CodeManager.swift */; };
 		C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A96216349E8000533CE /* CodeManagerArchive.swift */; };
 		C9C03A9A21634B8F000533CE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9921634B8F000533CE /* Utils.swift */; };
@@ -82,6 +84,8 @@
 		C96B7C352165042400F9B67F /* SettingsArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsArchive.swift; sourceTree = "<group>"; };
 		C96B7C3721650ECD00F9B67F /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		C96B7C392165320000F9B67F /* Keys.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Keys.json; sourceTree = "<group>"; };
+		C96B7C3C2166094200F9B67F /* SideMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuButton.swift; sourceTree = "<group>"; };
+		C96B7C3D2166094200F9B67F /* SideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		C9C03A93216348DE000533CE /* CodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManager.swift; sourceTree = "<group>"; };
 		C9C03A96216349E8000533CE /* CodeManagerArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManagerArchive.swift; sourceTree = "<group>"; };
 		C9C03A9921634B8F000533CE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 		C956DFDE215A95A3005F1822 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C96B7C3B2166094200F9B67F /* SideMenu */,
 				C96B7C2E2165001400F9B67F /* Settings */,
 				C9C03A9D2163595E000533CE /* AddCode */,
 				C956DFB2215A9253005F1822 /* CodeTableViewController.swift */,
@@ -231,6 +236,15 @@
 				C96B7C3721650ECD00F9B67F /* PrivacyPolicyViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		C96B7C3B2166094200F9B67F /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C96B7C3C2166094200F9B67F /* SideMenuButton.swift */,
+				C96B7C3D2166094200F9B67F /* SideMenu.swift */,
+			);
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		C9C03A92216348BA000533CE /* Singletons */ = {
@@ -491,8 +505,10 @@
 				C9C03A9F2163597D000533CE /* ScanCodeViewController.swift in Sources */,
 				C96B7C302165003100F9B67F /* SettingsTableViewController.swift in Sources */,
 				C9C03A9A21634B8F000533CE /* Utils.swift in Sources */,
+				C96B7C3E2166094200F9B67F /* SideMenuButton.swift in Sources */,
 				C956DFE7215AA0F3005F1822 /* AddCodeViewController.swift in Sources */,
 				C96B7C32216503BC00F9B67F /* Settings.swift in Sources */,
+				C96B7C3F2166094200F9B67F /* SideMenu.swift in Sources */,
 				C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */,
 				C96B7C34216503F300F9B67F /* Themes.swift in Sources */,
 				C956DFE3215A9673005F1822 /* Code.swift in Sources */,
