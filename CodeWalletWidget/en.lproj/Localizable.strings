@@ -15,8 +15,6 @@
 "ImagePickerAlertControllerTitle" = "Pick a Source";
 "PhotoLibrary" = "Photo Library";
 "Camera" = "Camera";
-"PhotoLibrary" = "Photo Library";
-"PhotoLibrary" = "Photo Library";
 "LibraryFailAlertControllerText" = "Failed to access your device's photo library.";
 "CameraFailAlertControllerText" = "Failed to access your device's camera.";
 

@@ -1,0 +1,75 @@
+
+/* Class = "UILabel"; text = "Rate this App"; ObjectID = "2qL-pF-NVs"; */
+"2qL-pF-NVs.text" = "Diese App bewerten";
+
+/* Class = "UITableViewSection"; headerTitle = "Other"; ObjectID = "6Dd-Wd-eM0"; */
+"6Dd-Wd-eM0.headerTitle" = "Andere";
+
+/* Class = "UITableViewSection"; headerTitle = "Themes"; ObjectID = "DOz-Rl-Gao"; */
+"DOz-Rl-Gao.headerTitle" = "Themes";
+
+/* Class = "UITableViewSection"; headerTitle = "Reset"; ObjectID = "JSv-ym-JSW"; */
+"JSv-ym-JSW.headerTitle" = "Zurücksetzen";
+
+/* Class = "UILabel"; text = "All Content"; ObjectID = "Jd8-be-IEQ"; */
+"Jd8-be-IEQ.text" = "Kompletter Inhalt";
+
+/* Class = "UILabel"; text = "🔒"; ObjectID = "Jm7-IF-fHm"; */
+"Jm7-IF-fHm.text" = "🔒";
+
+/* Class = "UINavigationItem"; title = "New Code"; ObjectID = "KFP-IA-dDU"; */
+"KFP-IA-dDU.title" = "Neuer Code";
+
+/* Class = "UILabel"; text = "Brand Name"; ObjectID = "LCc-66-afy"; */
+"LCc-66-afy.text" = "Firmenname";
+
+/* Class = "UILabel"; text = "💬"; ObjectID = "OsK-m7-TAi"; */
+"OsK-m7-TAi.text" = "💬";
+
+/* Class = "UIButton"; normalTitle = "Load Suggestions"; ObjectID = "Ou3-ez-haA"; */
+"Ou3-ez-haA.normalTitle" = "Vorschläge laden";
+
+/* Class = "UILabel"; text = "❌"; ObjectID = "QDE-Md-w5x"; */
+"QDE-Md-w5x.text" = "❌";
+
+/* Class = "UIButton"; normalTitle = "Pick from Library"; ObjectID = "Weu-08-EwK"; */
+"Weu-08-EwK.normalTitle" = "Foto auswählen";
+
+/* Class = "UILabel"; text = "Logo"; ObjectID = "cfD-BA-sUX"; */
+"cfD-BA-sUX.text" = "Logo";
+
+/* Class = "UILabel"; text = "✔️"; ObjectID = "cle-Py-LkY"; */
+"cle-Py-LkY.text" = "✔️";
+
+/* Class = "UILabel"; text = "Associated Name"; ObjectID = "e94-sa-DX3"; */
+"e94-sa-DX3.text" = "Name";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "fu8-GX-gZC"; */
+"fu8-GX-gZC.title" = "Item";
+
+/* Class = "UILabel"; text = "Scan a Code"; ObjectID = "h85-uX-1Kh"; */
+"h85-uX-1Kh.text" = "Code einscannen";
+
+/* Class = "UILabel"; text = "✔️"; ObjectID = "hvV-PL-2XT"; */
+"hvV-PL-2XT.text" = "✔️";
+
+/* Class = "UINavigationItem"; title = "My Barcodes"; ObjectID = "jIH-x1-PRR"; */
+"jIH-x1-PRR.title" = "Meine Barcodes";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "jRY-Ib-g9A"; */
+"jRY-Ib-g9A.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "or"; ObjectID = "mDR-g9-xin"; */
+"mDR-g9-xin.text" = "oder";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "me1-vE-VzZ"; */
+"me1-vE-VzZ.title" = "Einstellungen";
+
+/* Class = "UILabel"; text = "Privacy Policy"; ObjectID = "qrm-YB-0GC"; */
+"qrm-YB-0GC.text" = "Datenschutzerklärung";
+
+/* Class = "UILabel"; text = "Light"; ObjectID = "sZ3-iv-1wu"; */
+"sZ3-iv-1wu.text" = "Hell";
+
+/* Class = "UILabel"; text = "Dark"; ObjectID = "teI-0y-ZFl"; */
+"teI-0y-ZFl.text" = "Dunkel";
