@@ -26,6 +26,7 @@
 		C96B7C34216503F300F9B67F /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C33216503F300F9B67F /* Themes.swift */; };
 		C96B7C362165042400F9B67F /* SettingsArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C352165042400F9B67F /* SettingsArchive.swift */; };
 		C96B7C3821650ECD00F9B67F /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C3721650ECD00F9B67F /* PrivacyPolicyViewController.swift */; };
+		C96B7C3A2165320000F9B67F /* Keys.json in Resources */ = {isa = PBXBuildFile; fileRef = C96B7C392165320000F9B67F /* Keys.json */; };
 		C9C03A94216348DE000533CE /* CodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A93216348DE000533CE /* CodeManager.swift */; };
 		C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A96216349E8000533CE /* CodeManagerArchive.swift */; };
 		C9C03A9A21634B8F000533CE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9921634B8F000533CE /* Utils.swift */; };
@@ -80,6 +81,7 @@
 		C96B7C33216503F300F9B67F /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		C96B7C352165042400F9B67F /* SettingsArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsArchive.swift; sourceTree = "<group>"; };
 		C96B7C3721650ECD00F9B67F /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		C96B7C392165320000F9B67F /* Keys.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Keys.json; sourceTree = "<group>"; };
 		C9C03A93216348DE000533CE /* CodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManager.swift; sourceTree = "<group>"; };
 		C9C03A96216349E8000533CE /* CodeManagerArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManagerArchive.swift; sourceTree = "<group>"; };
 		C9C03A9921634B8F000533CE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				C956DFB9215A9255005F1822 /* LaunchScreen.storyboard */,
 				C956DFBC215A9255005F1822 /* Info.plist */,
 				C9C03AA22163B440000533CE /* GoogleService-Info.plist */,
+				C96B7C392165320000F9B67F /* Keys.json */,
 				C9C03A9B21635332000533CE /* Localizable.strings */,
 			);
 			path = CodeWalletWidget;
@@ -379,6 +382,7 @@
 				C9C03AA32163B440000533CE /* GoogleService-Info.plist in Resources */,
 				C956DFB8215A9255005F1822 /* Assets.xcassets in Resources */,
 				C956DFB6215A9253005F1822 /* Main.storyboard in Resources */,
+				C96B7C3A2165320000F9B67F /* Keys.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

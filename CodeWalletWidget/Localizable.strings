@@ -20,6 +20,9 @@
 "LibraryFailAlertControllerText" = "Failed to access your device's photo library.";
 "CameraFailAlertControllerText" = "Failed to access your device's camera.";
 
+// Barcode logo
+"LogoSuggestionsNameMissingMessage" = "Please provide a name to search for.";
+
 // Settings
 "Warning" = "Warning";
 "Reset" = "Reset";

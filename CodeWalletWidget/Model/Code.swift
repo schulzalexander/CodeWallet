@@ -17,16 +17,18 @@ class Code: NSObject, NSCoding {
 	var value: String
 	var id: String
 	var type: AVMetadataObject.ObjectType
+	var logo: UIImage?
 	
 	struct PropertyKeys {
 		static let name = "name"
 		static let value = "value"
 		static let id = "id"
 		static let type = "type"
+		static let logo = "logo"
 	}
 	
 	
-	init(name: String, value: String, type: AVMetadataObject.ObjectType) {
+	init(name: String, value: String, type: AVMetadataObject.ObjectType, logo: UIImage?) {
 		self.name = name
 		self.value = value
 		self.id = Utils.generateID()
@@ -41,6 +43,7 @@ class Code: NSObject, NSCoding {
 		aCoder.encode(value, forKey: PropertyKeys.value)
 		aCoder.encode(id, forKey: PropertyKeys.id)
 		aCoder.encode(type, forKey: PropertyKeys.type)
+		aCoder.encode(logo, forKey: PropertyKeys.logo)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -54,6 +57,7 @@ class Code: NSObject, NSCoding {
 		self.value = value
 		self.id = id
 		self.type = type
+		self.logo = aDecoder.decodeObject(forKey: PropertyKeys.logo) as? UIImage
 	}
 	
 	

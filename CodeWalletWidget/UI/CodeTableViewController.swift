@@ -28,8 +28,8 @@ class CodeTableViewController: UIViewController {
 		}
 		
 		//TESTING PURPOSES
-		CodeManager.shared.addCode(code: Code(name: "Test Company 1", value: "weofi39283hfoebwwf", type: .qr))
-			CodeManager.shared.addCode(code: Code(name: "Test Company 2", value: "weofi39283hfoebwwf", type: .code128))
+		CodeManager.shared.addCode(code: Code(name: "Test Company 1", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
+		CodeManager.shared.addCode(code: Code(name: "Test Company 2", value: "weofi39283hfoebwwf", type: .code128, logo: nil))
 		
 		tableView.delegate = self
 		tableView.dataSource = self

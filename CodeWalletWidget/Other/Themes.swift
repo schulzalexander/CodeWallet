@@ -48,7 +48,7 @@ class Theme {
 		get {
 			switch Settings.shared.selectedTheme {
 			case .light:
-				return [UIColor.lightGray.withAlphaComponent(0.1).cgColor, UIColor.white.cgColor]
+				return [UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.0).cgColor, UIColor.white.cgColor]
 			case .dark:
 				return [UIColor.darkGray.cgColor, UIColor.lightGray.cgColor]
 			}
