@@ -18,6 +18,7 @@ class AddCodeViewController: UIViewController {
 	var imagePicked: Int? // Is set to keep track of which component opened the imagePicker
 	var logoSearchResult: [[String: Any]]? // Array of dictionaries
 	var logoImages: [UIImage]?
+	var selectedLogoSuggestion: IndexPath?
 	
 	//MARK: Outlets
 	@IBOutlet weak var logoCollectionView: UICollectionView!
@@ -229,7 +230,7 @@ class AddCodeViewController: UIViewController {
 		}
 		nameTextField.layer.borderColor = UIColor.clear.cgColor
 		
-		UIView.animate(withDuration: 0.7, animations: {
+		UIView.animate(withDuration: 0.4, animations: {
 			self.logoLibraryButton.layer.opacity = 0
 			self.logoOrLabel.layer.opacity = 0
 			self.logoSuggestionsButton.center.y = self.logoOrLabel.frame.minY
@@ -394,6 +395,11 @@ extension AddCodeViewController: UICollectionViewDelegate, UICollectionViewDataS
 		let backgroundView = UIImageView(frame: cell.frame)
 		backgroundView.image = image
 		cell.backgroundView = backgroundView
+		if indexPath == selectedLogoSuggestion {
+			cell.layer.borderColor = UIColor.green.cgColor
+		} else {
+			cell.layer.borderColor = UIColor.clear.cgColor
+		}
 		return cell
 	}
 	
@@ -406,16 +412,13 @@ extension AddCodeViewController: UICollectionViewDelegate, UICollectionViewDataS
 		}
 		cell.layer.borderColor = UIColor.green.cgColor
 		cell.layer.borderWidth = 4.0
-		barcodeLogo = image
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-		// New cell has been selected
-		// -> remove highlighting from old cell
-		guard let cell = collectionView.cellForItem(at: indexPath) else {
-			fatalError("Failed to retreive collectionView cell after user selection!")
+		
+		let reload = selectedLogoSuggestion
+		selectedLogoSuggestion = indexPath
+		if reload != nil {
+			collectionView.reloadItems(at: [reload!])
 		}
-		cell.layer.borderColor = UIColor.clear.cgColor
+		barcodeLogo = image
 	}
 	
 }

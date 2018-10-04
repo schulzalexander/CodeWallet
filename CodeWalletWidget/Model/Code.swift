@@ -33,6 +33,7 @@ class Code: NSObject, NSCoding {
 		self.value = value
 		self.id = Utils.generateID()
 		self.type = type
+		self.logo = logo
 		
 		super.init()
 	}
