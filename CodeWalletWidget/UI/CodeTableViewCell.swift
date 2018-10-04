@@ -38,6 +38,7 @@ class CodeTableViewCell: UITableViewCell {
 			value: code.value,
 			codeType: code.type,
 			targetSize: codeImageView.frame.size)
+		logoImageView.image = code.logo
 	}
 	
 }
