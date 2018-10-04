@@ -69,10 +69,12 @@ class CodeManager: NSObject, NSCoding {
 	//MARK: NSCoding
 	
 	func encode(with aCoder: NSCoder) {
+		NSKeyedArchiver.setClassName("Code", for: Code.self)
 		aCoder.encode(codes, forKey: PropertyKeys.codes)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
+		NSKeyedUnarchiver.setClass(Code.self, forClassName: "Code")
 		guard let codes = aDecoder.decodeObject(forKey: PropertyKeys.codes) as? [Code] else {
 			fatalError("Error while decoding object of class ClassName")
 		}

@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C2648F766928141B4D1C709 /* Pods_CodeWalletWidgetApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED17B09A0D31E96C674B8A1 /* Pods_CodeWalletWidgetApp.framework */; };
 		18EC23FC12A0D2CEB642AE35 /* Pods_CodeWalletWidgetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE89A4A56BC1E6A24470A9D /* Pods_CodeWalletWidgetTests.framework */; };
 		1D87952E8DD094D22D3CA099 /* Pods_CodeWalletWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9276A70E3DD90805320F0CC4 /* Pods_CodeWalletWidget.framework */; };
 		451B4012681777AD8F7D7D8E /* Pods_CodeWalletWidgetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD0F6D0BFA6C15B4B7815F86 /* Pods_CodeWalletWidgetUITests.framework */; };
+		591A73A72E1548FCAAAD7F73 /* Pods_CodeWalletWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D2F5312166687800D9016B /* Pods_CodeWalletWidget.framework */; };
 		C956DFB1215A9253005F1822 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFB0215A9253005F1822 /* AppDelegate.swift */; };
 		C956DFB3215A9253005F1822 /* CodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFB2215A9253005F1822 /* CodeTableViewController.swift */; };
 		C956DFB6215A9253005F1822 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C956DFB4215A9253005F1822 /* Main.storyboard */; };
@@ -30,11 +32,20 @@
 		C96B7C3E2166094200F9B67F /* SideMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C3C2166094200F9B67F /* SideMenuButton.swift */; };
 		C96B7C3F2166094200F9B67F /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C3D2166094200F9B67F /* SideMenu.swift */; };
 		C96B7C4121660DC300F9B67F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C96B7C4321660DC300F9B67F /* Localizable.strings */; };
+		C96B7C4B2166464500F9B67F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96B7C4A2166464500F9B67F /* NotificationCenter.framework */; };
+		C96B7C4E2166464500F9B67F /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C4D2166464500F9B67F /* TodayViewController.swift */; };
+		C96B7C512166464500F9B67F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96B7C4F2166464500F9B67F /* MainInterface.storyboard */; };
+		C96B7C552166464500F9B67F /* CodeWalletWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C96B7C492166464500F9B67F /* CodeWalletWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C96B7C61216665D000F9B67F /* CodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C60216665D000F9B67F /* CodeCollectionViewCell.swift */; };
+		C96B7C622166676900F9B67F /* CodeManagerArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A96216349E8000533CE /* CodeManagerArchive.swift */; };
+		C96B7C632166676900F9B67F /* CodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A93216348DE000533CE /* CodeManager.swift */; };
+		C96B7C642166676900F9B67F /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE2215A9673005F1822 /* Code.swift */; };
 		C9C03A94216348DE000533CE /* CodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A93216348DE000533CE /* CodeManager.swift */; };
 		C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A96216349E8000533CE /* CodeManagerArchive.swift */; };
 		C9C03A9A21634B8F000533CE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9921634B8F000533CE /* Utils.swift */; };
 		C9C03A9F2163597D000533CE /* ScanCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9E2163597D000533CE /* ScanCodeViewController.swift */; };
 		C9C03AA32163B440000533CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9C03AA22163B440000533CE /* GoogleService-Info.plist */; };
+		C9D2F53B2166923D00D9016B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9921634B8F000533CE /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,16 +63,39 @@
 			remoteGlobalIDString = C956DFAC215A9253005F1822;
 			remoteInfo = CodeWalletWidget;
 		};
+		C96B7C532166464500F9B67F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C956DFA5215A9253005F1822 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C96B7C482166464500F9B67F;
+			remoteInfo = TodayExtension;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C96B7C592166464500F9B67F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C96B7C552166464500F9B67F /* CodeWalletWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		6F4C3165CBBC20B50E1A550A /* Pods-CodeWalletWidgetApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeWalletWidgetApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeWalletWidgetApp/Pods-CodeWalletWidgetApp.release.xcconfig"; sourceTree = "<group>"; };
 		76634C023E79DFD1D6097D46 /* Pods-CodeWalletWidgetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeWalletWidgetUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeWalletWidgetUITests/Pods-CodeWalletWidgetUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		782D140A5F64AE510E8122BA /* Pods-CodeWalletWidgetApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeWalletWidgetApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeWalletWidgetApp/Pods-CodeWalletWidgetApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7ED4F22D2C2E9F3BD512C827 /* Pods-CodeWalletWidgetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeWalletWidgetTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeWalletWidgetTests/Pods-CodeWalletWidgetTests.release.xcconfig"; sourceTree = "<group>"; };
 		9276A70E3DD90805320F0CC4 /* Pods_CodeWalletWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeWalletWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4FA7FDBFF263EC2DF30B9D /* Pods-CodeWalletWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeWalletWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeWalletWidget/Pods-CodeWalletWidget.release.xcconfig"; sourceTree = "<group>"; };
 		B798623A1DA2C7CF9AF94D0A /* Pods-CodeWalletWidgetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeWalletWidgetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeWalletWidgetTests/Pods-CodeWalletWidgetTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7C9BC24AEDE8C023FCAAA78 /* Pods-CodeWalletWidgetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeWalletWidgetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeWalletWidgetUITests/Pods-CodeWalletWidgetUITests.release.xcconfig"; sourceTree = "<group>"; };
-		C956DFAD215A9253005F1822 /* CodeWalletWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeWalletWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C956DFAD215A9253005F1822 /* CodeWalletWidgetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeWalletWidgetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C956DFB0215A9253005F1822 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C956DFB2215A9253005F1822 /* CodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewController.swift; sourceTree = "<group>"; };
 		C956DFB5215A9253005F1822 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,11 +123,24 @@
 		C96B7C4021660CDD00F9B67F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		C96B7C4221660DC300F9B67F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C96B7C4421660DF500F9B67F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C96B7C492166464500F9B67F /* CodeWalletWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CodeWalletWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C96B7C4A2166464500F9B67F /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		C96B7C4D2166464500F9B67F /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		C96B7C502166464500F9B67F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		C96B7C522166464500F9B67F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C96B7C5A216661BD00F9B67F /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayExtension.entitlements; sourceTree = "<group>"; };
+		C96B7C5B216662E600F9B67F /* CodeWalletWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeWalletWidget.entitlements; sourceTree = "<group>"; };
+		C96B7C60216665D000F9B67F /* CodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9C03A93216348DE000533CE /* CodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManager.swift; sourceTree = "<group>"; };
 		C9C03A96216349E8000533CE /* CodeManagerArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManagerArchive.swift; sourceTree = "<group>"; };
 		C9C03A9921634B8F000533CE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C9C03A9E2163597D000533CE /* ScanCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCodeViewController.swift; sourceTree = "<group>"; };
 		C9C03AA22163B440000533CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C9D2F52F2166686200D9016B /* RSBarcodes_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RSBarcodes_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9D2F5312166687800D9016B /* Pods_CodeWalletWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CodeWalletWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9D2F53921666B5D00D9016B /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9D2F53C2166926600D9016B /* RSBarcodes_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RSBarcodes_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED17B09A0D31E96C674B8A1 /* Pods_CodeWalletWidgetApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeWalletWidgetApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E929EB193969A628D54F9910 /* Pods-CodeWalletWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeWalletWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeWalletWidget/Pods-CodeWalletWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		EFE89A4A56BC1E6A24470A9D /* Pods_CodeWalletWidgetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeWalletWidgetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0F6D0BFA6C15B4B7815F86 /* Pods_CodeWalletWidgetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeWalletWidgetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D87952E8DD094D22D3CA099 /* Pods_CodeWalletWidget.framework in Frameworks */,
+				0C2648F766928141B4D1C709 /* Pods_CodeWalletWidgetApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,15 +172,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C96B7C462166464500F9B67F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C96B7C4B2166464500F9B67F /* NotificationCenter.framework in Frameworks */,
+				591A73A72E1548FCAAAD7F73 /* Pods_CodeWalletWidget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		5DBE81031A8BC8F8DF8D14B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9D2F53C2166926600D9016B /* RSBarcodes_Swift.framework */,
+				C9D2F53921666B5D00D9016B /* FirebaseCore.framework */,
+				C9D2F5312166687800D9016B /* Pods_CodeWalletWidget.framework */,
+				C9D2F52F2166686200D9016B /* RSBarcodes_Swift.framework */,
 				9276A70E3DD90805320F0CC4 /* Pods_CodeWalletWidget.framework */,
 				EFE89A4A56BC1E6A24470A9D /* Pods_CodeWalletWidgetTests.framework */,
 				FD0F6D0BFA6C15B4B7815F86 /* Pods_CodeWalletWidgetUITests.framework */,
+				C96B7C4A2166464500F9B67F /* NotificationCenter.framework */,
+				CED17B09A0D31E96C674B8A1 /* Pods_CodeWalletWidgetApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -146,6 +209,8 @@
 				7ED4F22D2C2E9F3BD512C827 /* Pods-CodeWalletWidgetTests.release.xcconfig */,
 				76634C023E79DFD1D6097D46 /* Pods-CodeWalletWidgetUITests.debug.xcconfig */,
 				C7C9BC24AEDE8C023FCAAA78 /* Pods-CodeWalletWidgetUITests.release.xcconfig */,
+				782D140A5F64AE510E8122BA /* Pods-CodeWalletWidgetApp.debug.xcconfig */,
+				6F4C3165CBBC20B50E1A550A /* Pods-CodeWalletWidgetApp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -156,6 +221,7 @@
 				C956DFAF215A9253005F1822 /* CodeWalletWidget */,
 				C956DFC4215A9255005F1822 /* CodeWalletWidgetTests */,
 				C956DFCF215A9255005F1822 /* CodeWalletWidgetUITests */,
+				C96B7C4C2166464500F9B67F /* TodayExtension */,
 				C956DFAE215A9253005F1822 /* Products */,
 				BB55BBAB76BC985594D0F58A /* Pods */,
 				5DBE81031A8BC8F8DF8D14B9 /* Frameworks */,
@@ -165,9 +231,10 @@
 		C956DFAE215A9253005F1822 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C956DFAD215A9253005F1822 /* CodeWalletWidget.app */,
+				C956DFAD215A9253005F1822 /* CodeWalletWidgetApp.app */,
 				C956DFC1215A9255005F1822 /* CodeWalletWidgetTests.xctest */,
 				C956DFCC215A9255005F1822 /* CodeWalletWidgetUITests.xctest */,
+				C96B7C492166464500F9B67F /* CodeWalletWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,6 +242,7 @@
 		C956DFAF215A9253005F1822 /* CodeWalletWidget */ = {
 			isa = PBXGroup;
 			children = (
+				C96B7C5B216662E600F9B67F /* CodeWalletWidget.entitlements */,
 				C9C03A9821634B83000533CE /* Other */,
 				C9C03A95216349D7000533CE /* Storache */,
 				C956DFE1215A965D005F1822 /* Model */,
@@ -249,6 +317,18 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
+		C96B7C4C2166464500F9B67F /* TodayExtension */ = {
+			isa = PBXGroup;
+			children = (
+				C96B7C5A216661BD00F9B67F /* TodayExtension.entitlements */,
+				C96B7C4D2166464500F9B67F /* TodayViewController.swift */,
+				C96B7C4F2166464500F9B67F /* MainInterface.storyboard */,
+				C96B7C522166464500F9B67F /* Info.plist */,
+				C96B7C60216665D000F9B67F /* CodeCollectionViewCell.swift */,
+			);
+			path = TodayExtension;
+			sourceTree = "<group>";
+		};
 		C9C03A92216348BA000533CE /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,23 +368,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C956DFAC215A9253005F1822 /* CodeWalletWidget */ = {
+		C956DFAC215A9253005F1822 /* CodeWalletWidgetApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C956DFD5215A9255005F1822 /* Build configuration list for PBXNativeTarget "CodeWalletWidget" */;
+			buildConfigurationList = C956DFD5215A9255005F1822 /* Build configuration list for PBXNativeTarget "CodeWalletWidgetApp" */;
 			buildPhases = (
 				6A21F77A56705282B51F0DA0 /* [CP] Check Pods Manifest.lock */,
 				C956DFA9215A9253005F1822 /* Sources */,
 				C956DFAA215A9253005F1822 /* Frameworks */,
 				C956DFAB215A9253005F1822 /* Resources */,
 				22CC5DBD7C6BCD94AE918EF5 /* [CP] Embed Pods Frameworks */,
+				C96B7C592166464500F9B67F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C96B7C542166464500F9B67F /* PBXTargetDependency */,
 			);
-			name = CodeWalletWidget;
+			name = CodeWalletWidgetApp;
 			productName = CodeWalletWidget;
-			productReference = C956DFAD215A9253005F1822 /* CodeWalletWidget.app */;
+			productReference = C956DFAD215A9253005F1822 /* CodeWalletWidgetApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C956DFC0215A9255005F1822 /* CodeWalletWidgetTests */ = {
@@ -345,6 +427,24 @@
 			productReference = C956DFCC215A9255005F1822 /* CodeWalletWidgetUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C96B7C482166464500F9B67F /* CodeWalletWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C96B7C562166464500F9B67F /* Build configuration list for PBXNativeTarget "CodeWalletWidget" */;
+			buildPhases = (
+				64E7D5E12DD7370290A39B12 /* [CP] Check Pods Manifest.lock */,
+				C96B7C452166464500F9B67F /* Sources */,
+				C96B7C462166464500F9B67F /* Frameworks */,
+				C96B7C472166464500F9B67F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CodeWalletWidget;
+			productName = TodayExtension;
+			productReference = C96B7C492166464500F9B67F /* CodeWalletWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -357,6 +457,11 @@
 				TargetAttributes = {
 					C956DFAC215A9253005F1822 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					C956DFC0215A9255005F1822 = {
 						CreatedOnToolsVersion = 10.0;
@@ -365,6 +470,14 @@
 					C956DFCB215A9255005F1822 = {
 						CreatedOnToolsVersion = 10.0;
 						TestTargetID = C956DFAC215A9253005F1822;
+					};
+					C96B7C482166464500F9B67F = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -381,9 +494,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C956DFAC215A9253005F1822 /* CodeWalletWidget */,
+				C956DFAC215A9253005F1822 /* CodeWalletWidgetApp */,
 				C956DFC0215A9255005F1822 /* CodeWalletWidgetTests */,
 				C956DFCB215A9255005F1822 /* CodeWalletWidgetUITests */,
+				C96B7C482166464500F9B67F /* CodeWalletWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -416,6 +530,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C96B7C472166464500F9B67F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C96B7C512166464500F9B67F /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -443,7 +565,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CodeWalletWidget/Pods-CodeWalletWidget-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-CodeWalletWidgetApp/Pods-CodeWalletWidgetApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/RSBarcodes_Swift/RSBarcodes_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -456,7 +578,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodeWalletWidget/Pods-CodeWalletWidget-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodeWalletWidgetApp/Pods-CodeWalletWidgetApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64E7D5E12DD7370290A39B12 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CodeWalletWidget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6A21F77A56705282B51F0DA0 /* [CP] Check Pods Manifest.lock */ = {
@@ -470,7 +610,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CodeWalletWidget-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CodeWalletWidgetApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -538,18 +678,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C96B7C452166464500F9B67F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9D2F53B2166923D00D9016B /* Utils.swift in Sources */,
+				C96B7C642166676900F9B67F /* Code.swift in Sources */,
+				C96B7C632166676900F9B67F /* CodeManager.swift in Sources */,
+				C96B7C622166676900F9B67F /* CodeManagerArchive.swift in Sources */,
+				C96B7C4E2166464500F9B67F /* TodayViewController.swift in Sources */,
+				C96B7C61216665D000F9B67F /* CodeCollectionViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		C956DFC3215A9255005F1822 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C956DFAC215A9253005F1822 /* CodeWalletWidget */;
+			target = C956DFAC215A9253005F1822 /* CodeWalletWidgetApp */;
 			targetProxy = C956DFC2215A9255005F1822 /* PBXContainerItemProxy */;
 		};
 		C956DFCE215A9255005F1822 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C956DFAC215A9253005F1822 /* CodeWalletWidget */;
+			target = C956DFAC215A9253005F1822 /* CodeWalletWidgetApp */;
 			targetProxy = C956DFCD215A9255005F1822 /* PBXContainerItemProxy */;
+		};
+		C96B7C542166464500F9B67F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C96B7C482166464500F9B67F /* CodeWalletWidget */;
+			targetProxy = C96B7C532166464500F9B67F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -578,6 +736,14 @@
 				C96B7C4421660DF500F9B67F /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		C96B7C4F2166464500F9B67F /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C96B7C502166464500F9B67F /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -703,9 +869,11 @@
 		};
 		C956DFD6215A9255005F1822 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E929EB193969A628D54F9910 /* Pods-CodeWalletWidget.debug.xcconfig */;
+			baseConfigurationReference = 782D140A5F64AE510E8122BA /* Pods-CodeWalletWidgetApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CodeWalletWidget/CodeWalletWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9WWSXM777M;
 				INFOPLIST_FILE = CodeWalletWidget/Info.plist;
@@ -723,9 +891,11 @@
 		};
 		C956DFD7215A9255005F1822 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE4FA7FDBFF263EC2DF30B9D /* Pods-CodeWalletWidget.release.xcconfig */;
+			baseConfigurationReference = 6F4C3165CBBC20B50E1A550A /* Pods-CodeWalletWidgetApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CodeWalletWidget/CodeWalletWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9WWSXM777M;
 				INFOPLIST_FILE = CodeWalletWidget/Info.plist;
@@ -827,6 +997,50 @@
 			};
 			name = Release;
 		};
+		C96B7C572166464500F9B67F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E929EB193969A628D54F9910 /* Pods-CodeWalletWidget.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9WWSXM777M;
+				INFOPLIST_FILE = TodayExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget.TodayExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C96B7C582166464500F9B67F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE4FA7FDBFF263EC2DF30B9D /* Pods-CodeWalletWidget.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9WWSXM777M;
+				INFOPLIST_FILE = TodayExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget.TodayExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -839,7 +1053,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C956DFD5215A9255005F1822 /* Build configuration list for PBXNativeTarget "CodeWalletWidget" */ = {
+		C956DFD5215A9255005F1822 /* Build configuration list for PBXNativeTarget "CodeWalletWidgetApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C956DFD6215A9255005F1822 /* Debug */,
@@ -862,6 +1076,15 @@
 			buildConfigurations = (
 				C956DFDC215A9255005F1822 /* Debug */,
 				C956DFDD215A9255005F1822 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C96B7C562166464500F9B67F /* Build configuration list for PBXNativeTarget "CodeWalletWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C96B7C572166464500F9B67F /* Debug */,
+				C96B7C582166464500F9B67F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

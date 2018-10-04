@@ -14,7 +14,7 @@ class CodeManagerArchive {
 	
 	//MARK: TaskManager
 	static func codeManagerDir() -> URL {
-		guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+		guard let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.alexanderschulz.CodeWalletWidget") else {//urls(for: .documentDirectory, in: .userDomainMask).first else {
 			fatalError("Failed to retrieve task manager archive URL!")
 		}
 		return url.appendingPathComponent(CODEMANAGERDIR)

@@ -29,6 +29,7 @@ class CodeTableViewController: UIViewController {
 		//TESTING PURPOSES
 		CodeManager.shared.addCode(code: Code(name: "Test Company 1", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
 		CodeManager.shared.addCode(code: Code(name: "Test Company 2", value: "weofi39283hfoebwwf", type: .code128, logo: nil))
+		CodeManagerArchive.saveCodeManager()
 		
 		tableView.delegate = self
 		tableView.dataSource = self
@@ -96,8 +97,6 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 		selectedIndex = newSelection
 		tableView.reloadRows(at: reload, with: .fade)
 	}
-	
-
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if selectedIndex != nil && selectedIndex!.row == indexPath.row {
