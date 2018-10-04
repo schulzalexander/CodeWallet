@@ -248,7 +248,7 @@ class AddCodeViewController: UIViewController {
 		// Load the API key for search from the key json
 		guard let apiKeys = Utils.loadJson(resourceName: "Keys"),
 			let key = apiKeys["GoogleCustomSearch"] as? String,
-			let url = URL(string: "https://www.googleapis.com/customsearch/v1?key=\(key)&cx=016319113637680411654:t4an8ihlcbc&q=\(name)+icon&searchType=image&imgSize=small") else {
+			let url = URL(string: "https://www.googleapis.com/customsearch/v1?key=\(key)&cx=016319113637680411654:t4an8ihlcbc&q=\(getValidSearchString(string: name))+icon&searchType=image&imgSize=small") else {
 				return //TODO: provide user message
 		}
 		// Init logo images array, where async download tasks will append images
@@ -335,6 +335,11 @@ class AddCodeViewController: UIViewController {
 		sender.layer.shadowColor = UIColor.lightGray.cgColor
 	}
 	
+	private func getValidSearchString(string: String) -> String {
+		let pattern = "[^A-Za-z0-9]+"
+		return string.replacingOccurrences(of: pattern, with: "", options: [.regularExpression])
+	}
+	
 }
 
 extension AddCodeViewController: UITextFieldDelegate {
@@ -354,7 +359,7 @@ extension AddCodeViewController: UIImagePickerControllerDelegate, UINavigationCo
 	
 	@objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		guard imagePicked != nil,
-			let selectedImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage else {
+			let selectedImage = info[UIImagePickerController.InfoKey.editedImage.rawValue] as? UIImage else {
 			print("No valid Image selected")
 			return
 		}
