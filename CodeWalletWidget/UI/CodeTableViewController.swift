@@ -111,6 +111,13 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 		return UIView()
 	}
 	
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			CodeManager.shared.deleteCode(index: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .automatic)
+		}
+	}
+	
 }
 
 extension CodeTableViewController: ThemeDelegate {

@@ -48,6 +48,19 @@ class CodeManager: NSObject, NSCoding {
 		return nil
 	}
 	
+	func deleteCode(id: String) {
+		for i in 0..<codes.count {
+			if id == codes[i].id {
+				codes.remove(at: i)
+				return
+			}
+		}
+	}
+	
+	func deleteCode(index: Int) {
+		codes.remove(at: index)
+	}
+	
 	func deleteAllCodes() {
 		CodeManager.shared = CodeManager()
 		CodeManagerArchive.saveCodeManager()
