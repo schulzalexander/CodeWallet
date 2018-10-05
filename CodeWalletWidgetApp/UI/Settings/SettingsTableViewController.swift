@@ -113,7 +113,7 @@ class SettingsTableViewController: UITableViewController {
 	//MARK: Other section
 	
 	private func rateApp() {
-		guard let url = URL(string: "itms-apps://itunes.apple.com/us/app/apple-store/id1435006104?mt=8"),
+		guard let url = URL(string: "itms-apps://itunes.apple.com/us/app/apple-store/id1437286642?mt=8"),
 			UIApplication.shared.canOpenURL(url) else {
 				return
 		}

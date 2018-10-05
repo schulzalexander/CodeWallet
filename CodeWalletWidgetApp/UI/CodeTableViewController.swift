@@ -31,8 +31,8 @@ class CodeTableViewController: UIViewController {
 		isSideMenuHidden = false
 		
 		//TESTING PURPOSES
-		CodeManager.shared.addCode(code: Code(name: "Test Company 1", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
-		CodeManager.shared.addCode(code: Code(name: "Test Company 2", value: "weofi39283hfoebwwf", type: .code128, logo: nil))
+//		CodeManager.shared.addCode(code: Code(name: "Test Company 1", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
+//		CodeManager.shared.addCode(code: Code(name: "Test Company 2", value: "weofi39283hfoebwwf", type: .code128, logo: nil))
 //		CodeManagerArchive.saveCodeManager()
 		
 		tableView.delegate = self
