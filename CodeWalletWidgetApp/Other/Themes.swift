@@ -55,6 +55,63 @@ class Theme {
 		}
 	}
 	
+	static var buttonBackgroundColor: UIColor {
+		get {
+			switch Settings.shared.selectedTheme {
+			case .light:
+				return .white
+			case .dark:
+				return .black
+			}
+		}
+	}
+	
+	static var buttonTextColor: UIColor {
+		get {
+			switch Settings.shared.selectedTheme {
+			case .light:
+				return .black
+			case .dark:
+				return .white
+			}
+		}
+	}
+	
+	//MARK: Add Barcode Page
+	
+	static var barcodeSelectionButtonBackgroundColor: UIColor {
+		get {
+			switch Settings.shared.selectedTheme {
+			case .light:
+				return .lightGray
+			case .dark:
+				return UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0)
+			}
+		}
+	}
+	
+	static var textFieldBackgroundColor: UIColor {
+		get {
+			switch Settings.shared.selectedTheme {
+			case .light:
+				return .white
+			case .dark:
+				return UIColor.white.withAlphaComponent(0.5)
+			}
+		}
+	}
+	
+	static var helperTextColor: UIColor {
+		get {
+			switch Settings.shared.selectedTheme {
+			case .light:
+				return .lightGray
+			case .dark:
+				return .white
+			}
+		}
+	}
+	
 	//MARK: Settings
 	static var settingsTableViewBackgroundColor: UIColor? {
 		get {

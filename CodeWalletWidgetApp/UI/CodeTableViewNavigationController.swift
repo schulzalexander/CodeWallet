@@ -12,6 +12,7 @@ class CodeTableViewNavigationController: UINavigationController {
 
 	//MARK: Properties
 	var sideMenu: SideMenu!
+	var addButton: SideMenuButton!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +28,26 @@ class CodeTableViewNavigationController: UINavigationController {
 			height: 60)
 		
 		let addFrame = CGRect(x: frameTemp.minX, y: frameTemp.minY, width: frameTemp.width, height: frameTemp.height)
-		let addButton = SideMenuButton(frame: addFrame, title: NSAttributedString(string: "  +", attributes: [NSAttributedString.Key.font: UIFont(name: "Times", size: 45)!]), image: nil, color: UIColor.white) { (sender) in
+		addButton = SideMenuButton(frame: addFrame, title: getAddButtonTitle(), image: nil, color: Theme.buttonBackgroundColor) { (sender) in
 			guard let navigationController = self.storyboard?.instantiateViewController(withIdentifier: "AddCodeNavigationController") else {
 				return
 			}
 			self.present(navigationController, animated: true, completion: nil)
 		}
 		sideMenu.addButton(button: addButton, alwaysOn: true)
+	}
+	
+	private func getAddButtonTitle() -> NSAttributedString {
+		return NSAttributedString(string: "  +", attributes: [NSAttributedString.Key.font: UIFont(name: "Times", size: 45)!, NSAttributedString.Key.foregroundColor: Theme.buttonTextColor])
+	}
+	
+}
+
+extension CodeTableViewNavigationController: ThemeDelegate {
+	
+	func updateAppearance() {
+		addButton.backgroundColor = Theme.buttonBackgroundColor
+		addButton.setAttributedTitle(getAddButtonTitle(), for: .normal)
 	}
 	
 }

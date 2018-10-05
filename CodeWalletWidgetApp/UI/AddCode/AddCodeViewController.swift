@@ -43,8 +43,11 @@ class AddCodeViewController: UIViewController {
 		nameTextField.layer.borderColor = UIColor.clear.cgColor
 		
 		nameTextField.delegate = self
+		nameTextField.backgroundColor = Theme.textFieldBackgroundColor
+		logoOrLabel.textColor = Theme.helperTextColor
 		
 		setupLogoButtons()
+		layoutBarcodeButton()
 		
 		logoImageView.layer.cornerRadius = 5
 		
@@ -87,7 +90,30 @@ class AddCodeViewController: UIViewController {
 		barcodeButton.layer.shadowColor = UIColor.lightGray.cgColor
 		barcodeButton.layer.shadowRadius = 3.0
 		barcodeButton.layer.borderWidth = 2
+		barcodeButton.backgroundColor = Theme.barcodeSelectionButtonBackgroundColor
+		
+		codeSelectionLabel.backgroundColor = Theme.buttonBackgroundColor
+		codeSelectionLabel.textColor = Theme.buttonTextColor
 	}
+	
+	private func setupLogoButtons() {
+		let buttons: [UIButton] = [logoSuggestionsButton, logoLibraryButton]
+		for button in buttons {
+			button.layer.cornerRadius = 5
+			button.layer.shadowOpacity = 1.0
+			button.layer.shadowColor = UIColor.lightGray.cgColor
+			button.layer.shadowOffset = CGSize(width: 2, height: 2)
+			button.backgroundColor = Theme.buttonBackgroundColor
+			button.setTitleColor(Theme.buttonTextColor, for: .normal)
+			button.layer.masksToBounds = false
+			button.addTarget(self, action: #selector(logoButtonTouchDown(_:)), for: .touchDown)
+			button.addTarget(self, action: #selector(logoButtonDragExit(_:)), for: .touchDragExit)
+			button.addTarget(self, action: #selector(logoButtonTouchUpInside(_:)), for: .touchUpInside)
+		}
+	}
+	
+	
+	//MARK: Barcode
 	
 	// Called when user clicks on the button that holds the barcode (if selected)
 	@IBAction func selectBarcode(_ sender: UIButton) {
@@ -307,21 +333,6 @@ class AddCodeViewController: UIViewController {
 		logoLibraryButton.isHidden = hideSelectionButtons
 		logoOrLabel.isHidden = hideSelectionButtons
 		logoImageView.image = image
-	}
-	
-	private func setupLogoButtons() {
-		let buttons: [UIButton] = [logoSuggestionsButton, logoLibraryButton]
-		for button in buttons {
-			button.layer.cornerRadius = 5
-			button.layer.shadowOpacity = 1.0
-			button.layer.shadowColor = UIColor.lightGray.cgColor
-			button.layer.shadowOffset = CGSize(width: 2, height: 2)
-			button.backgroundColor = .white
-			button.layer.masksToBounds = false
-			button.addTarget(self, action: #selector(logoButtonTouchDown(_:)), for: .touchDown)
-			button.addTarget(self, action: #selector(logoButtonDragExit(_:)), for: .touchDragExit)
-			button.addTarget(self, action: #selector(logoButtonTouchUpInside(_:)), for: .touchUpInside)
-		}
 	}
 	
 	@objc private func logoButtonTouchDown(_ sender: UIButton) {

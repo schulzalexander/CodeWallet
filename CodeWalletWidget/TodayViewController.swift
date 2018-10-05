@@ -109,7 +109,7 @@ extension TodayViewController: UICollectionViewDelegate, UICollectionViewDataSou
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let code = CodeManager.shared.getCodes()[indexPath.row]
 		if let image = Utils.generateCode(value: code.value, codeType: code.type, targetSize: barcodeImageView.frame.size) {
-			barcodeImageView.image = image
+			barcodeImageView.image = image.imageWithInsets(insets: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
 			barcodeImageView.layer.opacity = 1.0
 			barcodeTitleLabel.text = code.name
 			

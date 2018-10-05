@@ -12,6 +12,7 @@ class CodeTableViewController: UIViewController {
 
 	//MARK: Properties
 	var selectedIndex: IndexPath? // holds the index of the currently opened row
+	var isSideMenuHidden: Bool!
 	
 	//MARK: Outlets
 	@IBOutlet weak var tableView: UITableView!
@@ -26,10 +27,13 @@ class CodeTableViewController: UIViewController {
 			self.navigationItem.largeTitleDisplayMode = .automatic
 		}
 		
+		// SideMenu is shown in the CodeTable VC
+		isSideMenuHidden = false
+		
 		//TESTING PURPOSES
 		CodeManager.shared.addCode(code: Code(name: "Test Company 1", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
 		CodeManager.shared.addCode(code: Code(name: "Test Company 2", value: "weofi39283hfoebwwf", type: .code128, logo: nil))
-		CodeManagerArchive.saveCodeManager()
+//		CodeManagerArchive.saveCodeManager()
 		
 		tableView.delegate = self
 		tableView.dataSource = self
@@ -40,6 +44,17 @@ class CodeTableViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		tableView.reloadData()
+		if isSideMenuHidden, let navController = self.navigationController as? CodeTableViewNavigationController {
+			navController.sideMenu.show(showStatic: true)
+			isSideMenuHidden = false
+		}
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		if !isSideMenuHidden, let navController = self.navigationController as? CodeTableViewNavigationController {
+			navController.sideMenu.hide(hideStatic: true)
+			isSideMenuHidden = true
+		}
 	}
 	
 	//MARK: TableViewLayout
