@@ -13,12 +13,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 	
 	//MARK: Properties
 	var barcodeInstrumentsHidden: Bool!
+	var currIndexPath: IndexPath!
 	
 	//MARK: Outlets
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var barcodeImageView: UIImageView!
 	@IBOutlet weak var barcodeBackButton: UIButton!
 	@IBOutlet weak var barcodeTitleLabel: UILabel!
+	@IBOutlet weak var collectionViewBackButton: UIButton!
+	@IBOutlet weak var collectionViewForwardButton: UIButton!
+	@IBOutlet weak var pageControlStackView: UIStackView!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +55,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 		let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didPressBarcodeImage(_:)))
 		barcodeImageView.isUserInteractionEnabled = true
 		barcodeImageView.addGestureRecognizer(tapRecognizer)
+		
+		// Set index of cell that is currently visible on leftmost position
+		currIndexPath = IndexPath(row: 0, section: 0)
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -81,8 +88,19 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 		}
 	}
 	
+	//MARK: Paging
+	@IBAction func pageBack(_ sender: UIButton) {
+		let newIndexPath = IndexPath(row: max(currIndexPath.row - 1, 0), section: 0)
+		collectionView.scrollToItem(at: newIndexPath, at: .left, animated: true)
+		currIndexPath = newIndexPath
+	}
 	
-    
+	@IBAction func pageForward(_ sender: UIButton) {
+		let newIndexPath = IndexPath(row: min(currIndexPath.row + 1, collectionView.numberOfItems(inSection: 0) - 1), section: 0)
+		collectionView.scrollToItem(at: newIndexPath, at: .left, animated: true)
+		currIndexPath = newIndexPath
+	}
+	
 }
 
 extension TodayViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -91,8 +109,10 @@ extension TodayViewController: UICollectionViewDelegate, UICollectionViewDataSou
 		
 		if count == 0 {
 			collectionView.setEmptyMessage(NSLocalizedString("CollectionViewEmptyMessage", comment: ""))
+			pageControlStackView.isHidden = true
 		} else {
 			collectionView.removeEmptyMessage()
+			pageControlStackView.isHidden = false
 		}
 		
 		return count
@@ -113,10 +133,10 @@ extension TodayViewController: UICollectionViewDelegate, UICollectionViewDataSou
 			barcodeImageView.layer.opacity = 1.0
 			barcodeTitleLabel.text = code.name
 			
-			// Adapt the background color of the tools to match the selected code's logo
-			let averageColor = code.logo?.averageColor ?? .white
-			barcodeBackButton.backgroundColor = averageColor
-			barcodeTitleLabel.backgroundColor = averageColor
+//			// Adapt the background color of the tools to match the selected code's logo
+//			let averageColor = code.logo?.averageColor ?? .white
+			barcodeBackButton.backgroundColor = .white
+			barcodeTitleLabel.backgroundColor = .white
 		}
 	}
 	
