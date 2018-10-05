@@ -40,7 +40,6 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wg7-GH-PSk">
                                                     <rect key="frame" x="15" y="11" width="48" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.30001619460000001" green="0.6880967617" blue="0.99971204999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xe6-s7-Eiz">
                                                     <rect key="frame" x="14" y="85" width="347" height="92"/>

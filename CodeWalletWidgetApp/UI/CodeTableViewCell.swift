@@ -26,9 +26,9 @@ class CodeTableViewCell: UITableViewCell {
 		super.awakeFromNib()
 		
 		logoImageView.layer.cornerRadius = 10
-		logoImageView.layer.shadowOffset = CGSize(width: 2, height: 2)
-		logoImageView.layer.shadowColor = UIColor.lightGray.cgColor
-		logoImageView.layer.shadowOpacity = 1.0
+//		logoImageView.layer.shadowOffset = CGSize(width: 2, height: 2)
+//		logoImageView.layer.shadowColor = UIColor.lightGray.cgColor
+//		logoImageView.layer.shadowOpacity = 1.0
 		logoImageView.clipsToBounds = true
 	}
 

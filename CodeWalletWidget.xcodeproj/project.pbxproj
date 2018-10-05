@@ -49,6 +49,7 @@
 		C9C03A9F2163597D000533CE /* ScanCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9E2163597D000533CE /* ScanCodeViewController.swift */; };
 		C9C03AA32163B440000533CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9C03AA22163B440000533CE /* GoogleService-Info.plist */; };
 		C9D2F53B2166923D00D9016B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9921634B8F000533CE /* Utils.swift */; };
+		C9F48E772167D7FD00695393 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9F48E762167D7FD00695393 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		C9D2F5312166687800D9016B /* Pods_CodeWalletWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CodeWalletWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D2F53921666B5D00D9016B /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D2F53C2166926600D9016B /* RSBarcodes_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RSBarcodes_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9F48E762167D7FD00695393 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CED17B09A0D31E96C674B8A1 /* Pods_CodeWalletWidgetApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeWalletWidgetApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E929EB193969A628D54F9910 /* Pods-CodeWalletWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeWalletWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeWalletWidget/Pods-CodeWalletWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		EFE89A4A56BC1E6A24470A9D /* Pods_CodeWalletWidgetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeWalletWidgetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -331,6 +333,7 @@
 				C96B7C522166464500F9B67F /* Info.plist */,
 				C96B7C60216665D000F9B67F /* CodeCollectionViewCell.swift */,
 				C910656821674DAE00711099 /* Localizable.strings */,
+				C9F48E762167D7FD00695393 /* Media.xcassets */,
 			);
 			path = CodeWalletWidget;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96B7C512166464500F9B67F /* MainInterface.storyboard in Resources */,
+				C9F48E772167D7FD00695393 /* Media.xcassets in Resources */,
 				C910656921674DAF00711099 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -32,6 +32,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 			CodeManager.shared = savedCodeManager
 		}
 		
+		// TESTING PURPOSES
+//		CodeManager.shared.addCode(code: Code(name: "PayBack", value: "weofi39283hfoebwwf", type: .qr, logo: UIImage(named: "ExampleLogo2")))
+//		CodeManager.shared.addCode(code: Code(name: "Starbucks", value: "weofi39283hfoebwwf", type: .code128, logo: UIImage(named: "ExampleLogo1")))
+//		CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "weofi39283hfoebwwf", type: .pdf417, logo: UIImage(named: "ExampleLogo3")))
+		
 		collectionView.delegate = self
 		collectionView.dataSource = self
 		
@@ -123,6 +128,8 @@ extension TodayViewController: UICollectionViewDelegate, UICollectionViewDataSou
 			fatalError("Failed to dequeue collectionView cell!")
 		}
 		cell.code = CodeManager.shared.getCodes()[indexPath.row]
+		// TESTING
+//		cell.imageView.image = [UIImage(named: "ExampleLogo2"), UIImage(named: "ExampleLogo1"), UIImage(named: "ExampleLogo3")][indexPath.row]
 		return cell
 	}
 	
