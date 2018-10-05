@@ -13,7 +13,7 @@
         <!--My Barcodes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CodeTableViewController" customModule="CodeWalletWidget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CodeTableViewController" customModule="CodeWalletWidgetApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CodeTableViewCell" rowHeight="200" id="XCD-Hk-FsM" customClass="CodeTableViewCell" customModule="CodeWalletWidget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CodeTableViewCell" rowHeight="200" id="XCD-Hk-FsM" customClass="CodeTableViewCell" customModule="CodeWalletWidgetApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XCD-Hk-FsM" id="ZG4-1d-tmY">
@@ -85,7 +85,7 @@
         <!--Privacy Policy View Controller-->
         <scene sceneID="cmy-FB-rQB">
             <objects>
-                <viewController storyboardIdentifier="PrivacyPolicyViewController" id="gwm-bt-f8U" customClass="PrivacyPolicyViewController" customModule="CodeWalletWidget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrivacyPolicyViewController" id="gwm-bt-f8U" customClass="PrivacyPolicyViewController" customModule="CodeWalletWidgetApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wGV-B4-cfq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,7 +118,7 @@
         <!--Settings-->
         <scene sceneID="5WT-fD-PqP">
             <objects>
-                <tableViewController title="Settings" id="me1-vE-VzZ" customClass="SettingsTableViewController" customModule="CodeWalletWidget" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Settings" id="me1-vE-VzZ" customClass="SettingsTableViewController" customModule="CodeWalletWidgetApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="mHh-xB-y4i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,7 +341,7 @@
         <!--New Code-->
         <scene sceneID="HWd-65-5i3">
             <objects>
-                <viewController id="i4m-Ve-l7b" customClass="AddCodeViewController" customModule="CodeWalletWidget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="i4m-Ve-l7b" customClass="AddCodeViewController" customModule="CodeWalletWidgetApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4rM-da-sAb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -411,7 +411,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDR-g9-xin">
-                                <rect key="frame" x="127" y="490" width="120" height="20"/>
+                                <rect key="frame" x="127" y="436" width="120" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -472,7 +472,7 @@
         <!--Scan Code View Controller-->
         <scene sceneID="Gk8-GI-tV4">
             <objects>
-                <viewController storyboardIdentifier="ScanCodeViewController" id="1bg-7v-WDI" customClass="ScanCodeViewController" customModule="CodeWalletWidget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScanCodeViewController" id="1bg-7v-WDI" customClass="ScanCodeViewController" customModule="CodeWalletWidgetApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mQc-EP-STe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -487,7 +487,7 @@
         <!--Code Table View Navigation Controller-->
         <scene sceneID="iqD-4G-GYt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Glo-S7-7Bs" customClass="CodeTableViewNavigationController" customModule="CodeWalletWidget" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Glo-S7-7Bs" customClass="CodeTableViewNavigationController" customModule="CodeWalletWidgetApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OvV-36-pWY">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

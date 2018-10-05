@@ -89,7 +89,7 @@ class ScanCodeViewController: UIViewController {
 				
 				// Set delegate and use the default dispatch queue to execute the call back
 				captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-				captureMetadataOutput.metadataObjectTypes = [.qr, .code128, .ean8, .aztec, .code39Mod43, .code93, .ean13, .interleaved2of5, .itf14, .pdf417, .upce]
+				captureMetadataOutput.metadataObjectTypes = [.qr, .code128, .ean8, .aztec, .code39, .code39Mod43, .code93, .ean13, .interleaved2of5, .itf14, .pdf417, .upce]
 			} catch {
 				// If any error occurs, simply print it out and don't continue any more.
 				print(error)
@@ -104,7 +104,7 @@ class ScanCodeViewController: UIViewController {
 	private func setupAddButton() {
 		//setup addButton
 		addButton = UIButton(type: .custom)
-		let title = NSAttributedString(string: ">", attributes: [NSAttributedString.Key.font: UIFont(name: "AmericanTypewriter", size: 45)!])
+		let title = NSAttributedString(string: "⇨", attributes: [NSAttributedString.Key.font: UIFont(name: "AmericanTypewriter", size: 45)!])
 		addButton.setAttributedTitle(title, for: .normal)
 		addButton.setTitleColor(UIColor.black, for: .normal)
 		addButton.setTitleColor(UIColor.lightGray, for: .highlighted)
