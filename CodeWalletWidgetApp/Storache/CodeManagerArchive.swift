@@ -21,6 +21,7 @@ class CodeManagerArchive {
 	}
 	
 	static func saveCodeManager() {
+		NSKeyedArchiver.setClassName("CodeManager", for: CodeManager.self)
 		let success = NSKeyedArchiver.archiveRootObject(CodeManager.shared, toFile: codeManagerDir().path)
 		if !success {
 			fatalError("Error while saving task manager!")
@@ -28,6 +29,7 @@ class CodeManagerArchive {
 	}
 	
 	static func loadCodeManager() -> CodeManager? {
+		NSKeyedUnarchiver.setClass(CodeManager.self, forClassName: "CodeManager")
 		return NSKeyedUnarchiver.unarchiveObject(withFile: codeManagerDir().path) as? CodeManager
 	}
 }

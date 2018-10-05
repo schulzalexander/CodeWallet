@@ -11,6 +11,9 @@
 "Oops" = "Ups";
 "Cancel" = "Abbrechen";
 
+// Barcode Table
+"TableViewEmptyMessage" = "Du hast noch keine Barcodes hinzugefügt.";
+
 // Barcode selection
 "ImagePickerAlertControllerTitle" = "Wähle eine Quelle";
 "PhotoLibrary" = "Foto Bibliothek";

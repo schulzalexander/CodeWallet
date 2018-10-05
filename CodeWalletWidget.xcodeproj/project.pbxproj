@@ -12,6 +12,9 @@
 		1D87952E8DD094D22D3CA099 /* Pods_CodeWalletWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9276A70E3DD90805320F0CC4 /* Pods_CodeWalletWidget.framework */; };
 		451B4012681777AD8F7D7D8E /* Pods_CodeWalletWidgetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD0F6D0BFA6C15B4B7815F86 /* Pods_CodeWalletWidgetUITests.framework */; };
 		591A73A72E1548FCAAAD7F73 /* Pods_CodeWalletWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D2F5312166687800D9016B /* Pods_CodeWalletWidget.framework */; };
+		C910656921674DAF00711099 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C910656821674DAE00711099 /* Localizable.strings */; };
+		C92BCF8121675134004BDAEC /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BCF8021675134004BDAEC /* CoreExtensions.swift */; };
+		C92BCF8221675134004BDAEC /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BCF8021675134004BDAEC /* CoreExtensions.swift */; };
 		C956DFB1215A9253005F1822 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFB0215A9253005F1822 /* AppDelegate.swift */; };
 		C956DFB3215A9253005F1822 /* CodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFB2215A9253005F1822 /* CodeTableViewController.swift */; };
 		C956DFB6215A9253005F1822 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C956DFB4215A9253005F1822 /* Main.storyboard */; };
@@ -95,6 +98,8 @@
 		AE4FA7FDBFF263EC2DF30B9D /* Pods-CodeWalletWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeWalletWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeWalletWidget/Pods-CodeWalletWidget.release.xcconfig"; sourceTree = "<group>"; };
 		B798623A1DA2C7CF9AF94D0A /* Pods-CodeWalletWidgetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeWalletWidgetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeWalletWidgetTests/Pods-CodeWalletWidgetTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7C9BC24AEDE8C023FCAAA78 /* Pods-CodeWalletWidgetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeWalletWidgetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeWalletWidgetUITests/Pods-CodeWalletWidgetUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C910656821674DAE00711099 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		C92BCF8021675134004BDAEC /* CoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreExtensions.swift; sourceTree = "<group>"; };
 		C956DFAD215A9253005F1822 /* CodeWalletWidgetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeWalletWidgetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C956DFB0215A9253005F1822 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C956DFB2215A9253005F1822 /* CodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewController.swift; sourceTree = "<group>"; };
@@ -128,8 +133,8 @@
 		C96B7C4D2166464500F9B67F /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		C96B7C502166464500F9B67F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C96B7C522166464500F9B67F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C96B7C5A216661BD00F9B67F /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayExtension.entitlements; sourceTree = "<group>"; };
-		C96B7C5B216662E600F9B67F /* CodeWalletWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeWalletWidget.entitlements; sourceTree = "<group>"; };
+		C96B7C5A216661BD00F9B67F /* CodeWalletWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeWalletWidget.entitlements; sourceTree = "<group>"; };
+		C96B7C5B216662E600F9B67F /* CodeWalletWidgetApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeWalletWidgetApp.entitlements; sourceTree = "<group>"; };
 		C96B7C60216665D000F9B67F /* CodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9C03A93216348DE000533CE /* CodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManager.swift; sourceTree = "<group>"; };
 		C9C03A96216349E8000533CE /* CodeManagerArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManagerArchive.swift; sourceTree = "<group>"; };
@@ -218,10 +223,10 @@
 		C956DFA4215A9253005F1822 = {
 			isa = PBXGroup;
 			children = (
-				C956DFAF215A9253005F1822 /* CodeWalletWidget */,
+				C956DFAF215A9253005F1822 /* CodeWalletWidgetApp */,
 				C956DFC4215A9255005F1822 /* CodeWalletWidgetTests */,
 				C956DFCF215A9255005F1822 /* CodeWalletWidgetUITests */,
-				C96B7C4C2166464500F9B67F /* TodayExtension */,
+				C96B7C4C2166464500F9B67F /* CodeWalletWidget */,
 				C956DFAE215A9253005F1822 /* Products */,
 				BB55BBAB76BC985594D0F58A /* Pods */,
 				5DBE81031A8BC8F8DF8D14B9 /* Frameworks */,
@@ -239,10 +244,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C956DFAF215A9253005F1822 /* CodeWalletWidget */ = {
+		C956DFAF215A9253005F1822 /* CodeWalletWidgetApp */ = {
 			isa = PBXGroup;
 			children = (
-				C96B7C5B216662E600F9B67F /* CodeWalletWidget.entitlements */,
+				C96B7C5B216662E600F9B67F /* CodeWalletWidgetApp.entitlements */,
 				C9C03A9821634B83000533CE /* Other */,
 				C9C03A95216349D7000533CE /* Storache */,
 				C956DFE1215A965D005F1822 /* Model */,
@@ -256,7 +261,7 @@
 				C96B7C392165320000F9B67F /* Keys.json */,
 				C96B7C4321660DC300F9B67F /* Localizable.strings */,
 			);
-			path = CodeWalletWidget;
+			path = CodeWalletWidgetApp;
 			sourceTree = "<group>";
 		};
 		C956DFC4215A9255005F1822 /* CodeWalletWidgetTests */ = {
@@ -317,16 +322,17 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
-		C96B7C4C2166464500F9B67F /* TodayExtension */ = {
+		C96B7C4C2166464500F9B67F /* CodeWalletWidget */ = {
 			isa = PBXGroup;
 			children = (
-				C96B7C5A216661BD00F9B67F /* TodayExtension.entitlements */,
+				C96B7C5A216661BD00F9B67F /* CodeWalletWidget.entitlements */,
 				C96B7C4D2166464500F9B67F /* TodayViewController.swift */,
 				C96B7C4F2166464500F9B67F /* MainInterface.storyboard */,
 				C96B7C522166464500F9B67F /* Info.plist */,
 				C96B7C60216665D000F9B67F /* CodeCollectionViewCell.swift */,
+				C910656821674DAE00711099 /* Localizable.strings */,
 			);
-			path = TodayExtension;
+			path = CodeWalletWidget;
 			sourceTree = "<group>";
 		};
 		C9C03A92216348BA000533CE /* Singletons */ = {
@@ -352,6 +358,7 @@
 				C9C03A9921634B8F000533CE /* Utils.swift */,
 				C96B7C31216503BC00F9B67F /* Settings.swift */,
 				C96B7C33216503F300F9B67F /* Themes.swift */,
+				C92BCF8021675134004BDAEC /* CoreExtensions.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -535,6 +542,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96B7C512166464500F9B67F /* MainInterface.storyboard in Resources */,
+				C910656921674DAF00711099 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +654,7 @@
 				C956DFE5215A97C0005F1822 /* CodeTableViewNavigationController.swift in Sources */,
 				C9C03A9F2163597D000533CE /* ScanCodeViewController.swift in Sources */,
 				C96B7C302165003100F9B67F /* SettingsTableViewController.swift in Sources */,
+				C92BCF8121675134004BDAEC /* CoreExtensions.swift in Sources */,
 				C9C03A9A21634B8F000533CE /* Utils.swift in Sources */,
 				C96B7C3E2166094200F9B67F /* SideMenuButton.swift in Sources */,
 				C956DFE7215AA0F3005F1822 /* AddCodeViewController.swift in Sources */,
@@ -688,6 +697,7 @@
 				C96B7C622166676900F9B67F /* CodeManagerArchive.swift in Sources */,
 				C96B7C4E2166464500F9B67F /* TodayViewController.swift in Sources */,
 				C96B7C61216665D000F9B67F /* CodeCollectionViewCell.swift in Sources */,
+				C92BCF8221675134004BDAEC /* CoreExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,10 +883,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CodeWalletWidget/CodeWalletWidget.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CodeWalletWidgetApp/CodeWalletWidgetApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9WWSXM777M;
-				INFOPLIST_FILE = CodeWalletWidget/Info.plist;
+				INFOPLIST_FILE = CodeWalletWidgetApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -895,10 +905,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CodeWalletWidget/CodeWalletWidget.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CodeWalletWidgetApp/CodeWalletWidgetApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9WWSXM777M;
-				INFOPLIST_FILE = CodeWalletWidget/Info.plist;
+				INFOPLIST_FILE = CodeWalletWidgetApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1001,10 +1011,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E929EB193969A628D54F9910 /* Pods-CodeWalletWidget.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CodeWalletWidget/CodeWalletWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9WWSXM777M;
-				INFOPLIST_FILE = TodayExtension/Info.plist;
+				INFOPLIST_FILE = CodeWalletWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1023,10 +1033,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AE4FA7FDBFF263EC2DF30B9D /* Pods-CodeWalletWidget.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = TodayExtension/TodayExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CodeWalletWidget/CodeWalletWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9WWSXM777M;
-				INFOPLIST_FILE = TodayExtension/Info.plist;
+				INFOPLIST_FILE = CodeWalletWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

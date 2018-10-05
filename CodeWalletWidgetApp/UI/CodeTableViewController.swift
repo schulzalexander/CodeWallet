@@ -70,7 +70,15 @@ class CodeTableViewController: UIViewController {
 extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return CodeManager.shared.count()
+		let count = CodeManager.shared.count()
+		
+		if count == 0 {
+			tableView.setEmptyMessage(NSLocalizedString("TableViewEmptyMessage", comment: ""))
+		} else {
+			tableView.removeEmptyMessage()
+		}
+		
+		return count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

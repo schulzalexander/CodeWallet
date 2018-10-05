@@ -26,7 +26,7 @@ class CodeCollectionViewCell: UICollectionViewCell {
 		super.awakeFromNib()
 		
 		imageView.backgroundColor = .white
-		imageView.layer.cornerRadius = 10
+		imageView.layer.cornerRadius = 15
 		imageView.layer.shadowColor = UIColor.lightGray.cgColor
 		imageView.layer.shadowOffset = CGSize(width: 0, height: 3)
 		imageView.layer.shadowOpacity = 1.0
