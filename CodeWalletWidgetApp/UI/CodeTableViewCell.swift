@@ -37,7 +37,7 @@ class CodeTableViewCell: UITableViewCell {
 		codeImageView.image = Utils.generateCode(
 			value: code.value,
 			codeType: code.type,
-			targetSize: codeImageView.frame.size)
+			targetSize: codeImageView.frame.size) ?? UIImage(named: "LaunchScreenAppIcon")
 		logoImageView.image = code.logo
 	}
 	

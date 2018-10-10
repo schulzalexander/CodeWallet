@@ -275,7 +275,7 @@ class AddCodeViewController: UIViewController {
 		// Load the API key for search from the key json
 		guard let apiKeys = Utils.loadJson(resourceName: "Keys"),
 			let key = apiKeys["GoogleCustomSearch"] as? String,
-			let url = URL(string: "https://www.googleapis.com/customsearch/v1?key=\(key)&cx=016319113637680411654:t4an8ihlcbc&q=\(getValidSearchString(string: name))+icon&searchType=image&imgSize=small") else {
+			let url = URL(string: "https://www.googleapis.com/customsearch/v1?key=\(key)&cx=016319113637680411654:t4an8ihlcbc&q=\(getValidSearchString(string: name))+icon&searchType=image&imgSize=small&rights=cc_publicdomain%2Ccc_sharealike%2Ccc_nonderived") else {
 				return //TODO: provide user message
 		}
 		// Init logo images array, where async download tasks will append images
@@ -284,7 +284,7 @@ class AddCodeViewController: UIViewController {
 			guard let items = response["items"] as? [[String: Any]] else {
 				return //TODO: error message
 			}
-			
+
 			self.logoSearchResult = items
 			let queue = DispatchGroup()
 			for item in items {
