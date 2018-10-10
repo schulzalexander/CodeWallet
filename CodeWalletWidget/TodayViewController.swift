@@ -88,8 +88,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 		barcodeInstrumentsHidden = !barcodeInstrumentsHidden
 		let target: Float = barcodeInstrumentsHidden ? 0.0 : 0.9
 		UIView.animate(withDuration: 0.25) {
-			self.barcodeBackButton.layer.opacity = target
-			self.barcodeTitleLabel.layer.opacity = target
+//			self.barcodeBackButton.layer.opacity = target
+//			self.barcodeTitleLabel.layer.opacity = target
+			self.barcodeImageView.layer.opacity = 0
 		}
 	}
 	
@@ -137,7 +138,9 @@ extension TodayViewController: UICollectionViewDelegate, UICollectionViewDataSou
 		let code = CodeManager.shared.getCodes()[indexPath.row]
 		if let image = Utils.generateCode(value: code.value, codeType: code.type, targetSize: barcodeImageView.frame.size) {
 			barcodeImageView.image = image.imageWithInsets(insets: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)) ?? UIImage(named: "LaunchScreenAppIcon")
-			barcodeImageView.layer.opacity = 1.0
+			UIView.animate(withDuration: 0.25) {
+				self.barcodeImageView.layer.opacity = 1.0
+			}
 			barcodeTitleLabel.text = code.name
 			
 //			// Adapt the background color of the tools to match the selected code's logo
