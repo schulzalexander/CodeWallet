@@ -36,7 +36,7 @@
 "Weu-08-EwK.normalTitle" = "Foto auswählen";
 
 /* Class = "UILabel"; text = "Logo"; ObjectID = "cfD-BA-sUX"; */
-"cfD-BA-sUX.text" = "Logo";
+"cfD-BA-sUX.text" = "Logo (optional)";
 
 /* Class = "UILabel"; text = "✔️"; ObjectID = "cle-Py-LkY"; */
 "cle-Py-LkY.text" = "✔️";

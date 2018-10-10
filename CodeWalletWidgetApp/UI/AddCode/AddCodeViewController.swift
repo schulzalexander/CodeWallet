@@ -21,8 +21,8 @@ class AddCodeViewController: UIViewController {
 	var selectedLogoSuggestion: IndexPath?
 	
 	//MARK: Outlets
+	@IBOutlet weak var logoImageResultButton: UIButton!
 	@IBOutlet weak var logoCollectionView: UICollectionView!
-	@IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var nameTextField: UITextField!
 	@IBOutlet weak var barcodeButton: UIButton!
 	@IBOutlet weak var logoSuggestionsButton: UIButton!
@@ -49,7 +49,8 @@ class AddCodeViewController: UIViewController {
 		setupLogoButtons()
 		layoutBarcodeButton()
 		
-		logoImageView.layer.cornerRadius = 5
+		// Logo ImageView that shows an image when selected from local library
+		layoutLogoImageResultButton()
 		
 		logoCollectionView.isHidden = true
 		logoCollectionView.delegate = self
@@ -94,6 +95,16 @@ class AddCodeViewController: UIViewController {
 		
 		codeSelectionLabel.backgroundColor = Theme.buttonBackgroundColor
 		codeSelectionLabel.textColor = Theme.buttonTextColor
+	}
+	
+	private func layoutLogoImageResultButton() {
+		logoImageResultButton.layer.cornerRadius = 10
+		logoImageResultButton.layer.shadowColor = UIColor.gray.cgColor
+		logoImageResultButton.layer.shadowOpacity = 1.0
+		logoImageResultButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+//		logoImageResultButton.clipsToBounds = true
+//		logoImageResultButton.layer.masksToBounds = false
+		logoImageResultButton.isHidden = true
 	}
 	
 	private func setupLogoButtons() {
@@ -177,33 +188,33 @@ class AddCodeViewController: UIViewController {
 		} else {
 			nameTextField.layer.borderColor = UIColor.clear.cgColor
 		}
-		if barcodeLogo == nil {
-			if logoAreaHighlightView == nil {
-				logoAreaHighlightView = UIView()
-				view.insertSubview(logoAreaHighlightView!, aboveSubview: gradientBackgroundView!)
-			}
-			// If one of the buttons has been pressed (-> buttons will be hidden), take collectionview as frame, else make frame around buttons
-			if logoLibraryButton.layer.opacity == 0 {
-				let padding: CGFloat = 15
-				logoAreaHighlightView!.frame = CGRect(
-					x: logoCollectionView.frame.minX - padding,
-					y: logoCollectionView.frame.minY - padding,
-					width: logoCollectionView.frame.width + 2 * padding,
-					height: logoCollectionView.frame.height + 2 * padding)
-			} else {
-				let padding: CGFloat = 30
-				logoAreaHighlightView!.frame = CGRect(
-					x: logoLibraryButton.frame.minX - padding,
-					y: logoLibraryButton.frame.minY - padding,
-					width: logoLibraryButton.frame.width + 2 * padding,
-					height: logoSuggestionsButton.frame.maxY - logoLibraryButton.frame.minY + 2 * padding)
-			}
-			logoAreaHighlightView!.layer.borderWidth = 2.0
-			logoAreaHighlightView!.layer.borderColor = UIColor.red.cgColor
-			failed = true
-		} else {
-			logoAreaHighlightView?.layer.borderColor = UIColor.clear.cgColor
-		}
+//		if barcodeLogo == nil {
+//			if logoAreaHighlightView == nil {
+//				logoAreaHighlightView = UIView()
+//				view.insertSubview(logoAreaHighlightView!, aboveSubview: gradientBackgroundView!)
+//			}
+//			// If one of the buttons has been pressed (-> buttons will be hidden), take collectionview as frame, else make frame around buttons
+//			if logoLibraryButton.layer.opacity == 0 {
+//				let padding: CGFloat = 15
+//				logoAreaHighlightView!.frame = CGRect(
+//					x: logoCollectionView.frame.minX - padding,
+//					y: logoCollectionView.frame.minY - padding,
+//					width: logoCollectionView.frame.width + 2 * padding,
+//					height: logoCollectionView.frame.height + 2 * padding)
+//			} else {
+//				let padding: CGFloat = 30
+//				logoAreaHighlightView!.frame = CGRect(
+//					x: logoLibraryButton.frame.minX - padding,
+//					y: logoLibraryButton.frame.minY - padding,
+//					width: logoLibraryButton.frame.width + 2 * padding,
+//					height: logoSuggestionsButton.frame.maxY - logoLibraryButton.frame.minY + 2 * padding)
+//			}
+//			logoAreaHighlightView!.layer.borderWidth = 2.0
+//			logoAreaHighlightView!.layer.borderColor = UIColor.red.cgColor
+//			failed = true
+//		} else {
+//			logoAreaHighlightView?.layer.borderColor = UIColor.clear.cgColor
+//		}
 		if failed {
 			return
 		}
@@ -227,9 +238,7 @@ class AddCodeViewController: UIViewController {
 		if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
 			imagePickerController.sourceType = .photoLibrary
 			imagePickerController.allowsEditing = true
-			DispatchQueue.main.async {
-				self.present(imagePickerController, animated: true, completion: nil)
-			}
+			self.present(imagePickerController, animated: true, completion: nil)
 		} else {
 			let failController = UIAlertController(title: NSLocalizedString("Oops", comment: ""), message: NSLocalizedString("LibraryFailAlertControllerText", comment: ""), preferredStyle: .alert)
 			failController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
@@ -329,10 +338,11 @@ class AddCodeViewController: UIViewController {
 	
 	private func setLogo(image: UIImage?) {
 		let hideSelectionButtons = image != nil
-		logoSuggestionsButton.isHidden = hideSelectionButtons
+//		logoSuggestionsButton.isHidden = hideSelectionButtons
 		logoLibraryButton.isHidden = hideSelectionButtons
-		logoOrLabel.isHidden = hideSelectionButtons
-		logoImageView.image = image
+//		logoOrLabel.isHidden = hideSelectionButtons
+		logoImageResultButton.setImage(image, for: .normal)
+		logoImageResultButton.isHidden = !hideSelectionButtons
 	}
 	
 	@objc private func logoButtonTouchDown(_ sender: UIButton) {

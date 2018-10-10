@@ -33,9 +33,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 		}
 		
 		// TESTING PURPOSES
-//		CodeManager.shared.addCode(code: Code(name: "PayBack", value: "weofi39283hfoebwwf", type: .qr, logo: UIImage(named: "ExampleLogo2")))
-//		CodeManager.shared.addCode(code: Code(name: "Starbucks", value: "weofi39283hfoebwwf", type: .code128, logo: UIImage(named: "ExampleLogo1")))
-//		CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "weofi39283hfoebwwf", type: .pdf417, logo: UIImage(named: "ExampleLogo3")))
+		CodeManager.shared.addCode(code: Code(name: "PayBack", value: "weofi39283hfoebwwf", type: .qr, logo: UIImage(named: "ExampleLogo2")))
+		CodeManager.shared.addCode(code: Code(name: "Starbucks", value: "weofi39283hfoebwwf", type: .code128, logo: UIImage(named: "ExampleLogo1")))
+		CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "weofi39283hfoebwwf", type: .pdf417, logo: UIImage(named: "ExampleLogo3")))
 		
 		collectionView.delegate = self
 		collectionView.dataSource = self
