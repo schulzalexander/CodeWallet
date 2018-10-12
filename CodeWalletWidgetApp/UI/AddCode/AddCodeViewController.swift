@@ -341,7 +341,7 @@ class AddCodeViewController: UIViewController {
 //		logoSuggestionsButton.isHidden = hideSelectionButtons
 		logoLibraryButton.isHidden = hideSelectionButtons
 //		logoOrLabel.isHidden = hideSelectionButtons
-		logoImageResultButton.setImage(image, for: .normal)
+		logoImageResultButton.setBackgroundImage(image, for: .normal)
 		logoImageResultButton.isHidden = !hideSelectionButtons
 	}
 	

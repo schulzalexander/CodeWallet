@@ -104,7 +104,7 @@ class ScanCodeViewController: UIViewController {
 	private func setupAddButton() {
 		//setup addButton
 		addButton = UIButton(type: .custom)
-		let title = NSAttributedString(string: "⇨", attributes: [NSAttributedString.Key.font: UIFont(name: "AmericanTypewriter", size: 45)!])
+		let title = NSAttributedString(string: ">", attributes: [NSAttributedString.Key.font: UIFont(name: "AmericanTypewriter", size: 45)!])
 		addButton.setAttributedTitle(title, for: .normal)
 		addButton.setTitleColor(UIColor.black, for: .normal)
 		addButton.setTitleColor(UIColor.lightGray, for: .highlighted)

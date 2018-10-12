@@ -31,9 +31,9 @@ class CodeTableViewController: UIViewController {
 		isSideMenuHidden = false
 		
 		//TESTING PURPOSES
-		CodeManager.shared.addCode(code: Code(name: "PayBack", value: "weofi39283hfoebwwf", type: .qr, logo: UIImage(named: "ExampleLogo2")))
-		CodeManager.shared.addCode(code: Code(name: "Starbucks", value: "weofi39283hfoebwwf", type: .code128, logo: UIImage(named: "ExampleLogo1")))
-		CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "weofi39283hfoebwwf", type: .pdf417, logo: UIImage(named: "ExampleLogo3")))
+//		CodeManager.shared.addCode(code: Code(name: "Coupon", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
+//		CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "weofi39283hfoebwwf", type: .code128, logo: nil))
+//		CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "weofi39283hfoebwwf", type: .pdf417, logo: nil))
 //		CodeManagerArchive.saveCodeManager()
 		
 		tableView.delegate = self

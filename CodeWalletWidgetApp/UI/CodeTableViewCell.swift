@@ -38,7 +38,13 @@ class CodeTableViewCell: UITableViewCell {
 			value: code.value,
 			codeType: code.type,
 			targetSize: codeImageView.frame.size) ?? UIImage(named: "LaunchScreenAppIcon")
-		logoImageView.image = code.logo
+		if code.logo != nil {
+			logoImageView.image = code.logo!
+		} else {
+			if let image = Utils.generateCode(value: code.value, codeType: code.type, targetSize: logoImageView.frame.size) {
+				logoImageView.image = image.imageWithInsets(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)) ?? UIImage(named: "LaunchScreenAppIcon")
+			}
+		}
 	}
 	
 }

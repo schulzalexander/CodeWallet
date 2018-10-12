@@ -13,7 +13,13 @@ class CodeCollectionViewCell: UICollectionViewCell {
 	//MARK: Properties
 	var code: Code! {
 		didSet {
-			imageView.image = code.logo
+			if code.logo != nil {
+				imageView.image = code.logo!
+			} else {
+				if let image = Utils.generateCode(value: code.value, codeType: code.type, targetSize: imageView.frame.size) {
+					imageView.image = image.imageWithInsets(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)) ?? UIImage(named: "LaunchScreenAppIcon")
+				}
+			}
 			nameLabel.text = code.name
 		}
 	}
