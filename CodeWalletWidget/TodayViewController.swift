@@ -40,6 +40,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 		collectionView.delegate = self
 		collectionView.dataSource = self
 		
+		if currIndexPath.row == 0 {
+			collectionViewBackButton.isEnabled = false
+			collectionViewBackButton.setTitleColor(.lightGray, for: .normal)
+		}
+		
 		// Hide instruments at first, so that user only sees barcode
 		barcodeBackButton.layer.opacity = 0
 		barcodeTitleLabel.layer.opacity = 0
@@ -99,6 +104,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 		let newIndexPath = IndexPath(row: max(currIndexPath.row - 1, 0), section: 0)
 		collectionView.scrollToItem(at: newIndexPath, at: .left, animated: true)
 		currIndexPath = newIndexPath
+		if currIndexPath.row == 0 {
+			collectionViewBackButton.isEnabled = false
+			collectionViewBackButton.setTitleColor(.lightGray, for: .normal)
+		} else {
+			collectionViewBackButton.isEnabled = true
+			collectionViewBackButton.setTitleColor(.black, for: .normal)
+		}
 	}
 	
 	@IBAction func pageForward(_ sender: UIButton) {
