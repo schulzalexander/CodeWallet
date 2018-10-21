@@ -396,24 +396,60 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8du-T2-05N">
+                                <rect key="frame" x="0.0" y="500.5" width="375" height="166.5"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Notification at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez0-or-IJp">
+                                <rect key="frame" x="28" y="471.5" width="154" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y9k-04-p1R">
+                                <rect key="frame" x="56" y="424" width="262" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.87629316495433773" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MV6-Va-gXk">
+                                <rect key="frame" x="0.0" y="500.5" width="375" height="166.5"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="Set Location">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="expandMap:" destination="i4m-Ve-l7b" eventType="touchUpInside" id="RXQ-iu-zTV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cfD-BA-sUX" firstAttribute="top" secondItem="Yv5-a0-zK5" secondAttribute="bottom" constant="8" id="2Jv-yG-gmX"/>
+                            <constraint firstItem="ez0-or-IJp" firstAttribute="leading" secondItem="zuK-bV-dFN" secondAttribute="leading" constant="28" id="2g9-Wz-vgG"/>
+                            <constraint firstItem="8du-T2-05N" firstAttribute="trailing" secondItem="zuK-bV-dFN" secondAttribute="trailing" id="BZf-Lq-p0I"/>
                             <constraint firstItem="e94-sa-DX3" firstAttribute="top" secondItem="Yv5-a0-zK5" secondAttribute="top" id="Gp6-Kj-jHl"/>
+                            <constraint firstItem="8du-T2-05N" firstAttribute="leading" secondItem="zuK-bV-dFN" secondAttribute="leading" id="Hj6-uO-H4E"/>
+                            <constraint firstItem="MV6-Va-gXk" firstAttribute="trailing" secondItem="8du-T2-05N" secondAttribute="trailing" id="IXC-Ct-45R"/>
                             <constraint firstItem="Yv5-a0-zK5" firstAttribute="top" secondItem="rxV-pF-qqE" secondAttribute="bottom" constant="27" id="J4U-hz-lRE"/>
+                            <constraint firstItem="MV6-Va-gXk" firstAttribute="top" secondItem="8du-T2-05N" secondAttribute="top" id="KCb-j3-6zI"/>
                             <constraint firstItem="Yv5-a0-zK5" firstAttribute="leading" secondItem="zuK-bV-dFN" secondAttribute="leading" constant="41" id="L6D-xe-TTY"/>
                             <constraint firstItem="rxV-pF-qqE" firstAttribute="leading" secondItem="zuK-bV-dFN" secondAttribute="leading" id="LHf-Og-5I3"/>
                             <constraint firstItem="zuK-bV-dFN" firstAttribute="trailing" secondItem="7e6-Fr-XCU" secondAttribute="trailing" constant="29" id="RUR-2W-irk"/>
+                            <constraint firstItem="8du-T2-05N" firstAttribute="height" secondItem="4rM-da-sAb" secondAttribute="height" multiplier="0.25" priority="999" id="U7K-d9-UmJ"/>
                             <constraint firstItem="h85-uX-1Kh" firstAttribute="centerY" secondItem="rxV-pF-qqE" secondAttribute="centerY" id="Uk0-ae-YhH"/>
                             <constraint firstItem="rxV-pF-qqE" firstAttribute="height" secondItem="4rM-da-sAb" secondAttribute="height" multiplier="0.3" id="aIM-C2-1ee"/>
+                            <constraint firstItem="8du-T2-05N" firstAttribute="bottom" secondItem="zuK-bV-dFN" secondAttribute="bottom" id="abb-me-EjT"/>
                             <constraint firstItem="cfD-BA-sUX" firstAttribute="centerX" secondItem="Yv5-a0-zK5" secondAttribute="centerX" id="gU3-FM-UIC"/>
+                            <constraint firstItem="MV6-Va-gXk" firstAttribute="leading" secondItem="8du-T2-05N" secondAttribute="leading" id="hDu-PM-0rj"/>
                             <constraint firstItem="rxV-pF-qqE" firstAttribute="top" secondItem="zuK-bV-dFN" secondAttribute="top" id="mcp-2R-6Bt"/>
                             <constraint firstItem="e94-sa-DX3" firstAttribute="leading" secondItem="Yv5-a0-zK5" secondAttribute="trailing" constant="20" id="mtB-7R-QHT"/>
                             <constraint firstItem="h85-uX-1Kh" firstAttribute="centerX" secondItem="rxV-pF-qqE" secondAttribute="centerX" id="oOE-Je-sE3"/>
                             <constraint firstItem="e94-sa-DX3" firstAttribute="leading" secondItem="7e6-Fr-XCU" secondAttribute="leading" id="pvh-PN-Vsd"/>
                             <constraint firstItem="7e6-Fr-XCU" firstAttribute="top" secondItem="e94-sa-DX3" secondAttribute="bottom" constant="8" symbolic="YES" id="qya-TH-jUt"/>
                             <constraint firstItem="rxV-pF-qqE" firstAttribute="trailing" secondItem="zuK-bV-dFN" secondAttribute="trailing" id="sMO-03-dhI"/>
+                            <constraint firstItem="8du-T2-05N" firstAttribute="height" secondItem="zuK-bV-dFN" secondAttribute="height" priority="998" id="srm-1P-0Jb"/>
+                            <constraint firstItem="8du-T2-05N" firstAttribute="top" secondItem="ez0-or-IJp" secondAttribute="bottom" constant="8" id="uBf-hp-Q3c"/>
+                            <constraint firstItem="MV6-Va-gXk" firstAttribute="bottom" secondItem="8du-T2-05N" secondAttribute="bottom" id="vJ2-ai-uNO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zuK-bV-dFN"/>
                     </view>
@@ -434,7 +470,12 @@
                         <outlet property="codeSelectionLabel" destination="h85-uX-1Kh" id="heK-iM-7WW"/>
                         <outlet property="logoImageResultButton" destination="Yv5-a0-zK5" id="2CC-7o-XXg"/>
                         <outlet property="logoOptionalLabel" destination="cfD-BA-sUX" id="bvs-JZ-CsA"/>
+                        <outlet property="mapExpandedAnchor" destination="srm-1P-0Jb" id="UYx-ki-IEI"/>
+                        <outlet property="mapShrinkedAnchor" destination="U7K-d9-UmJ" id="r5O-lB-1iv"/>
+                        <outlet property="mapView" destination="8du-T2-05N" id="KFk-Nw-bpM"/>
                         <outlet property="nameTextField" destination="7e6-Fr-XCU" id="YcO-Sb-OkY"/>
+                        <outlet property="seperator" destination="y9k-04-p1R" id="0nP-Sw-6eA"/>
+                        <outlet property="setLocationButton" destination="MV6-Va-gXk" id="VEx-iz-LTW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nAo-Ga-TDo" userLabel="First Responder" sceneMemberID="firstResponder"/>

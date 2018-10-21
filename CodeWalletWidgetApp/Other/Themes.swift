@@ -79,6 +79,17 @@ class Theme {
 	
 	//MARK: Add Barcode Page
 	
+	static var logoDescriptionTextColor: UIColor {
+		get {
+			switch Settings.shared.selectedTheme {
+			case .light:
+				return .lightGray
+			case .dark:
+				return .white
+			}
+		}
+	}
+	
 	static var barcodeSelectionButtonBackgroundColor: UIColor {
 		get {
 			switch Settings.shared.selectedTheme {

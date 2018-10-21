@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MapKit
 
 class AddCodeViewController: UIViewController {
 	
@@ -26,6 +27,13 @@ class AddCodeViewController: UIViewController {
 	@IBOutlet weak var barcodeButton: UIButton!
 	@IBOutlet weak var codeSelectionLabel: UILabel!
 	@IBOutlet weak var logoOptionalLabel: UILabel!
+	@IBOutlet weak var seperator: UIView!
+	@IBOutlet weak var mapView: MKMapView!
+	@IBOutlet weak var setLocationButton: UIButton!
+	
+	@IBOutlet weak var mapShrinkedAnchor: NSLayoutConstraint!
+	@IBOutlet weak var mapExpandedAnchor: NSLayoutConstraint!
+	
 	var logoAreaHighlightView: UIView? // A view that covers the logo area, that is used to show a red border when a logo selection is missing
 	var gradientBackgroundView: UIView?
 	var suggestionsLoadingIndicator: UIActivityIndicatorView?
@@ -42,7 +50,7 @@ class AddCodeViewController: UIViewController {
 		nameTextField.delegate = self
 		nameTextField.backgroundColor = Theme.textFieldBackgroundColor
 		
-		logoOptionalLabel.textColor = Theme.buttonTextColor
+		logoOptionalLabel.textColor = Theme.logoDescriptionTextColor
 		
 		// Scan button
 		layoutBarcodeButton()
@@ -55,12 +63,25 @@ class AddCodeViewController: UIViewController {
 		
 		setupGradientBackground()
     }
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		
+		layoutSeperator()
+	}
 
 	@IBAction func cancel(_ sender: UIBarButtonItem) {
 		dismiss(animated: true, completion: nil)
 	}
 	
 	//MARK: Layout Methods
+	
+	private func layoutSeperator() {
+		let space = (mapView.frame.minY - nameTextField.frame.maxY) / 2
+		seperator.center.y = nameTextField.frame.maxY + space
+//		seperator.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: space).isActive = true
+//		seperator.bottomAnchor.constraint(equalTo: mapView.topAnchor, constant: -space).isActive = true
+	}
 	
 	private func setupGradientBackground() {
 		let colours:[CGColor] = Theme.addCodeBackgroundGradientColors
@@ -228,6 +249,19 @@ class AddCodeViewController: UIViewController {
 	
 	@objc private func logoButtonTouchUpInside(_ sender: UIButton) {
 		sender.layer.shadowColor = UIColor.lightGray.cgColor
+	}
+	
+	//MARK: Notification Location
+	
+	@IBAction func expandMap(_ sender: UIButton) {
+		UIView.animate(withDuration: 0.3) {
+			self.setLocationButton.layer.opacity = 0
+		}
+		UIView.animate(withDuration: 1.0) {
+			self.mapShrinkedAnchor.priority = UILayoutPriority.defaultLow
+			self.mapExpandedAnchor.priority = UILayoutPriority.defaultHigh
+			self.view.layoutIfNeeded()
+		}
 	}
 	
 }
