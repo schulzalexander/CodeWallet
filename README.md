@@ -1,4 +1,4 @@
-<a href="https://itunes.apple.com/us/app/organicer/id1435006104?mt=8">
+<a href="https://itunes.apple.com/us/app/codewallet-barcode-widget/id1437286642?l=de&ls=1&mt=8">
 <img src="https://devimages-cdn.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" height="42" align="right">
 </a>
 
