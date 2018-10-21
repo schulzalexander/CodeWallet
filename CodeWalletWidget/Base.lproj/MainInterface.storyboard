@@ -83,17 +83,63 @@
                                     <constraint firstAttribute="width" constant="40" id="Hvy-9s-6wU"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5jg-Z2-pxi">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5jg-Z2-pxi">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjy-Cp-maG">
-                                <rect key="frame" x="70" y="0.0" width="250" height="26"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vp2-jU-BYy">
+                                <rect key="frame" x="70" y="0.0" width="250" height="110"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjy-Cp-maG">
+                                        <rect key="frame" x="8" y="8" width="234" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Barcode Size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMm-jU-DHd">
+                                        <rect key="frame" x="8" y="37" width="126" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mYV-ER-WRC">
+                                        <rect key="frame" x="106" y="30" width="136" height="72"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owb-rh-huO">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="72"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                                <state key="normal" title="-">
+                                                    <color key="titleColor" red="0.30001619460000001" green="0.6880967617" blue="0.99971204999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="decBarcodeSize:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="7lN-VV-kX1"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ut0-Cw-0sU">
+                                                <rect key="frame" x="35" y="0.0" width="63" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxt-41-l6b">
+                                                <rect key="frame" x="103" y="0.0" width="33" height="72"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                                <state key="normal" title="+">
+                                                    <color key="titleColor" red="0.30001619460000001" green="0.6880967617" blue="0.99971204999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="incBarcodeSize:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="oCR-4p-bFj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1I-yM-IHJ">
                                 <rect key="frame" x="0.0" y="0.0" width="70" height="110"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,14 +158,14 @@
                             <constraint firstItem="tUc-tA-PiW" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="4lF-OI-aKu"/>
                             <constraint firstItem="A1I-yM-IHJ" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="5Ty-Fl-FLx"/>
                             <constraint firstItem="5jg-Z2-pxi" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="9W5-Tq-lFt"/>
-                            <constraint firstItem="Hjy-Cp-maG" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="A9W-1C-tff"/>
                             <constraint firstItem="pJ8-CT-iI1" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="JUd-G5-yLK"/>
-                            <constraint firstItem="Hjy-Cp-maG" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="JsJ-ly-omk"/>
-                            <constraint firstItem="Hjy-Cp-maG" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="Omq-Ed-HhY"/>
                             <constraint firstItem="tUc-tA-PiW" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="Qd0-E3-NcJ"/>
                             <constraint firstItem="pJ8-CT-iI1" firstAttribute="trailing" secondItem="tUc-tA-PiW" secondAttribute="leading" id="ZPT-aV-dVg"/>
-                            <constraint firstItem="Hjy-Cp-maG" firstAttribute="leading" secondItem="A1I-yM-IHJ" secondAttribute="trailing" id="d81-ge-4P3"/>
+                            <constraint firstItem="vp2-jU-BYy" firstAttribute="leading" secondItem="A1I-yM-IHJ" secondAttribute="trailing" id="dmE-X1-Ie1"/>
+                            <constraint firstItem="vp2-jU-BYy" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="iT2-5E-5uK"/>
+                            <constraint firstItem="vp2-jU-BYy" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="jcg-cu-mEt"/>
                             <constraint firstItem="pJ8-CT-iI1" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="kxZ-NI-jO9"/>
+                            <constraint firstItem="vp2-jU-BYy" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="kzF-wM-cUo"/>
                             <constraint firstItem="5jg-Z2-pxi" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="pYz-Ih-JmX"/>
                             <constraint firstItem="5jg-Z2-pxi" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="urt-EM-x21"/>
                             <constraint firstItem="A1I-yM-IHJ" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="voa-nc-E6C"/>
@@ -134,10 +180,14 @@
                     <connections>
                         <outlet property="barcodeBackButton" destination="A1I-yM-IHJ" id="PO0-EK-XKg"/>
                         <outlet property="barcodeImageView" destination="5jg-Z2-pxi" id="i0A-gJ-jfo"/>
+                        <outlet property="barcodeSizeLabel" destination="ut0-Cw-0sU" id="1lL-3Q-SKH"/>
                         <outlet property="barcodeTitleLabel" destination="Hjy-Cp-maG" id="R76-cy-LJU"/>
                         <outlet property="collectionView" destination="pJ8-CT-iI1" id="wKH-Bo-tv9"/>
                         <outlet property="collectionViewBackButton" destination="bZM-iB-EfQ" id="R8Q-Bj-Ftz"/>
                         <outlet property="collectionViewForwardButton" destination="DId-m2-Gdk" id="cTq-64-8Vn"/>
+                        <outlet property="decSizeButton" destination="owb-rh-huO" id="Jzb-Kq-2lN"/>
+                        <outlet property="incSizeButton" destination="cxt-41-l6b" id="mbH-Db-Mha"/>
+                        <outlet property="instrumentsBackgroundView" destination="vp2-jU-BYy" id="fGb-f5-SlL"/>
                         <outlet property="pageControlStackView" destination="tUc-tA-PiW" id="w4F-v0-b37"/>
                     </connections>
                 </viewController>

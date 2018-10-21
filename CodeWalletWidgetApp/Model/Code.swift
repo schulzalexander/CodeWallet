@@ -18,6 +18,7 @@ class Code: NSObject, NSCoding {
 	var id: String
 	var type: AVMetadataObject.ObjectType
 	var logo: UIImage?
+	var displaySize: Float
 	
 	struct PropertyKeys {
 		static let name = "name"
@@ -25,8 +26,8 @@ class Code: NSObject, NSCoding {
 		static let id = "id"
 		static let type = "type"
 		static let logo = "logo"
+		static let displaySize = "displaySize"
 	}
-	
 	
 	init(name: String, value: String, type: AVMetadataObject.ObjectType, logo: UIImage?) {
 		self.name = name
@@ -34,6 +35,7 @@ class Code: NSObject, NSCoding {
 		self.id = Utils.generateID()
 		self.type = type
 		self.logo = logo
+		self.displaySize = 0.9
 		
 		super.init()
 	}
@@ -45,6 +47,7 @@ class Code: NSObject, NSCoding {
 		aCoder.encode(id, forKey: PropertyKeys.id)
 		aCoder.encode(type, forKey: PropertyKeys.type)
 		aCoder.encode(logo, forKey: PropertyKeys.logo)
+		aCoder.encode(displaySize, forKey: PropertyKeys.displaySize)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -59,6 +62,11 @@ class Code: NSObject, NSCoding {
 		self.id = id
 		self.type = type
 		self.logo = aDecoder.decodeObject(forKey: PropertyKeys.logo) as? UIImage
+		self.displaySize = aDecoder.decodeFloat(forKey: PropertyKeys.displaySize)
+		if self.displaySize == 0 {
+			// error loading float
+			self.displaySize = 0.9
+		}
 	}
 	
 	
