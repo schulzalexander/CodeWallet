@@ -83,7 +83,7 @@ class Theme {
 		get {
 			switch Settings.shared.selectedTheme {
 			case .light:
-				return .lightGray
+				return UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1.0)
 			case .dark:
 				return UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0)
 			}
@@ -108,6 +108,17 @@ class Theme {
 				return .lightGray
 			case .dark:
 				return .white
+			}
+		}
+	}
+	
+	static var addCodeBackgroundGradientColors: [CGColor] {
+		get {
+			switch Settings.shared.selectedTheme {
+			case .light:
+				return [UIColor.white.cgColor, UIColor.white.cgColor]
+			case .dark:
+				return [UIColor.darkGray.cgColor, UIColor.lightGray.cgColor]
 			}
 		}
 	}

@@ -22,13 +22,10 @@ class AddCodeViewController: UIViewController {
 	
 	//MARK: Outlets
 	@IBOutlet weak var logoImageResultButton: UIButton!
-	@IBOutlet weak var logoCollectionView: UICollectionView!
 	@IBOutlet weak var nameTextField: UITextField!
 	@IBOutlet weak var barcodeButton: UIButton!
-	@IBOutlet weak var logoSuggestionsButton: UIButton!
-	@IBOutlet weak var logoLibraryButton: UIButton!
-	@IBOutlet weak var logoOrLabel: UILabel!
 	@IBOutlet weak var codeSelectionLabel: UILabel!
+	@IBOutlet weak var logoOptionalLabel: UILabel!
 	var logoAreaHighlightView: UIView? // A view that covers the logo area, that is used to show a red border when a logo selection is missing
 	var gradientBackgroundView: UIView?
 	var suggestionsLoadingIndicator: UIActivityIndicatorView?
@@ -44,17 +41,17 @@ class AddCodeViewController: UIViewController {
 		
 		nameTextField.delegate = self
 		nameTextField.backgroundColor = Theme.textFieldBackgroundColor
-		logoOrLabel.textColor = Theme.helperTextColor
 		
-		setupLogoButtons()
+		logoOptionalLabel.textColor = Theme.buttonTextColor
+		
+		// Scan button
 		layoutBarcodeButton()
 		
 		// Logo ImageView that shows an image when selected from local library
-		layoutLogoImageResultButton()
-		
-		logoCollectionView.isHidden = true
-		logoCollectionView.delegate = self
-		logoCollectionView.dataSource = self
+		logoImageResultButton.layer.cornerRadius = 10
+		logoImageResultButton.layer.borderWidth = 1.0
+		logoImageResultButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+		logoImageResultButton.clipsToBounds = true
 		
 		setupGradientBackground()
     }
@@ -66,7 +63,7 @@ class AddCodeViewController: UIViewController {
 	//MARK: Layout Methods
 	
 	private func setupGradientBackground() {
-		let colours:[CGColor] = Theme.mainBackgroundGradientColors
+		let colours:[CGColor] = Theme.addCodeBackgroundGradientColors
 		let locations:[NSNumber] = [0, 0.6]
 		
 		let gradientLayer = CAGradientLayer()
@@ -96,33 +93,6 @@ class AddCodeViewController: UIViewController {
 		codeSelectionLabel.backgroundColor = Theme.buttonBackgroundColor
 		codeSelectionLabel.textColor = Theme.buttonTextColor
 	}
-	
-	private func layoutLogoImageResultButton() {
-		logoImageResultButton.layer.cornerRadius = 10
-		logoImageResultButton.layer.shadowColor = UIColor.gray.cgColor
-		logoImageResultButton.layer.shadowOpacity = 1.0
-		logoImageResultButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-//		logoImageResultButton.clipsToBounds = true
-//		logoImageResultButton.layer.masksToBounds = false
-		logoImageResultButton.isHidden = true
-	}
-	
-	private func setupLogoButtons() {
-		let buttons: [UIButton] = [logoSuggestionsButton, logoLibraryButton]
-		for button in buttons {
-			button.layer.cornerRadius = 5
-			button.layer.shadowOpacity = 1.0
-			button.layer.shadowColor = UIColor.lightGray.cgColor
-			button.layer.shadowOffset = CGSize(width: 2, height: 2)
-			button.backgroundColor = Theme.buttonBackgroundColor
-			button.setTitleColor(Theme.buttonTextColor, for: .normal)
-			button.layer.masksToBounds = false
-			button.addTarget(self, action: #selector(logoButtonTouchDown(_:)), for: .touchDown)
-			button.addTarget(self, action: #selector(logoButtonDragExit(_:)), for: .touchDragExit)
-			button.addTarget(self, action: #selector(logoButtonTouchUpInside(_:)), for: .touchUpInside)
-		}
-	}
-	
 	
 	//MARK: Barcode
 	
@@ -248,103 +218,6 @@ class AddCodeViewController: UIViewController {
 		}
 	}
 	
-	@IBAction func loadLogoSuggestions(_ sender: UIButton) {
-		// First hide the "missing logo" highlighter
-		logoAreaHighlightView?.layer.borderColor = UIColor.clear.cgColor
-		
-		// Check if a name has been entered
-		guard let name = nameTextField.text, name.count > 0 else {
-			nameTextField.layer.borderColor = UIColor.red.cgColor
-			barcodeButton.layer.borderColor = UIColor.clear.cgColor // ONLY the namefield should be highlighted now
-			
-			let alertController = UIAlertController(title: nil, message: NSLocalizedString("LogoSuggestionsNameMissingMessage", comment: ""), preferredStyle: .alert)
-			let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-			alertController.addAction(ok)
-			present(alertController, animated: true, completion: nil)
-			return
-		}
-		nameTextField.layer.borderColor = UIColor.clear.cgColor
-		
-		UIView.animate(withDuration: 0.4, animations: {
-			self.logoLibraryButton.layer.opacity = 0
-			self.logoOrLabel.layer.opacity = 0
-			self.logoSuggestionsButton.center.y = self.logoOrLabel.frame.minY
-		}) { (result) in
-			if self.suggestionsLoadingIndicator == nil {
-				self.suggestionsLoadingIndicator = UIActivityIndicatorView(style: .gray)
-				self.view.addSubview(self.suggestionsLoadingIndicator!)
-				self.suggestionsLoadingIndicator!.center.x = self.logoSuggestionsButton.frame.maxX + self.suggestionsLoadingIndicator!.frame.width
-				self.suggestionsLoadingIndicator!.center.y = self.logoSuggestionsButton.center.y
-			}
-			self.suggestionsLoadingIndicator?.isHidden = false
-			self.suggestionsLoadingIndicator?.startAnimating()
-		}
-		logoSuggestionsButton.isEnabled = false
-
-		// Load the API key for search from the key json
-		guard let apiKeys = Utils.loadJson(resourceName: "Keys"),
-			let key = apiKeys["GoogleCustomSearch"] as? String,
-			let url = URL(string: "https://www.googleapis.com/customsearch/v1?key=\(key)&cx=016319113637680411654:t4an8ihlcbc&q=\(getValidSearchString(string: name))+icon&searchType=image&imgSize=small&rights=cc_publicdomain%2Ccc_sharealike%2Ccc_nonderived") else {
-				return //TODO: provide user message
-		}
-		// Init logo images array, where async download tasks will append images
-		logoImages = [UIImage]()
-		Utils.urlGetJSON(url: url) { (response) in
-			guard let items = response["items"] as? [[String: Any]] else {
-				return //TODO: error message
-			}
-
-			self.logoSearchResult = items
-			let queue = DispatchGroup()
-			for item in items {
-				if let imageMetadata = item["image"] as? [String: Any],
-					let imageURLString = imageMetadata["thumbnailLink"] as? String,
-					let imageURL = URL(string: imageURLString) {
-					queue.enter()
-					Utils.urlGetImage(url: imageURL, completionHandler: { (image) in
-						self.logoImages!.append(image)
-						DispatchQueue.main.async {
-							self.logoCollectionView.reloadData()
-						}
-						queue.leave()
-					}, errorHandler: { (error) in
-						queue.leave()
-					})
-				}
-			}
-			// We want to show all suggestions at the same time if possible, i.e. the responses are all loaded fast enough
-			queue.notify(queue: .main, execute: {
-				self.showLogoCollectionView()
-			})
-			// After 7 seconds, show the collectionview anyways with the pictures that have been loaded up to then
-			// Collectionview will be reloaded when pictures get loaded
-			DispatchQueue.main.asyncAfter(deadline: .now() + 7.0, execute: {
-				if self.logoCollectionView.isHidden {
-					self.showLogoCollectionView()
-					self.logoCollectionView.reloadData()
-				}
-			})
-		}
-	}
-	
-	private func showLogoCollectionView() {
-		// Hide the components that are in the way
-		if self.suggestionsLoadingIndicator != nil {
-			self.suggestionsLoadingIndicator?.isHidden = true
-		}
-		self.logoSuggestionsButton.isHidden = true
-		self.logoCollectionView.isHidden = false
-	}
-	
-	private func setLogo(image: UIImage?) {
-		let hideSelectionButtons = image != nil
-//		logoSuggestionsButton.isHidden = hideSelectionButtons
-		logoLibraryButton.isHidden = hideSelectionButtons
-//		logoOrLabel.isHidden = hideSelectionButtons
-		logoImageResultButton.setBackgroundImage(image, for: .normal)
-		logoImageResultButton.isHidden = !hideSelectionButtons
-	}
-	
 	@objc private func logoButtonTouchDown(_ sender: UIButton) {
 		sender.layer.shadowColor = UIColor.clear.cgColor
 	}
@@ -355,11 +228,6 @@ class AddCodeViewController: UIViewController {
 	
 	@objc private func logoButtonTouchUpInside(_ sender: UIButton) {
 		sender.layer.shadowColor = UIColor.lightGray.cgColor
-	}
-	
-	private func getValidSearchString(string: String) -> String {
-		let pattern = "[^A-Za-z0-9]+"
-		return string.replacingOccurrences(of: pattern, with: "", options: [.regularExpression])
 	}
 	
 }
@@ -392,7 +260,7 @@ extension AddCodeViewController: UIImagePickerControllerDelegate, UINavigationCo
 		}
 		if imagePicked! == 1 {
 			// Logo selection
-			setLogo(image: selectedImage)
+			logoImageResultButton.setBackgroundImage(selectedImage, for: .normal)
 			barcodeLogo = selectedImage
 		}
 		imagePicked = nil
@@ -401,45 +269,4 @@ extension AddCodeViewController: UIImagePickerControllerDelegate, UINavigationCo
 	
 }
 
-extension AddCodeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-	
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return logoImages?.count ?? 0
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cellIdentifier = "LogoCollectionViewCell"
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
-		guard let image = logoImages?[indexPath.row] else {
-			return cell
-		}
-		let backgroundView = UIImageView(frame: cell.frame)
-		backgroundView.image = image
-		cell.backgroundView = backgroundView
-		if indexPath == selectedLogoSuggestion {
-			cell.layer.borderColor = UIColor.green.cgColor
-		} else {
-			cell.layer.borderColor = UIColor.clear.cgColor
-		}
-		return cell
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		// Highlight selected cell
-		guard let cell = collectionView.cellForItem(at: indexPath),
-			let imageView = cell.backgroundView as? UIImageView,
-			let image = imageView.image else {
-			fatalError("Failed to retreive collectionView cell after user selection!")
-		}
-		cell.layer.borderColor = UIColor.green.cgColor
-		cell.layer.borderWidth = 4.0
-		
-		let reload = selectedLogoSuggestion
-		selectedLogoSuggestion = indexPath
-		if reload != nil {
-			collectionView.reloadItems(at: [reload!])
-		}
-		barcodeLogo = image
-	}
-	
-}
+
