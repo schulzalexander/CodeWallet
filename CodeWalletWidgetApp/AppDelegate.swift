@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
-		FirebaseApp.configure()
+		#if !DEBUG
+			FirebaseApp.configure()
+		#endif
 		
 		// Load Code Manager if saved
 		if let savedCodeManager = CodeManagerArchive.loadCodeManager() {

@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import MapKit
 
-class AddCodeViewController: UIViewController {
+class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	
 	//MARK: Properties
 	var barcodeValue: String?
@@ -21,6 +21,11 @@ class AddCodeViewController: UIViewController {
 	var logoImages: [UIImage]?
 	var selectedLogoSuggestion: IndexPath?
 	
+	var locationManager: CLLocationManager!
+	var selectedOverlay: MKCircle?
+	var selectedLocation: CLLocation?
+	var selectedRadius: CLLocationDistance?
+	
 	//MARK: Outlets
 	@IBOutlet weak var logoImageResultButton: UIButton!
 	@IBOutlet weak var nameTextField: UITextField!
@@ -28,8 +33,14 @@ class AddCodeViewController: UIViewController {
 	@IBOutlet weak var codeSelectionLabel: UILabel!
 	@IBOutlet weak var logoOptionalLabel: UILabel!
 	@IBOutlet weak var seperator: UIView!
+	
+	@IBOutlet weak var mapToolbar: UIToolbar!
 	@IBOutlet weak var mapView: MKMapView!
 	@IBOutlet weak var setLocationButton: UIButton!
+	@IBOutlet weak var radiusSlider: UISlider!
+	@IBOutlet weak var mapViewTapRecognizer: UITapGestureRecognizer!
+	@IBOutlet weak var clearButton: UIButton!
+	@IBOutlet weak var searchBar: UISearchBar!
 	
 	@IBOutlet weak var mapShrinkedAnchor: NSLayoutConstraint!
 	@IBOutlet weak var mapExpandedAnchor: NSLayoutConstraint!
@@ -52,6 +63,10 @@ class AddCodeViewController: UIViewController {
 		
 		logoOptionalLabel.textColor = Theme.logoDescriptionTextColor
 		
+		searchBar.layer.opacity = 0.0
+		mapToolbar.layer.opacity = 0.0
+		mapView.delegate = self
+		
 		// Scan button
 		layoutBarcodeButton()
 		
@@ -60,6 +75,8 @@ class AddCodeViewController: UIViewController {
 		logoImageResultButton.layer.borderWidth = 1.0
 		logoImageResultButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
 		logoImageResultButton.clipsToBounds = true
+		
+		radiusSlider.isEnabled = false
 		
 		setupGradientBackground()
     }
@@ -253,14 +270,67 @@ class AddCodeViewController: UIViewController {
 	
 	//MARK: Notification Location
 	
-	@IBAction func expandMap(_ sender: UIButton) {
+	@IBAction func expandMap(_ sender: Any) {
 		UIView.animate(withDuration: 0.3) {
 			self.setLocationButton.layer.opacity = 0
+			self.seperator.isHidden = true
 		}
 		UIView.animate(withDuration: 1.0) {
 			self.mapShrinkedAnchor.priority = UILayoutPriority.defaultLow
 			self.mapExpandedAnchor.priority = UILayoutPriority.defaultHigh
 			self.view.layoutIfNeeded()
+			self.mapToolbar.layer.opacity = 1.0
+			self.searchBar.layer.opacity = 1.0
+		}
+		if locationManager == nil {
+			initLocationManager()
+		}
+		mapView.userTrackingMode = .follow
+		mapViewTapRecognizer.isEnabled = false
+	}
+	
+	@IBAction func hideMap(_ sender: UIBarButtonItem) {
+		// Only show location button if no location was set
+		if selectedLocation == nil || selectedRadius == nil {
+			UIView.animate(withDuration: 0.3) {
+				self.setLocationButton.layer.opacity = 0.7
+				self.seperator.isHidden = false
+			}
+		}
+		mapViewTapRecognizer.isEnabled = true
+		
+		UIView.animate(withDuration: 1.0, animations: {
+			self.mapShrinkedAnchor.priority = UILayoutPriority.defaultHigh
+			self.mapExpandedAnchor.priority = UILayoutPriority.defaultLow
+			self.view.layoutIfNeeded()
+			self.mapToolbar.layer.opacity = 0.0
+			self.searchBar.layer.opacity = 0.0
+		})
+	}
+	
+	@IBAction func updateRadius(_ sender: UISlider) {
+		guard selectedOverlay != nil, selectedRadius != nil, selectedLocation != nil else {
+			return
+		}
+		
+		selectedRadius = CLLocationDistance(exactly: radiusSlider.value)
+		
+		mapView.removeOverlay(selectedOverlay!)
+		selectedOverlay = MKCircle(center: selectedLocation!.coordinate, radius: selectedRadius!)
+		mapView.addOverlay(selectedOverlay!)
+	}
+	
+	@IBAction func clearLocation(_ sender: UIButton) {
+		sender.isHidden = true
+		if selectedOverlay != nil {
+			mapView.removeOverlay(selectedOverlay!)
+		}
+		selectedOverlay = nil
+		selectedLocation = nil
+		selectedRadius = nil
+		radiusSlider.isEnabled = false
+		UIView.animate(withDuration: 0.3) {
+			self.setLocationButton.layer.opacity = 0.7
 		}
 	}
 	
@@ -303,4 +373,57 @@ extension AddCodeViewController: UIImagePickerControllerDelegate, UINavigationCo
 	
 }
 
-
+extension AddCodeViewController: MKMapViewDelegate {
+	
+	func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+		//Add if clause for other overlays
+		guard let circle = overlay as? MKCircle else {
+			print("Overlay not a RegionOverlay.")
+			return MKOverlayRenderer()
+		}
+		let renderer = MKCircleRenderer(overlay: overlay)
+		
+		renderer.lineWidth = 2
+		renderer.fillColor = circle == selectedOverlay ? UIColor(red: 0.3922, green: 0.949, blue: 0, alpha: 0.5) : UIColor(red: 0.3922, green: 0.949, blue: 0, alpha: 0.2)
+		renderer.strokeColor = circle == selectedOverlay ? UIColor(red: 0.3922, green: 0.949, blue: 0, alpha: 0.5) : UIColor(red: 0.3922, green: 0.949, blue: 0, alpha: 0.2)
+		
+		return renderer
+	}
+	
+	@IBAction func showUserLocation(_ sender: UIBarButtonItem) {
+		self.mapView.userTrackingMode = .follow
+	}
+	
+	private func initLocationManager() {
+		if CLLocationManager.locationServicesEnabled() {
+			locationManager = CLLocationManager()
+			
+			locationManager.delegate = self
+			locationManager.desiredAccuracy = kCLLocationAccuracyBest
+			locationManager.requestWhenInUseAuthorization()
+		} else {
+			//location services not available
+			dismiss(animated: true, completion: nil)
+		}
+	}
+	
+	//add annotation when long press on map
+	@IBAction func addAnnotation(_ sender: UILongPressGestureRecognizer) {
+		guard sender.state == .began else {
+			return
+		}
+		let point = sender.location(in: mapView)
+		let coordinates = mapView.convert(point, toCoordinateFrom: mapView)
+		self.selectedLocation = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+		self.selectedRadius = CLLocationDistance(exactly: radiusSlider.value)
+		if selectedOverlay != nil {
+			mapView.removeOverlay(selectedOverlay!)
+		}
+		selectedOverlay = MKCircle(center: coordinates, radius: self.selectedRadius!)
+		mapView.addOverlay(selectedOverlay!)
+		
+		radiusSlider.isEnabled = true		
+		clearButton.isHidden = false
+	}
+	
+}

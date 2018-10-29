@@ -7,12 +7,12 @@
 		<key>CodeWalletWidget.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>CodeWalletWidgetApp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -33,6 +33,16 @@
 			<true/>
 		</dict>
 		<key>C96B7C482166464500F9B67F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9991AD8217DA55A004CD0BA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9F014ED2180F04200EF2F5C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

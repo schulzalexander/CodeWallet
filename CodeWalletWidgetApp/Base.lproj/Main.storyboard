@@ -396,11 +396,16 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8du-T2-05N">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8du-T2-05N">
                                 <rect key="frame" x="0.0" y="500.5" width="375" height="166.5"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="T1w-Bq-jCn" appends="YES" id="5s5-EL-dSn"/>
+                                    <outletCollection property="gestureRecognizers" destination="mQb-XO-c1j" appends="YES" id="OCO-aa-UIl"/>
+                                </connections>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Notification at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez0-or-IJp">
-                                <rect key="frame" x="28" y="471.5" width="154" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link to Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez0-or-IJp">
+                                <rect key="frame" x="28" y="471.5" width="121" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -421,11 +426,52 @@
                                     <action selector="expandMap:" destination="i4m-Ve-l7b" eventType="touchUpInside" id="RXQ-iu-zTV"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jhf-k0-L6Z">
+                                <rect key="frame" x="1" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="╳" id="jL8-8o-ZPF">
+                                        <connections>
+                                            <action selector="hideMap:" destination="i4m-Ve-l7b" id="oCe-SZ-Mbr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="mw0-1j-8ia"/>
+                                    <barButtonItem style="plain" id="r12-UV-Sby">
+                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="10" maxValue="500" id="fFY-fB-i6u">
+                                            <rect key="frame" x="73" y="5" width="229" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="updateRadius:" destination="i4m-Ve-l7b" eventType="touchUpOutside" id="L9B-vJ-eSn"/>
+                                                <action selector="updateRadius:" destination="i4m-Ve-l7b" eventType="touchUpInside" id="gPi-qy-7rU"/>
+                                            </connections>
+                                        </slider>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="D0J-ig-zws"/>
+                                    <barButtonItem title="Item" image="LocationIcon" id="V8Q-3F-Mnv">
+                                        <connections>
+                                            <action selector="showUserLocation:" destination="i4m-Ve-l7b" id="3bn-x5-8RY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMk-UT-E6R">
+                                <rect key="frame" x="318" y="467" width="36" height="30"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearLocation:" destination="i4m-Ve-l7b" eventType="touchUpInside" id="B5P-po-4gk"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0M-Ex-d7G">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cfD-BA-sUX" firstAttribute="top" secondItem="Yv5-a0-zK5" secondAttribute="bottom" constant="8" id="2Jv-yG-gmX"/>
                             <constraint firstItem="ez0-or-IJp" firstAttribute="leading" secondItem="zuK-bV-dFN" secondAttribute="leading" constant="28" id="2g9-Wz-vgG"/>
+                            <constraint firstItem="zuK-bV-dFN" firstAttribute="trailing" secondItem="fMk-UT-E6R" secondAttribute="trailing" constant="21" id="5ok-jd-swB"/>
                             <constraint firstItem="8du-T2-05N" firstAttribute="trailing" secondItem="zuK-bV-dFN" secondAttribute="trailing" id="BZf-Lq-p0I"/>
                             <constraint firstItem="e94-sa-DX3" firstAttribute="top" secondItem="Yv5-a0-zK5" secondAttribute="top" id="Gp6-Kj-jHl"/>
                             <constraint firstItem="8du-T2-05N" firstAttribute="leading" secondItem="zuK-bV-dFN" secondAttribute="leading" id="Hj6-uO-H4E"/>
@@ -434,6 +480,7 @@
                             <constraint firstItem="MV6-Va-gXk" firstAttribute="top" secondItem="8du-T2-05N" secondAttribute="top" id="KCb-j3-6zI"/>
                             <constraint firstItem="Yv5-a0-zK5" firstAttribute="leading" secondItem="zuK-bV-dFN" secondAttribute="leading" constant="41" id="L6D-xe-TTY"/>
                             <constraint firstItem="rxV-pF-qqE" firstAttribute="leading" secondItem="zuK-bV-dFN" secondAttribute="leading" id="LHf-Og-5I3"/>
+                            <constraint firstItem="fMk-UT-E6R" firstAttribute="centerY" secondItem="ez0-or-IJp" secondAttribute="centerY" id="OWL-8n-Z10"/>
                             <constraint firstItem="zuK-bV-dFN" firstAttribute="trailing" secondItem="7e6-Fr-XCU" secondAttribute="trailing" constant="29" id="RUR-2W-irk"/>
                             <constraint firstItem="8du-T2-05N" firstAttribute="height" secondItem="4rM-da-sAb" secondAttribute="height" multiplier="0.25" priority="999" id="U7K-d9-UmJ"/>
                             <constraint firstItem="h85-uX-1Kh" firstAttribute="centerY" secondItem="rxV-pF-qqE" secondAttribute="centerY" id="Uk0-ae-YhH"/>
@@ -467,18 +514,33 @@
                     </navigationItem>
                     <connections>
                         <outlet property="barcodeButton" destination="rxV-pF-qqE" id="3kC-w4-9gx"/>
+                        <outlet property="clearButton" destination="fMk-UT-E6R" id="FHd-Sa-4rd"/>
                         <outlet property="codeSelectionLabel" destination="h85-uX-1Kh" id="heK-iM-7WW"/>
                         <outlet property="logoImageResultButton" destination="Yv5-a0-zK5" id="2CC-7o-XXg"/>
                         <outlet property="logoOptionalLabel" destination="cfD-BA-sUX" id="bvs-JZ-CsA"/>
                         <outlet property="mapExpandedAnchor" destination="srm-1P-0Jb" id="UYx-ki-IEI"/>
                         <outlet property="mapShrinkedAnchor" destination="U7K-d9-UmJ" id="r5O-lB-1iv"/>
+                        <outlet property="mapToolbar" destination="jhf-k0-L6Z" id="BGX-KC-At4"/>
                         <outlet property="mapView" destination="8du-T2-05N" id="KFk-Nw-bpM"/>
+                        <outlet property="mapViewTapRecognizer" destination="mQb-XO-c1j" id="EDl-Yg-Gh8"/>
                         <outlet property="nameTextField" destination="7e6-Fr-XCU" id="YcO-Sb-OkY"/>
+                        <outlet property="radiusSlider" destination="fFY-fB-i6u" id="akH-b4-rYR"/>
+                        <outlet property="searchBar" destination="X0M-Ex-d7G" id="HVO-08-7iE"/>
                         <outlet property="seperator" destination="y9k-04-p1R" id="0nP-Sw-6eA"/>
                         <outlet property="setLocationButton" destination="MV6-Va-gXk" id="VEx-iz-LTW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nAo-Ga-TDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="T1w-Bq-jCn">
+                    <connections>
+                        <action selector="addAnnotation:" destination="i4m-Ve-l7b" id="5VN-2b-Gon"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="mQb-XO-c1j">
+                    <connections>
+                        <action selector="expandMap:" destination="i4m-Ve-l7b" id="D1C-7e-UwL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1951.2" y="1541.3793103448277"/>
         </scene>
@@ -536,6 +598,7 @@
     </scenes>
     <resources>
         <image name="LaunchScreenAppIcon" width="1400" height="1400"/>
+        <image name="LocationIcon" width="50" height="50"/>
         <image name="SettingsIcon" width="75" height="75"/>
     </resources>
 </document>

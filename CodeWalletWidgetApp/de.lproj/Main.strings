@@ -73,3 +73,9 @@
 
 /* Class = "UILabel"; text = "Dark"; ObjectID = "teI-0y-ZFl"; */
 "teI-0y-ZFl.text" = "Dunkel";
+
+/* Notification Loaction Label */
+"ez0-or-IJp.text" = "Mit Ort verknüpfen";
+
+/* Clear Button in AddCode VC */
+"fMk-UT-E6R.normalTitle" = "Löschen";

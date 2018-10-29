@@ -43,6 +43,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C9991AD8217DA55A004CD0BA"
+               BuildableName = "Fastlane.xctest"
+               BlueprintName = "Fastlane"
+               ReferencedContainer = "container:CodeWalletWidget.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C9F014ED2180F04200EF2F5C"
+               BuildableName = "FastlaneScreenshots.xctest"
+               BlueprintName = "FastlaneScreenshots"
+               ReferencedContainer = "container:CodeWalletWidget.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

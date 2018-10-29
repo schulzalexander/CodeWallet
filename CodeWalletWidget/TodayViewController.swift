@@ -42,10 +42,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 			CodeManager.shared = savedCodeManager
 		}
 		
-		// TESTING PURPOSES
-//		CodeManager.shared.addCode(code: Code(name: "Coupon", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
-//		CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "weofi392bwwf", type: .code128, logo: nil))
-//		CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "weofi39283hfoebwwf", type: .pdf417, logo: nil))
+		#if SCREENSHOTS || true
+			CodeManager.shared.deleteAllCodes()
+			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
+			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "weofi392bwwf", type: .code128, logo: nil))
+			CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "weofi39283hfoebwwf", type: .pdf417, logo: nil))
+		#endif
 		
 		collectionView.delegate = self
 		collectionView.dataSource = self

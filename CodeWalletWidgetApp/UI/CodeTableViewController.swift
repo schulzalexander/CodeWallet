@@ -30,11 +30,13 @@ class CodeTableViewController: UIViewController {
 		// SideMenu is shown in the CodeTable VC
 		isSideMenuHidden = false
 		
-		//TESTING PURPOSES
-//		CodeManager.shared.addCode(code: Code(name: "Coupon", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
-//		CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "weofi39283hfoebwwf", type: .code128, logo: nil))
-//		CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "weofi39283hfoebwwf", type: .pdf417, logo: nil))
-//		CodeManagerArchive.saveCodeManager()
+		// Preprocessor flag not working yet
+		#if SCREENSHOTS || true
+			CodeManager.shared.deleteAllCodes()
+			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
+			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "weofi39283hfoebwwf", type: .code128, logo: nil))
+			CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "weofi39283hfoebwwf", type: .pdf417, logo: nil))
+		#endif
 		
 		tableView.delegate = self
 		tableView.dataSource = self
