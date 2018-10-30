@@ -19,6 +19,8 @@
 		C9182BBB2180F48200B5872A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9182BBA2180F48200B5872A /* Utils.swift */; };
 		C92BCF8121675134004BDAEC /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BCF8021675134004BDAEC /* CoreExtensions.swift */; };
 		C92BCF8221675134004BDAEC /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BCF8021675134004BDAEC /* CoreExtensions.swift */; };
+		C9473A5A21888EAC0027A85C /* LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E68112188567200272B9F /* LocationNotification.swift */; };
+		C9473A5B21888EC90027A85C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E681321885E6700272B9F /* LocationService.swift */; };
 		C956DFB1215A9253005F1822 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFB0215A9253005F1822 /* AppDelegate.swift */; };
 		C956DFB3215A9253005F1822 /* CodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFB2215A9253005F1822 /* CodeTableViewController.swift */; };
 		C956DFB6215A9253005F1822 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C956DFB4215A9253005F1822 /* Main.storyboard */; };
@@ -47,6 +49,8 @@
 		C96B7C622166676900F9B67F /* CodeManagerArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A96216349E8000533CE /* CodeManagerArchive.swift */; };
 		C96B7C632166676900F9B67F /* CodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A93216348DE000533CE /* CodeManager.swift */; };
 		C96B7C642166676900F9B67F /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE2215A9673005F1822 /* Code.swift */; };
+		C97E68122188567200272B9F /* LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E68112188567200272B9F /* LocationNotification.swift */; };
+		C97E681421885E6700272B9F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E681321885E6700272B9F /* LocationService.swift */; };
 		C9C03A94216348DE000533CE /* CodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A93216348DE000533CE /* CodeManager.swift */; };
 		C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A96216349E8000533CE /* CodeManagerArchive.swift */; };
 		C9C03A9A21634B8F000533CE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9921634B8F000533CE /* Utils.swift */; };
@@ -154,6 +158,8 @@
 		C96B7C5A216661BD00F9B67F /* CodeWalletWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeWalletWidget.entitlements; sourceTree = "<group>"; };
 		C96B7C5B216662E600F9B67F /* CodeWalletWidgetApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CodeWalletWidgetApp.entitlements; sourceTree = "<group>"; };
 		C96B7C60216665D000F9B67F /* CodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCollectionViewCell.swift; sourceTree = "<group>"; };
+		C97E68112188567200272B9F /* LocationNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotification.swift; sourceTree = "<group>"; };
+		C97E681321885E6700272B9F /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		C9C03A93216348DE000533CE /* CodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManager.swift; sourceTree = "<group>"; };
 		C9C03A96216349E8000533CE /* CodeManagerArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManagerArchive.swift; sourceTree = "<group>"; };
 		C9C03A9921634B8F000533CE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -349,6 +355,7 @@
 			children = (
 				C9C03A92216348BA000533CE /* Singletons */,
 				C956DFE2215A9673005F1822 /* Code.swift */,
+				C97E68112188567200272B9F /* LocationNotification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				C9C03A93216348DE000533CE /* CodeManager.swift */,
+				C97E681321885E6700272B9F /* LocationService.swift */,
 			);
 			path = Singletons;
 			sourceTree = "<group>";
@@ -744,6 +752,7 @@
 			files = (
 				C9C03A94216348DE000533CE /* CodeManager.swift in Sources */,
 				C956DFE5215A97C0005F1822 /* CodeTableViewNavigationController.swift in Sources */,
+				C97E681421885E6700272B9F /* LocationService.swift in Sources */,
 				C9C03A9F2163597D000533CE /* ScanCodeViewController.swift in Sources */,
 				C96B7C302165003100F9B67F /* SettingsTableViewController.swift in Sources */,
 				C92BCF8121675134004BDAEC /* CoreExtensions.swift in Sources */,
@@ -754,6 +763,7 @@
 				C96B7C3F2166094200F9B67F /* SideMenu.swift in Sources */,
 				C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */,
 				C96B7C34216503F300F9B67F /* Themes.swift in Sources */,
+				C97E68122188567200272B9F /* LocationNotification.swift in Sources */,
 				C956DFE3215A9673005F1822 /* Code.swift in Sources */,
 				C956DFE0215A95C8005F1822 /* CodeTableViewCell.swift in Sources */,
 				C956DFB3215A9253005F1822 /* CodeTableViewController.swift in Sources */,
@@ -783,6 +793,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9473A5B21888EC90027A85C /* LocationService.swift in Sources */,
+				C9473A5A21888EAC0027A85C /* LocationNotification.swift in Sources */,
 				C9D2F53B2166923D00D9016B /* Utils.swift in Sources */,
 				C96B7C642166676900F9B67F /* Code.swift in Sources */,
 				C96B7C632166676900F9B67F /* CodeManager.swift in Sources */,

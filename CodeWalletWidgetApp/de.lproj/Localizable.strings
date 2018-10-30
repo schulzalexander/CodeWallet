@@ -24,6 +24,10 @@
 // Barcode logo
 "LogoSuggestionsNameMissingMessage" = "Bitte gib erst einen Namen an, um Vorschläge zu laden.";
 
+
+// Location Notification
+"LocationNotificationMessage" = "Barcode anzeigen.";
+
 // Settings
 "Warning" = "Warnung";
 "Reset" = "Zurücksetzen";

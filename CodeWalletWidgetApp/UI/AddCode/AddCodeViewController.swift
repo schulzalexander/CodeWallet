@@ -21,10 +21,12 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	var logoImages: [UIImage]?
 	var selectedLogoSuggestion: IndexPath?
 	
-	var locationManager: CLLocationManager!
 	var selectedOverlay: MKCircle?
 	var selectedLocation: CLLocation?
 	var selectedRadius: CLLocationDistance?
+	
+	var layedOutSeperator: Bool = false
+	let defaultZoomLevel: Double = 0.005
 	
 	//MARK: Outlets
 	@IBOutlet weak var logoImageResultButton: UIButton!
@@ -41,6 +43,7 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	@IBOutlet weak var mapViewTapRecognizer: UITapGestureRecognizer!
 	@IBOutlet weak var clearButton: UIButton!
 	@IBOutlet weak var searchBar: UISearchBar!
+	@IBOutlet weak var locationDescriptionLabel: UILabel!
 	
 	@IBOutlet weak var mapShrinkedAnchor: NSLayoutConstraint!
 	@IBOutlet weak var mapExpandedAnchor: NSLayoutConstraint!
@@ -66,6 +69,7 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		searchBar.layer.opacity = 0.0
 		mapToolbar.layer.opacity = 0.0
 		mapView.delegate = self
+		searchBar.delegate = self
 		
 		// Scan button
 		layoutBarcodeButton()
@@ -84,7 +88,10 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		
-		layoutSeperator()
+		if !layedOutSeperator {
+			layoutSeperator()
+			layedOutSeperator = true
+		}
 	}
 
 	@IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -96,8 +103,6 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	private func layoutSeperator() {
 		let space = (mapView.frame.minY - nameTextField.frame.maxY) / 2
 		seperator.center.y = nameTextField.frame.maxY + space
-//		seperator.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: space).isActive = true
-//		seperator.bottomAnchor.constraint(equalTo: mapView.topAnchor, constant: -space).isActive = true
 	}
 	
 	private func setupGradientBackground() {
@@ -227,7 +232,12 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 			return
 		}
 		
-		CodeManager.shared.addCode(code: Code(name: nameTextField.text!, value: barcodeValue!, type: barcodeType!, logo: barcodeLogo))
+		let code = Code(name: nameTextField.text!, value: barcodeValue!, type: barcodeType!, logo: barcodeLogo)
+		if selectedLocation != nil && selectedRadius != nil {
+			let notification = LocationNotification(codeID: code.id, location: selectedLocation!, radius: selectedRadius!, alertType: .onEntry, isEnabled: true)
+			code.notification = notification
+		}
+		CodeManager.shared.addCode(code: code)
 		CodeManagerArchive.saveCodeManager()
 		
 		self.dismiss(animated: true, completion: nil)
@@ -273,7 +283,9 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	@IBAction func expandMap(_ sender: Any) {
 		UIView.animate(withDuration: 0.3) {
 			self.setLocationButton.layer.opacity = 0
-			self.seperator.isHidden = true
+			self.seperator.layer.opacity = 0.0
+			self.locationDescriptionLabel.layer.opacity = 0.0
+			self.clearButton.layer.opacity = 0.0
 		}
 		UIView.animate(withDuration: 1.0) {
 			self.mapShrinkedAnchor.priority = UILayoutPriority.defaultLow
@@ -282,20 +294,26 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 			self.mapToolbar.layer.opacity = 1.0
 			self.searchBar.layer.opacity = 1.0
 		}
-		if locationManager == nil {
-			initLocationManager()
-		}
-		mapView.userTrackingMode = .follow
+		
+		initLocationTracking()
+		
+		if selectedLocation == nil {
+			mapView.userTrackingMode = .follow
+		} // else, the mapview will already be focused on the location, which happens when calling hideMap()
 		mapViewTapRecognizer.isEnabled = false
 	}
 	
 	@IBAction func hideMap(_ sender: UIBarButtonItem) {
-		// Only show location button if no location was set
-		if selectedLocation == nil || selectedRadius == nil {
-			UIView.animate(withDuration: 0.3) {
+		UIView.animate(withDuration: 0.3) {
+			if self.selectedLocation == nil || self.selectedRadius == nil {
 				self.setLocationButton.layer.opacity = 0.7
-				self.seperator.isHidden = false
 			}
+			self.seperator.layer.opacity = 1.0
+		}
+		
+		if selectedLocation != nil && selectedRadius != nil {
+			// if location is set, focus on the selected location
+			showLocationOnMap(location: selectedLocation!, zoomLevel: calcZoomLevelForRadius(radius: selectedRadius!))
 		}
 		mapViewTapRecognizer.isEnabled = true
 		
@@ -303,8 +321,13 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 			self.mapShrinkedAnchor.priority = UILayoutPriority.defaultHigh
 			self.mapExpandedAnchor.priority = UILayoutPriority.defaultLow
 			self.view.layoutIfNeeded()
+			
 			self.mapToolbar.layer.opacity = 0.0
 			self.searchBar.layer.opacity = 0.0
+			self.locationDescriptionLabel.layer.opacity = 1.0
+			if self.selectedLocation != nil && self.selectedRadius != nil {
+				self.clearButton.layer.opacity = 1.0
+			}
 		})
 	}
 	
@@ -394,15 +417,12 @@ extension AddCodeViewController: MKMapViewDelegate {
 		self.mapView.userTrackingMode = .follow
 	}
 	
-	private func initLocationManager() {
+	private func initLocationTracking() {
 		if CLLocationManager.locationServicesEnabled() {
-			locationManager = CLLocationManager()
-			
-			locationManager.delegate = self
-			locationManager.desiredAccuracy = kCLLocationAccuracyBest
-			locationManager.requestWhenInUseAuthorization()
+			LocationService.shared.locationManager.requestWhenInUseAuthorization()
 		} else {
 			//location services not available
+			//TODO: alert to user
 			dismiss(animated: true, completion: nil)
 		}
 	}
@@ -422,8 +442,47 @@ extension AddCodeViewController: MKMapViewDelegate {
 		selectedOverlay = MKCircle(center: coordinates, radius: self.selectedRadius!)
 		mapView.addOverlay(selectedOverlay!)
 		
-		radiusSlider.isEnabled = true		
-		clearButton.isHidden = false
+		radiusSlider.isEnabled = true
+	}
+	
+	private func showLocationOnMap(location: CLLocation, zoomLevel: Double) {
+		let span = MKCoordinateSpan(latitudeDelta: zoomLevel, longitudeDelta: zoomLevel)
+		let region = MKCoordinateRegion(center: location.coordinate, span: span)
+		mapView.setRegion(region, animated: true)
+	}
+	
+	private func calcZoomLevelForRadius(radius: Double) -> Double {
+		return defaultZoomLevel + 0.00002 * radius
+	}
+	
+}
+
+extension AddCodeViewController: UISearchBarDelegate {
+	
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		searchBar.resignFirstResponder()
+		search()
+	}
+	
+	private func search() {
+		let localSearchRequest = MKLocalSearch.Request()
+		localSearchRequest.naturalLanguageQuery = searchBar.text
+		localSearchRequest.region = mapView.region
+		
+		let localSearch = MKLocalSearch(request: localSearchRequest)
+		localSearch.start { (localSearchResponse, error) -> Void in
+			if error != nil {
+				//os_log(log, log: OSLog.default, type: .error)
+			}
+			
+			if localSearchResponse == nil {
+				//No results
+				
+			} else {
+				let firstResult = localSearchResponse!.boundingRegion
+				self.mapView.setRegion(firstResult, animated: true)
+			}
+		}
 	}
 	
 }

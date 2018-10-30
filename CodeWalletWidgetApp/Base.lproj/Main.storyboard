@@ -405,7 +405,7 @@
                                 </connections>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link to Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez0-or-IJp">
-                                <rect key="frame" x="28" y="471.5" width="121" height="21"/>
+                                <rect key="frame" x="28" y="476.5" width="121" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -455,7 +455,7 @@
                                 </items>
                             </toolbar>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMk-UT-E6R">
-                                <rect key="frame" x="318" y="467" width="36" height="30"/>
+                                <rect key="frame" x="318" y="472" width="36" height="30"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
                                     <action selector="clearLocation:" destination="i4m-Ve-l7b" eventType="touchUpInside" id="B5P-po-4gk"/>
@@ -464,7 +464,7 @@
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0M-Ex-d7G">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search" textContentType="location"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -472,6 +472,7 @@
                             <constraint firstItem="cfD-BA-sUX" firstAttribute="top" secondItem="Yv5-a0-zK5" secondAttribute="bottom" constant="8" id="2Jv-yG-gmX"/>
                             <constraint firstItem="ez0-or-IJp" firstAttribute="leading" secondItem="zuK-bV-dFN" secondAttribute="leading" constant="28" id="2g9-Wz-vgG"/>
                             <constraint firstItem="zuK-bV-dFN" firstAttribute="trailing" secondItem="fMk-UT-E6R" secondAttribute="trailing" constant="21" id="5ok-jd-swB"/>
+                            <constraint firstItem="ez0-or-IJp" firstAttribute="firstBaseline" secondItem="4rM-da-sAb" secondAttribute="bottom" multiplier="0.75" constant="-8" id="9hj-S3-B21"/>
                             <constraint firstItem="8du-T2-05N" firstAttribute="trailing" secondItem="zuK-bV-dFN" secondAttribute="trailing" id="BZf-Lq-p0I"/>
                             <constraint firstItem="e94-sa-DX3" firstAttribute="top" secondItem="Yv5-a0-zK5" secondAttribute="top" id="Gp6-Kj-jHl"/>
                             <constraint firstItem="8du-T2-05N" firstAttribute="leading" secondItem="zuK-bV-dFN" secondAttribute="leading" id="Hj6-uO-H4E"/>
@@ -495,7 +496,6 @@
                             <constraint firstItem="7e6-Fr-XCU" firstAttribute="top" secondItem="e94-sa-DX3" secondAttribute="bottom" constant="8" symbolic="YES" id="qya-TH-jUt"/>
                             <constraint firstItem="rxV-pF-qqE" firstAttribute="trailing" secondItem="zuK-bV-dFN" secondAttribute="trailing" id="sMO-03-dhI"/>
                             <constraint firstItem="8du-T2-05N" firstAttribute="height" secondItem="zuK-bV-dFN" secondAttribute="height" priority="998" id="srm-1P-0Jb"/>
-                            <constraint firstItem="8du-T2-05N" firstAttribute="top" secondItem="ez0-or-IJp" secondAttribute="bottom" constant="8" id="uBf-hp-Q3c"/>
                             <constraint firstItem="MV6-Va-gXk" firstAttribute="bottom" secondItem="8du-T2-05N" secondAttribute="bottom" id="vJ2-ai-uNO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zuK-bV-dFN"/>
@@ -516,6 +516,7 @@
                         <outlet property="barcodeButton" destination="rxV-pF-qqE" id="3kC-w4-9gx"/>
                         <outlet property="clearButton" destination="fMk-UT-E6R" id="FHd-Sa-4rd"/>
                         <outlet property="codeSelectionLabel" destination="h85-uX-1Kh" id="heK-iM-7WW"/>
+                        <outlet property="locationDescriptionLabel" destination="ez0-or-IJp" id="xS1-X0-fKQ"/>
                         <outlet property="logoImageResultButton" destination="Yv5-a0-zK5" id="2CC-7o-XXg"/>
                         <outlet property="logoOptionalLabel" destination="cfD-BA-sUX" id="bvs-JZ-CsA"/>
                         <outlet property="mapExpandedAnchor" destination="srm-1P-0Jb" id="UYx-ki-IEI"/>

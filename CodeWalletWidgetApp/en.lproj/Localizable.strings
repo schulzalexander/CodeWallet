@@ -24,6 +24,9 @@
 // Barcode logo
 "LogoSuggestionsNameMissingMessage" = "Please provide a name to search for.";
 
+// Location Notification
+"LocationNotificationMessage" = "Show Barcode.";
+
 // Settings
 "Warning" = "Warning";
 "Reset" = "Reset";

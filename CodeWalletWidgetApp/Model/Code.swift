@@ -19,6 +19,7 @@ class Code: NSObject, NSCoding {
 	var type: AVMetadataObject.ObjectType
 	var logo: UIImage?
 	var displaySize: Float
+	var notification: LocationNotification?
 	
 	struct PropertyKeys {
 		static let name = "name"
@@ -27,6 +28,7 @@ class Code: NSObject, NSCoding {
 		static let type = "type"
 		static let logo = "logo"
 		static let displaySize = "displaySize"
+		static let notification = "notification"
 	}
 	
 	init(name: String, value: String, type: AVMetadataObject.ObjectType, logo: UIImage?) {
@@ -48,13 +50,15 @@ class Code: NSObject, NSCoding {
 		aCoder.encode(type, forKey: PropertyKeys.type)
 		aCoder.encode(logo, forKey: PropertyKeys.logo)
 		aCoder.encode(displaySize, forKey: PropertyKeys.displaySize)
+		aCoder.encode(notification, forKey: PropertyKeys.notification)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		guard let name = aDecoder.decodeObject(forKey: PropertyKeys.name) as? String,
 			let value = aDecoder.decodeObject(forKey: PropertyKeys.value) as? String,
 			let id = aDecoder.decodeObject(forKey: PropertyKeys.id) as? String,
-			let type = aDecoder.decodeObject(forKey: PropertyKeys.type) as? AVMetadataObject.ObjectType else {
+			let type = aDecoder.decodeObject(forKey: PropertyKeys.type) as? AVMetadataObject.ObjectType,
+			let notification = aDecoder.decodeObject(forKey: PropertyKeys.notification) as? LocationNotification else {
 				fatalError("Error while decoding Code object!")
 		}
 		self.name = name
@@ -67,6 +71,7 @@ class Code: NSObject, NSCoding {
 			// error loading float
 			self.displaySize = 0.9
 		}
+		self.notification = notification
 	}
 	
 	
