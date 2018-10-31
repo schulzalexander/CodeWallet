@@ -244,6 +244,7 @@ extension TodayViewController: UICollectionViewDelegate, UICollectionViewDataSou
 			selectedCode = code
 			barcodeTitleLabel.text = code.name
 			valueLabel.text = code.value
+			
 			updateDisplaySize()
 			updateValueLabel(animated: false)
 			
