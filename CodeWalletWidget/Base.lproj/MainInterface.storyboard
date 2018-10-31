@@ -83,8 +83,18 @@
                                     <constraint firstAttribute="width" constant="40" id="Hvy-9s-6wU"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDB-YB-KE9">
+                                <rect key="frame" x="0.0" y="85" width="320" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="wv7-25-alk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5jg-Z2-pxi">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vp2-jU-BYy">
@@ -159,17 +169,21 @@
                             <constraint firstItem="A1I-yM-IHJ" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="5Ty-Fl-FLx"/>
                             <constraint firstItem="5jg-Z2-pxi" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="9W5-Tq-lFt"/>
                             <constraint firstItem="pJ8-CT-iI1" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="JUd-G5-yLK"/>
+                            <constraint firstItem="YDB-YB-KE9" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="OVN-La-xCO"/>
                             <constraint firstItem="tUc-tA-PiW" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="Qd0-E3-NcJ"/>
                             <constraint firstItem="pJ8-CT-iI1" firstAttribute="trailing" secondItem="tUc-tA-PiW" secondAttribute="leading" id="ZPT-aV-dVg"/>
                             <constraint firstItem="vp2-jU-BYy" firstAttribute="leading" secondItem="A1I-yM-IHJ" secondAttribute="trailing" id="dmE-X1-Ie1"/>
+                            <constraint firstItem="YDB-YB-KE9" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="gKW-tj-pNl"/>
                             <constraint firstItem="vp2-jU-BYy" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="iT2-5E-5uK"/>
                             <constraint firstItem="vp2-jU-BYy" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="jcg-cu-mEt"/>
                             <constraint firstItem="pJ8-CT-iI1" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="kxZ-NI-jO9"/>
                             <constraint firstItem="vp2-jU-BYy" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="kzF-wM-cUo"/>
                             <constraint firstItem="5jg-Z2-pxi" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="pYz-Ih-JmX"/>
+                            <constraint firstItem="5jg-Z2-pxi" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" priority="997" id="skq-O0-KVn"/>
+                            <constraint firstItem="YDB-YB-KE9" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="uO5-nm-1GH"/>
                             <constraint firstItem="5jg-Z2-pxi" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="urt-EM-x21"/>
                             <constraint firstItem="A1I-yM-IHJ" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="voa-nc-E6C"/>
-                            <constraint firstItem="5jg-Z2-pxi" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="xVd-t5-ply"/>
+                            <constraint firstItem="5jg-Z2-pxi" firstAttribute="bottom" secondItem="YDB-YB-KE9" secondAttribute="top" priority="998" id="xVd-t5-ply"/>
                             <constraint firstItem="A1I-yM-IHJ" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="xze-Ka-CjG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
@@ -179,7 +193,9 @@
                     <size key="freeformSize" width="320" height="110"/>
                     <connections>
                         <outlet property="barcodeBackButton" destination="A1I-yM-IHJ" id="PO0-EK-XKg"/>
+                        <outlet property="barcodeExpandedAnchor" destination="skq-O0-KVn" id="94z-AS-Iuk"/>
                         <outlet property="barcodeImageView" destination="5jg-Z2-pxi" id="i0A-gJ-jfo"/>
+                        <outlet property="barcodeShrinkedAnchor" destination="xVd-t5-ply" id="quh-vc-q4N"/>
                         <outlet property="barcodeSizeLabel" destination="ut0-Cw-0sU" id="1lL-3Q-SKH"/>
                         <outlet property="barcodeTitleLabel" destination="Hjy-Cp-maG" id="R76-cy-LJU"/>
                         <outlet property="collectionView" destination="pJ8-CT-iI1" id="wKH-Bo-tv9"/>
@@ -189,6 +205,7 @@
                         <outlet property="incSizeButton" destination="cxt-41-l6b" id="mbH-Db-Mha"/>
                         <outlet property="instrumentsBackgroundView" destination="vp2-jU-BYy" id="fGb-f5-SlL"/>
                         <outlet property="pageControlStackView" destination="tUc-tA-PiW" id="w4F-v0-b37"/>
+                        <outlet property="valueLabel" destination="YDB-YB-KE9" id="xNY-q5-bBV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>

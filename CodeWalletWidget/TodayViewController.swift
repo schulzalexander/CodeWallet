@@ -32,6 +32,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 	@IBOutlet weak var incSizeButton: UIButton!
 	@IBOutlet weak var decSizeButton: UIButton!
 	
+	@IBOutlet weak var valueLabel: UILabel!
+	@IBOutlet weak var barcodeShrinkedAnchor: NSLayoutConstraint!
+	@IBOutlet weak var barcodeExpandedAnchor: NSLayoutConstraint!
+	
 	//MARK: Init
 	
 	override func viewDidLoad() {
@@ -57,8 +61,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 		// Back button press leads back to collectionView
 		barcodeBackButton.addTarget(self, action: #selector(didPressBarcodeBackButton(_:)), for: .touchUpInside)
 		
-		
-		
 		// Set index of cell that is currently visible on leftmost position
 		currIndexPath = IndexPath(row: 0, section: 0)
 		// Disable Back Button, since we start at the very left
@@ -74,6 +76,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 		barcodeTitleLabel.layer.opacity = 0
 		barcodeImageView.layer.opacity = 0
 		instrumentsBackgroundView.layer.opacity = 0
+		valueLabel.layer.opacity = 0
 		barcodeInstrumentsHidden = true
 		
 //		barcodeTitleLabel.layer.shadowColor = UIColor.black.cgColor
@@ -111,6 +114,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 	@objc private func didPressBarcodeImage(_ sender: UITapGestureRecognizer) {
 		UIView.animate(withDuration: 0.25) {
 			self.barcodeImageView.layer.opacity = 0
+			self.valueLabel.layer.opacity = 0
 		}
 		selectedCode = nil
 	}
@@ -155,6 +159,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 		}
 		barcodeSizeLabel.text = "\(Int(round(selectedCode!.displaySize * 100))) %"
 		barcodeImageView.contentScaleFactor = defaultContentScale! + defaultContentScale! * CGFloat(1.0 - selectedCode!.displaySize)
+	}
+	
+	private func updateValueLabel(animated: Bool) {
+		guard self.selectedCode != nil else {
+			return
+		}
+		UIView.animate(withDuration: animated ? 0.5 : 0.0) {
+			self.barcodeExpandedAnchor.priority = self.selectedCode!.showValue ? .defaultLow : .defaultHigh
+			self.barcodeShrinkedAnchor.priority = self.selectedCode!.showValue ? .defaultHigh : .defaultLow
+			self.view.layoutIfNeeded()
+		}
 	}
 	
 	//MARK: Paging
@@ -228,10 +243,13 @@ extension TodayViewController: UICollectionViewDelegate, UICollectionViewDataSou
 			saveCode = false
 			selectedCode = code
 			barcodeTitleLabel.text = code.name
+			valueLabel.text = code.value
 			updateDisplaySize()
+			updateValueLabel(animated: false)
 			
 			UIView.animate(withDuration: 0.25) {
 				self.barcodeImageView.layer.opacity = 1.0
+				self.valueLabel.layer.opacity = 1.0
 			}
 			
 //			// Adapt the background color of the tools to match the selected code's logo
