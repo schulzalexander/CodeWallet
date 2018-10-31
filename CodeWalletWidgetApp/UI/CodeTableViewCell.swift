@@ -21,6 +21,7 @@ class CodeTableViewCell: UITableViewCell {
 	@IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var codeImageView: UIImageView!
+	@IBOutlet weak var settingsButton: UIButton!
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -30,6 +31,7 @@ class CodeTableViewCell: UITableViewCell {
 //		logoImageView.layer.shadowColor = UIColor.lightGray.cgColor
 //		logoImageView.layer.shadowOpacity = 1.0
 		logoImageView.clipsToBounds = true
+		settingsButton.layer.opacity = 0.0
 	}
 
 	private func updateContent() {
@@ -45,6 +47,38 @@ class CodeTableViewCell: UITableViewCell {
 				logoImageView.image = image.imageWithInsets(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)) ?? UIImage(named: "LaunchScreenAppIcon")
 			}
 		}
+	}
+	
+	@IBAction func openSettings(_ sender: UIButton) {
+		guard let tableView = getTableView(),
+			let codeTableVC = tableView.delegate as? CodeTableViewController,
+			let viewController = codeTableVC.storyboard?.instantiateViewController(withIdentifier: "CodeSettingsViewController") as? CodeSettingsTableViewController else {
+				return
+		}
+		viewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.7)
+		viewController.modalPresentationStyle = UIModalPresentationStyle.popover
+		viewController.code = code
+		
+		let popover = viewController.popoverPresentationController
+		popover?.delegate = codeTableVC
+		popover?.sourceView = codeTableVC.view
+		popover?.sourceRect = CGRect(x: codeTableVC.view.center.x, y: codeTableVC.view.center.y, width: 0, height: 0)
+		popover?.permittedArrowDirections = .init(rawValue: 0)
+		
+		DispatchQueue.main.async {
+			codeTableVC.present(viewController, animated: true, completion: nil)
+		}
+	}
+	
+	private func getTableView() -> UITableView? {
+		let tableView: UITableView?
+		if #available(iOS 11.0, *) {
+			tableView = superview as? UITableView
+		} else {
+			// In iOS 10, superview is scrollview
+			tableView = superview?.superview as? UITableView
+		}
+		return tableView
 	}
 	
 }

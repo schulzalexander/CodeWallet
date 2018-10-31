@@ -304,13 +304,6 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	}
 	
 	@IBAction func hideMap(_ sender: UIBarButtonItem) {
-		UIView.animate(withDuration: 0.3) {
-			if self.selectedLocation == nil || self.selectedRadius == nil {
-				self.setLocationButton.layer.opacity = 0.7
-			}
-			self.seperator.layer.opacity = 1.0
-		}
-		
 		if selectedLocation != nil && selectedRadius != nil {
 			// if location is set, focus on the selected location
 			showLocationOnMap(location: selectedLocation!, zoomLevel: calcZoomLevelForRadius(radius: selectedRadius!))
@@ -325,8 +318,12 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 			self.mapToolbar.layer.opacity = 0.0
 			self.searchBar.layer.opacity = 0.0
 			self.locationDescriptionLabel.layer.opacity = 1.0
+			self.seperator.layer.opacity = 1.0
 			if self.selectedLocation != nil && self.selectedRadius != nil {
 				self.clearButton.layer.opacity = 1.0
+			}
+			if self.selectedLocation == nil || self.selectedRadius == nil {
+				self.setLocationButton.layer.opacity = 0.7
 			}
 		})
 	}

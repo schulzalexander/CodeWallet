@@ -10,6 +10,7 @@
 // General
 "Oops" = "Ups";
 "Cancel" = "Abbrechen";
+"Delete" = "Löschen";
 
 // Barcode Table
 "TableViewEmptyMessage" = "Du hast noch keine Barcodes hinzugefügt.";
@@ -27,6 +28,9 @@
 
 // Location Notification
 "LocationNotificationMessage" = "Barcode anzeigen.";
+
+// Code Settings
+"CodeDeletionMessage" = "Bist du sicher?";
 
 // Settings
 "Warning" = "Warnung";

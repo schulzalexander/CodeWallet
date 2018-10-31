@@ -58,7 +58,7 @@ class CodeManager: NSObject, NSCoding {
 	}
 	
 	func deleteCode(index: Int) {
-		codes.remove(at: index)
+		self.codes.remove(at: index)
 	}
 	
 	func deleteAllCodes() {

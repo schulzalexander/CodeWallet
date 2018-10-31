@@ -21,6 +21,7 @@
 		C92BCF8221675134004BDAEC /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BCF8021675134004BDAEC /* CoreExtensions.swift */; };
 		C9473A5A21888EAC0027A85C /* LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E68112188567200272B9F /* LocationNotification.swift */; };
 		C9473A5B21888EC90027A85C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E681321885E6700272B9F /* LocationService.swift */; };
+		C9473A5D2188F9E90027A85C /* CodeSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9473A5C2188F9E90027A85C /* CodeSettingsTableViewController.swift */; };
 		C956DFB1215A9253005F1822 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFB0215A9253005F1822 /* AppDelegate.swift */; };
 		C956DFB3215A9253005F1822 /* CodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFB2215A9253005F1822 /* CodeTableViewController.swift */; };
 		C956DFB6215A9253005F1822 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C956DFB4215A9253005F1822 /* Main.storyboard */; };
@@ -122,6 +123,7 @@
 		C910656821674DAE00711099 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		C9182BBA2180F48200B5872A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C92BCF8021675134004BDAEC /* CoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreExtensions.swift; sourceTree = "<group>"; };
+		C9473A5C2188F9E90027A85C /* CodeSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSettingsTableViewController.swift; sourceTree = "<group>"; };
 		C956DFAD215A9253005F1822 /* CodeWalletWidgetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeWalletWidgetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C956DFB0215A9253005F1822 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C956DFB2215A9253005F1822 /* CodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewController.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				C956DFB2215A9253005F1822 /* CodeTableViewController.swift */,
 				C956DFDF215A95C8005F1822 /* CodeTableViewCell.swift */,
 				C956DFE4215A97C0005F1822 /* CodeTableViewNavigationController.swift */,
+				C9473A5C2188F9E90027A85C /* CodeSettingsTableViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				C956DFE3215A9673005F1822 /* Code.swift in Sources */,
 				C956DFE0215A95C8005F1822 /* CodeTableViewCell.swift in Sources */,
 				C956DFB3215A9253005F1822 /* CodeTableViewController.swift in Sources */,
+				C9473A5D2188F9E90027A85C /* CodeSettingsTableViewController.swift in Sources */,
 				C96B7C3821650ECD00F9B67F /* PrivacyPolicyViewController.swift in Sources */,
 				C956DFB1215A9253005F1822 /* AppDelegate.swift in Sources */,
 				C96B7C362165042400F9B67F /* SettingsArchive.swift in Sources */,

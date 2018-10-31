@@ -30,7 +30,7 @@ class LocationService: NSObject {
 			locationManager = CLLocationManager()
 			
 			locationManager.desiredAccuracy = kCLLocationAccuracyBest
-			locationManager.allowsBackgroundLocationUpdates = true
+//			locationManager.allowsBackgroundLocationUpdates = true
 //			if #available(iOS 11.0, *) {
 //				locationManager.showsBackgroundLocationIndicator = false
 //			}

@@ -57,8 +57,7 @@ class Code: NSObject, NSCoding {
 		guard let name = aDecoder.decodeObject(forKey: PropertyKeys.name) as? String,
 			let value = aDecoder.decodeObject(forKey: PropertyKeys.value) as? String,
 			let id = aDecoder.decodeObject(forKey: PropertyKeys.id) as? String,
-			let type = aDecoder.decodeObject(forKey: PropertyKeys.type) as? AVMetadataObject.ObjectType,
-			let notification = aDecoder.decodeObject(forKey: PropertyKeys.notification) as? LocationNotification else {
+			let type = aDecoder.decodeObject(forKey: PropertyKeys.type) as? AVMetadataObject.ObjectType else {
 				fatalError("Error while decoding Code object!")
 		}
 		self.name = name
@@ -67,11 +66,11 @@ class Code: NSObject, NSCoding {
 		self.type = type
 		self.logo = aDecoder.decodeObject(forKey: PropertyKeys.logo) as? UIImage
 		self.displaySize = aDecoder.decodeFloat(forKey: PropertyKeys.displaySize)
+		self.notification = aDecoder.decodeObject(forKey: PropertyKeys.notification) as? LocationNotification
 		if self.displaySize == 0 {
 			// error loading float
 			self.displaySize = 0.9
 		}
-		self.notification = notification
 	}
 	
 	

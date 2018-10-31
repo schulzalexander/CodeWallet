@@ -60,6 +60,15 @@ class CodeTableViewController: UIViewController {
 		}
 	}
 	
+	func deleteCode(indexPath: IndexPath) {
+		CodeManager.shared.deleteCode(index: indexPath.row)
+		CodeManagerArchive.saveCodeManager()
+		tableView.deleteRows(at: [indexPath], with: .automatic)
+		if selectedIndex == indexPath {
+			selectedIndex = nil
+		}
+	}
+	
 	//MARK: TableViewLayout
 	
 	private func setupGradientBackground() {
@@ -107,7 +116,9 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 		cell.selectionStyle = .none
 		cell.code = CodeManager.shared.getCodes()[indexPath.row]
 		cell.backgroundColor = Theme.codeCellBackgroundColor
-		
+		UIView.animate(withDuration: 0.5) {
+			cell.settingsButton.layer.opacity = indexPath == self.selectedIndex ? 1.0 : 0.0
+		}
 		return cell
 	}
 	
@@ -138,9 +149,7 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
-			CodeManager.shared.deleteCode(index: indexPath.row)
-			CodeManagerArchive.saveCodeManager()
-			tableView.deleteRows(at: [indexPath], with: .automatic)
+			deleteCode(indexPath: indexPath)
 		}
 	}
 	
@@ -152,6 +161,14 @@ extension CodeTableViewController: ThemeDelegate {
 		setupGradientBackground()
 		tableView.reloadData()
 		tableView.separatorColor = Theme.tableViewSeperatorColor
+	}
+	
+}
+
+extension CodeTableViewController: UIPopoverPresentationControllerDelegate {
+	
+	func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+		return .none
 	}
 	
 }
