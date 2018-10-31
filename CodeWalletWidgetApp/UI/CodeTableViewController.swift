@@ -137,7 +137,7 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if selectedIndex != nil && selectedIndex!.row == indexPath.row {
-			return 200
+			return CodeManager.shared.getCodes()[indexPath.row].showValue ? 210 : 200
 		} else {
 			return 70
 		}

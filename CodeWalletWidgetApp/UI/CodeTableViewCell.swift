@@ -16,20 +16,19 @@ class CodeTableViewCell: UITableViewCell {
 			updateContent()
 		}
 	}
+	var defaultContentScale: CGFloat!
 	
 	//MARK: Outlets
 	@IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var codeImageView: UIImageView!
 	@IBOutlet weak var settingsButton: UIButton!
+	@IBOutlet weak var valueLabel: UILabel!
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
 		logoImageView.layer.cornerRadius = 10
-//		logoImageView.layer.shadowOffset = CGSize(width: 2, height: 2)
-//		logoImageView.layer.shadowColor = UIColor.lightGray.cgColor
-//		logoImageView.layer.shadowOpacity = 1.0
 		logoImageView.clipsToBounds = true
 		settingsButton.layer.opacity = 0.0
 	}
@@ -40,6 +39,16 @@ class CodeTableViewCell: UITableViewCell {
 			value: code.value,
 			codeType: code.type,
 			targetSize: codeImageView.frame.size) ?? UIImage(named: "LaunchScreenAppIcon")
+		
+		// scale factor will be correct after setting the image
+		if defaultContentScale == nil {
+			defaultContentScale = codeImageView.contentScaleFactor
+		}
+		updateDisplaySize()
+		
+		valueLabel.isHidden = !code.showValue
+		valueLabel.text = code.value
+		
 		if code.logo != nil {
 			logoImageView.image = code.logo!
 		} else {
@@ -47,6 +56,10 @@ class CodeTableViewCell: UITableViewCell {
 				logoImageView.image = image.imageWithInsets(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)) ?? UIImage(named: "LaunchScreenAppIcon")
 			}
 		}
+	}
+	
+	func updateDisplaySize() {
+		codeImageView.contentScaleFactor = defaultContentScale! + defaultContentScale! * CGFloat(1.0 - code.displaySize)
 	}
 	
 	@IBAction func openSettings(_ sender: UIButton) {

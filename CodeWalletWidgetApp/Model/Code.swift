@@ -20,6 +20,7 @@ class Code: NSObject, NSCoding {
 	var logo: UIImage?
 	var displaySize: Float
 	var notification: LocationNotification?
+	var showValue: Bool
 	
 	struct PropertyKeys {
 		static let name = "name"
@@ -29,6 +30,7 @@ class Code: NSObject, NSCoding {
 		static let logo = "logo"
 		static let displaySize = "displaySize"
 		static let notification = "notification"
+		static let showValue = "showValue"
 	}
 	
 	init(name: String, value: String, type: AVMetadataObject.ObjectType, logo: UIImage?) {
@@ -38,6 +40,7 @@ class Code: NSObject, NSCoding {
 		self.type = type
 		self.logo = logo
 		self.displaySize = 0.9
+		self.showValue = true
 		
 		super.init()
 	}
@@ -51,6 +54,7 @@ class Code: NSObject, NSCoding {
 		aCoder.encode(logo, forKey: PropertyKeys.logo)
 		aCoder.encode(displaySize, forKey: PropertyKeys.displaySize)
 		aCoder.encode(notification, forKey: PropertyKeys.notification)
+		aCoder.encode(showValue, forKey: PropertyKeys.showValue)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -67,6 +71,7 @@ class Code: NSObject, NSCoding {
 		self.logo = aDecoder.decodeObject(forKey: PropertyKeys.logo) as? UIImage
 		self.displaySize = aDecoder.decodeFloat(forKey: PropertyKeys.displaySize)
 		self.notification = aDecoder.decodeObject(forKey: PropertyKeys.notification) as? LocationNotification
+		self.showValue = aDecoder.decodeBool(forKey: PropertyKeys.showValue)
 		if self.displaySize == 0 {
 			// error loading float
 			self.displaySize = 0.9

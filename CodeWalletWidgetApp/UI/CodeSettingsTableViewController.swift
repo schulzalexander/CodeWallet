@@ -19,6 +19,7 @@ class CodeSettingsTableViewController: UITableViewController {
 	@IBOutlet weak var locationSwitch: UISwitch!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var sizeLabel: UILabel!
+	@IBOutlet weak var showValueSwitch: UISwitch!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,8 @@ class CodeSettingsTableViewController: UITableViewController {
 		
 		nameLabel.text = code.name
 		locationSwitch.isOn = code.notification?.isEnabled ?? false
+		showValueSwitch.isOn = code.showValue
+		updateSizeLabel()
 		
 		deleteButton.layer.cornerRadius = deleteButton.frame.height / 2
 		deleteButton.clipsToBounds = true
@@ -49,6 +52,12 @@ class CodeSettingsTableViewController: UITableViewController {
 		}
 		code.notification!.isEnabled = sender.isOn
 		changed = true
+	}
+	
+	@IBAction func didChangeShowValue(_ sender: UISwitch) {
+		code.showValue = sender.isOn
+		changed = true
+		updateCodeTableCellValue()
 	}
 	
 	@IBAction func deleteCode(_ sender: UIButton) {
@@ -75,13 +84,36 @@ class CodeSettingsTableViewController: UITableViewController {
 	
 	@IBAction func incBarcodeSize(_ sender: UIButton) {
 		code.displaySize = min(1.0, code.displaySize + 0.1)
-		sizeLabel.text = "\(Int(round(code.displaySize * 100))) %"
+		updateSizeLabel()
 		changed = true
+		updateCodeTableCellImage()
 	}
 	
 	@IBAction func decBarcodeSize(_ sender: UIButton) {
 		code.displaySize = max(0.1, code.displaySize - 0.1)
-		sizeLabel.text = "\(Int(round(code.displaySize * 100))) %"
+		updateSizeLabel()
 		changed = true
+		updateCodeTableCellImage()
+	}
+	
+	private func updateSizeLabel() {
+		sizeLabel.text = "\(Int(round(code.displaySize * 100))) %"
+	}
+	
+	private func updateCodeTableCellImage() {
+		guard let codeTable = self.popoverPresentationController?.delegate as? CodeTableViewController,
+			codeTable.selectedIndex != nil,
+			let cell = codeTable.tableView.cellForRow(at: codeTable.selectedIndex!) as? CodeTableViewCell else {
+			return
+		}
+		cell.updateDisplaySize()
+	}
+	
+	private func updateCodeTableCellValue() {
+		guard let codeTable = self.popoverPresentationController?.delegate as? CodeTableViewController,
+			codeTable.selectedIndex != nil else {
+				return
+		}
+		codeTable.tableView.reloadRows(at: [codeTable.selectedIndex!], with: .automatic)
 	}
 }
