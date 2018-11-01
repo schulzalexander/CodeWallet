@@ -79,3 +79,17 @@
 
 /* Clear Button in AddCode VC */
 "fMk-UT-E6R.normalTitle" = "Löschen";
+
+
+//MARK: Add Code VC
+
+"MV6-Va-gXk.normalTitle" = "Ort setzen";
+"ez0-or-IJp.text" = "Mit Ort verknüfen";
+"fMk-UT-E6R.normalTitle" = "Löschen";
+
+//MARK: Code Settings
+
+"wqa-IL-aTy.normalTitle" = "Löschen";
+"Mrq-PC-KRE.text" = "Barcode Größe";
+"w9H-3o-tAp.text" = "Wert unter Code anzeigen";
+"wDU-E6-2T4.text" = "Ortsverknüpfung aktiv";

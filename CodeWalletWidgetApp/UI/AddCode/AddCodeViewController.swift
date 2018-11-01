@@ -40,6 +40,7 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	@IBOutlet weak var mapView: MKMapView!
 	@IBOutlet weak var setLocationButton: UIButton!
 	@IBOutlet weak var radiusSlider: UISlider!
+	@IBOutlet weak var mapViewLongPressRecognizer: UILongPressGestureRecognizer!
 	@IBOutlet weak var mapViewTapRecognizer: UITapGestureRecognizer!
 	@IBOutlet weak var clearButton: UIButton!
 	@IBOutlet weak var searchBar: UISearchBar!
@@ -47,6 +48,8 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	
 	@IBOutlet weak var mapShrinkedAnchor: NSLayoutConstraint!
 	@IBOutlet weak var mapExpandedAnchor: NSLayoutConstraint!
+	
+	@IBOutlet weak var doneButton: UIBarButtonItem!
 	
 	var logoAreaHighlightView: UIView? // A view that covers the logo area, that is used to show a red border when a logo selection is missing
 	var gradientBackgroundView: UIView?
@@ -231,7 +234,7 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		if failed {
 			return
 		}
-		
+
 		let code = Code(name: nameTextField.text!, value: barcodeValue!, type: barcodeType!, logo: barcodeLogo)
 		if selectedLocation != nil && selectedRadius != nil {
 			let notification = LocationNotification(codeID: code.id, location: selectedLocation!, radius: selectedRadius!, alertType: .onEntry, isEnabled: true)
@@ -300,15 +303,13 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		if selectedLocation == nil {
 			mapView.userTrackingMode = .follow
 		} // else, the mapview will already be focused on the location, which happens when calling hideMap()
-		mapViewTapRecognizer.isEnabled = false
+		allowMapInteraction(allow: true)
+		doneButton.isEnabled = false
 	}
 	
 	@IBAction func hideMap(_ sender: UIBarButtonItem) {
-		if selectedLocation != nil && selectedRadius != nil {
-			// if location is set, focus on the selected location
-			showLocationOnMap(location: selectedLocation!, zoomLevel: calcZoomLevelForRadius(radius: selectedRadius!))
-		}
-		mapViewTapRecognizer.isEnabled = true
+		allowMapInteraction(allow: false)
+		doneButton.isEnabled = true
 		
 		UIView.animate(withDuration: 1.0, animations: {
 			self.mapShrinkedAnchor.priority = UILayoutPriority.defaultHigh
@@ -325,7 +326,21 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 			if self.selectedLocation == nil || self.selectedRadius == nil {
 				self.setLocationButton.layer.opacity = 0.7
 			}
+		}, completion: { (error) in
+			if self.selectedLocation != nil && self.selectedRadius != nil {
+				// if location is set, focus on the selected location
+				self.showLocationOnMap(location: self.selectedLocation!, zoomLevel: self.calcZoomLevelForRadius(radius: self.selectedRadius!))
+			}
 		})
+	}
+	
+	private func allowMapInteraction(allow: Bool) {
+		mapView.isZoomEnabled = allow
+		mapView.isPitchEnabled = allow
+		mapView.isRotateEnabled = allow
+		mapView.isScrollEnabled = allow
+		mapViewTapRecognizer.isEnabled = !allow
+		mapViewLongPressRecognizer.isEnabled = allow
 	}
 	
 	@IBAction func updateRadius(_ sender: UISlider) {
@@ -416,7 +431,7 @@ extension AddCodeViewController: MKMapViewDelegate {
 	
 	private func initLocationTracking() {
 		if CLLocationManager.locationServicesEnabled() {
-			LocationService.shared.locationManager.requestWhenInUseAuthorization()
+			LocationService.shared.locationManager.requestAlwaysAuthorization()
 		} else {
 			//location services not available
 			//TODO: alert to user

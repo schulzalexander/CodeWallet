@@ -38,29 +38,22 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="WKO-eP-zIY">
-                                        <rect key="frame" x="0.0" y="60" width="375" height="130"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="140" id="WKO-eP-zIY">
+                                        <rect key="frame" x="0.0" y="60" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WKO-eP-zIY" id="Nyw-3L-kN1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location Link enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDU-E6-2T4">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location Link enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="wDU-E6-2T4">
                                                     <rect key="frame" x="16" y="8" width="258" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t6R-v8-8m8">
-                                                    <rect key="frame" x="282" y="3" width="49" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="didChangeLocationEnabled:" destination="6P5-EN-Lda" eventType="valueChanged" id="3xH-DI-H9y"/>
-                                                    </connections>
-                                                </switch>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIe-ro-3Dk">
-                                                    <rect key="frame" x="223" y="67" width="30" height="72"/>
+                                                    <rect key="frame" x="223" y="78" width="30" height="72"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                                     <state key="normal" title="-">
@@ -71,14 +64,14 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100 %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jo-cC-huM">
-                                                    <rect key="frame" x="258" y="67" width="63" height="72"/>
+                                                    <rect key="frame" x="258" y="78" width="63" height="72"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27s-aN-XMW">
-                                                    <rect key="frame" x="326" y="67" width="33" height="72"/>
+                                                    <rect key="frame" x="326" y="78" width="33" height="72"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                                     <state key="normal" title="+">
@@ -88,32 +81,39 @@
                                                         <action selector="incBarcodeSize:" destination="6P5-EN-Lda" eventType="touchUpInside" id="KEg-nq-gq0"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Barcode Scale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mrq-PC-KRE">
-                                                    <rect key="frame" x="16" y="98" width="110" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Barcode Scale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Mrq-PC-KRE">
+                                                    <rect key="frame" x="16" y="105" width="199" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9H-3o-tAp">
-                                                    <rect key="frame" x="16" y="54" width="87" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show value below Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="w9H-3o-tAp">
+                                                    <rect key="frame" x="16" y="58" width="258" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtU-dv-gk5">
-                                                    <rect key="frame" x="282" y="47" width="49" height="31"/>
+                                                    <rect key="frame" x="282" y="54" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="didChangeShowValue:" destination="6P5-EN-Lda" eventType="valueChanged" id="ibu-kg-cST"/>
+                                                    </connections>
+                                                </switch>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t6R-v8-8m8">
+                                                    <rect key="frame" x="282" y="3" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="didChangeLocationEnabled:" destination="6P5-EN-Lda" eventType="valueChanged" id="3xH-DI-H9y"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="J8F-td-d4h">
-                                        <rect key="frame" x="0.0" y="190" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="200" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J8F-td-d4h" id="yyP-jy-9qF">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -152,7 +152,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbq-QO-zRy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012" y="43"/>
+            <point key="canvasLocation" x="1012" y="42.728635682158924"/>
         </scene>
         <!--My Barcodes-->
         <scene sceneID="tne-QT-ifu">
@@ -681,6 +681,7 @@
                         <outlet property="barcodeButton" destination="rxV-pF-qqE" id="3kC-w4-9gx"/>
                         <outlet property="clearButton" destination="fMk-UT-E6R" id="FHd-Sa-4rd"/>
                         <outlet property="codeSelectionLabel" destination="h85-uX-1Kh" id="heK-iM-7WW"/>
+                        <outlet property="doneButton" destination="NJn-pg-ITH" id="fTU-9r-D4W"/>
                         <outlet property="locationDescriptionLabel" destination="ez0-or-IJp" id="xS1-X0-fKQ"/>
                         <outlet property="logoImageResultButton" destination="Yv5-a0-zK5" id="2CC-7o-XXg"/>
                         <outlet property="logoOptionalLabel" destination="cfD-BA-sUX" id="bvs-JZ-CsA"/>
@@ -688,6 +689,7 @@
                         <outlet property="mapShrinkedAnchor" destination="U7K-d9-UmJ" id="r5O-lB-1iv"/>
                         <outlet property="mapToolbar" destination="jhf-k0-L6Z" id="BGX-KC-At4"/>
                         <outlet property="mapView" destination="8du-T2-05N" id="KFk-Nw-bpM"/>
+                        <outlet property="mapViewLongPressRecognizer" destination="T1w-Bq-jCn" id="5DC-9N-TWF"/>
                         <outlet property="mapViewTapRecognizer" destination="mQb-XO-c1j" id="EDl-Yg-Gh8"/>
                         <outlet property="nameTextField" destination="7e6-Fr-XCU" id="YcO-Sb-OkY"/>
                         <outlet property="radiusSlider" destination="fFY-fB-i6u" id="akH-b4-rYR"/>

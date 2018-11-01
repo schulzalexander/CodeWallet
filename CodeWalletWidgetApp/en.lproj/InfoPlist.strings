@@ -1,0 +1,11 @@
+/* 
+  Info.strings
+  CodeWalletWidget
+
+  Created by Alexander Schulz on 01.11.18.
+  Copyright © 2018 Alexander Schulz. All rights reserved.
+*/
+
+"NSLocationAlwaysUsageDescription" = "Your location is needed to provide location specific notifications with your barcodes.";
+"NSLocationWhenInUseUsageDescription" = "Your location is needed to provide location specific notifications with your barcodes.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Your location is needed to provide location specific notifications with your barcodes.";

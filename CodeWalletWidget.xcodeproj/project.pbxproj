@@ -52,6 +52,7 @@
 		C96B7C642166676900F9B67F /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE2215A9673005F1822 /* Code.swift */; };
 		C97E68122188567200272B9F /* LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E68112188567200272B9F /* LocationNotification.swift */; };
 		C97E681421885E6700272B9F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E681321885E6700272B9F /* LocationService.swift */; };
+		C99B936B218B1A8A002A4FCD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C99B936D218B1A8A002A4FCD /* InfoPlist.strings */; };
 		C9C03A94216348DE000533CE /* CodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A93216348DE000533CE /* CodeManager.swift */; };
 		C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A96216349E8000533CE /* CodeManagerArchive.swift */; };
 		C9C03A9A21634B8F000533CE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9921634B8F000533CE /* Utils.swift */; };
@@ -162,6 +163,8 @@
 		C96B7C60216665D000F9B67F /* CodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		C97E68112188567200272B9F /* LocationNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotification.swift; sourceTree = "<group>"; };
 		C97E681321885E6700272B9F /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		C99B936C218B1A8A002A4FCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C99B936E218B1AF8002A4FCD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9C03A93216348DE000533CE /* CodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManager.swift; sourceTree = "<group>"; };
 		C9C03A96216349E8000533CE /* CodeManagerArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManagerArchive.swift; sourceTree = "<group>"; };
 		C9C03A9921634B8F000533CE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -317,6 +320,7 @@
 				C9C03AA22163B440000533CE /* GoogleService-Info.plist */,
 				C96B7C392165320000F9B67F /* Keys.json */,
 				C96B7C4321660DC300F9B67F /* Localizable.strings */,
+				C99B936D218B1A8A002A4FCD /* InfoPlist.strings */,
 			);
 			path = CodeWalletWidgetApp;
 			sourceTree = "<group>";
@@ -589,6 +593,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = C956DFA4215A9253005F1822;
 			productRefGroup = C956DFAE215A9253005F1822 /* Products */;
@@ -611,6 +616,7 @@
 			files = (
 				C956DFBB215A9255005F1822 /* LaunchScreen.storyboard in Resources */,
 				C96B7C4121660DC300F9B67F /* Localizable.strings in Resources */,
+				C99B936B218B1A8A002A4FCD /* InfoPlist.strings in Resources */,
 				C9C03AA32163B440000533CE /* GoogleService-Info.plist in Resources */,
 				C956DFB8215A9255005F1822 /* Assets.xcassets in Resources */,
 				C956DFB6215A9253005F1822 /* Main.storyboard in Resources */,
@@ -880,6 +886,15 @@
 				C96B7C502166464500F9B67F /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		C99B936D218B1A8A002A4FCD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C99B936C218B1A8A002A4FCD /* en */,
+				C99B936E218B1AF8002A4FCD /* de */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
