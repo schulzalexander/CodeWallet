@@ -30,7 +30,7 @@ class LocationService: NSObject {
 			locationManager = CLLocationManager()
 			
 			locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//			locationManager.allowsBackgroundLocationUpdates = true
+			locationManager.allowsBackgroundLocationUpdates = true
 //			if #available(iOS 11.0, *) {
 //				locationManager.showsBackgroundLocationIndicator = false
 //			}
@@ -38,22 +38,33 @@ class LocationService: NSObject {
 	}
 	
 	func registerLocalNotification(notification: LocationNotification) {
-		guard let code = CodeManager.shared.getCode(id: notification.codeID) else {
-			return
-		}
-		
-		let content = UNMutableNotificationContent()
-		content.body = NSLocalizedString("LocationNotificationMessage", comment: "")
-		content.title = code.name
-		content.sound = UNNotificationSound.default
-		
-		let trigger = UNLocationNotificationTrigger(region: notification.region, repeats: true)
-		let request = UNNotificationRequest(identifier: notification.codeID, content: content, trigger: trigger)
-		
-		UNUserNotificationCenter.current().add(request) { (error) in
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
 			guard error == nil else {
-				print("Error with location notification: \(error!.localizedDescription).")
+				print("Error while requesting user notification authorization: \(error!.localizedDescription)")
 				return
+			}
+			if !success {
+				print("No success requesting user notification authorization!")
+				return
+			} else {
+				guard let code = CodeManager.shared.getCode(id: notification.codeID) else {
+					return
+				}
+				
+				let content = UNMutableNotificationContent()
+				content.body = NSLocalizedString("LocationNotificationMessage", comment: "")
+				content.title = code.name
+				content.sound = UNNotificationSound.default
+				
+				let trigger = UNLocationNotificationTrigger(region: notification.region, repeats: true)
+				let request = UNNotificationRequest(identifier: notification.codeID, content: content, trigger: trigger)
+				
+				UNUserNotificationCenter.current().add(request) { (error) in
+					guard error == nil else {
+						print("Error with location notification: \(error!.localizedDescription).")
+						return
+					}
+				}
 			}
 		}
 	}

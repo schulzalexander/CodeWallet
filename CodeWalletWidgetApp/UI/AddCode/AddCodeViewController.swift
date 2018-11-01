@@ -71,6 +71,7 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		
 		searchBar.layer.opacity = 0.0
 		mapToolbar.layer.opacity = 0.0
+		clearButton.layer.opacity = 0.0
 		mapView.delegate = self
 		searchBar.delegate = self
 		
@@ -236,6 +237,7 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		}
 
 		let code = Code(name: nameTextField.text!, value: barcodeValue!, type: barcodeType!, logo: barcodeLogo)
+//		let code = Code(name: nameTextField.text!, value: "oifeoefibwefoifhweofiwe", type: .qr, logo: barcodeLogo)
 		if selectedLocation != nil && selectedRadius != nil {
 			let notification = LocationNotification(codeID: code.id, location: selectedLocation!, radius: selectedRadius!, alertType: .onEntry, isEnabled: true)
 			code.notification = notification
@@ -318,11 +320,7 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 			
 			self.mapToolbar.layer.opacity = 0.0
 			self.searchBar.layer.opacity = 0.0
-			self.locationDescriptionLabel.layer.opacity = 1.0
 			self.seperator.layer.opacity = 1.0
-			if self.selectedLocation != nil && self.selectedRadius != nil {
-				self.clearButton.layer.opacity = 1.0
-			}
 			if self.selectedLocation == nil || self.selectedRadius == nil {
 				self.setLocationButton.layer.opacity = 0.7
 			}
@@ -332,6 +330,14 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 				self.showLocationOnMap(location: self.selectedLocation!, zoomLevel: self.calcZoomLevelForRadius(radius: self.selectedRadius!))
 			}
 		})
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+			UIView.animate(withDuration: 0.3, animations: {
+				if self.selectedLocation != nil && self.selectedRadius != nil {
+					self.clearButton.layer.opacity = 1.0
+				}
+				self.locationDescriptionLabel.layer.opacity = 1.0
+			})
+		}
 	}
 	
 	private func allowMapInteraction(allow: Bool) {
@@ -356,7 +362,7 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	}
 	
 	@IBAction func clearLocation(_ sender: UIButton) {
-		sender.isHidden = true
+		sender.layer.opacity = 0.0
 		if selectedOverlay != nil {
 			mapView.removeOverlay(selectedOverlay!)
 		}

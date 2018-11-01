@@ -31,7 +31,10 @@ class LocationNotification: NSObject, NSCoding {
 			let longitude = location.coordinate.longitude
 			let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
 			let distance = CLLocationDistance().distance(to: radius)
-			return CLCircularRegion(center: coordinates, radius: distance, identifier: codeID)
+			let region = CLCircularRegion(center: coordinates, radius: distance, identifier: codeID)
+			region.notifyOnExit = alertType == .both || alertType == .onExit
+			region.notifyOnEntry = alertType == .both || alertType == .onEntry
+			return region
 		}
 	}
 	var alertType: LocationAlertType
@@ -50,6 +53,11 @@ class LocationNotification: NSObject, NSCoding {
 		self.radius = radius
 		self.alertType = alertType
 		self.isEnabled = isEnabled
+		
+		super.init()
+		
+		// Not triggered by initialization of isEnabled
+		LocationService.shared.registerLocalNotification(notification: self)
 	}
 	
 	//MARK: NSCoding
@@ -65,7 +73,7 @@ class LocationNotification: NSObject, NSCoding {
 	required init?(coder aDecoder: NSCoder) {
 		guard let id = aDecoder.decodeObject(forKey: PropertyKeys.codeID) as? String,
 			let location = aDecoder.decodeObject(forKey: PropertyKeys.location) as? CLLocation,
-			let radius = aDecoder.decodeObject(forKey: PropertyKeys.radius) as? CLLocationDistance,
+			let radius = CLLocationDistance(exactly: aDecoder.decodeDouble(forKey: PropertyKeys.radius)),
 			let alertType = LocationAlertType(rawValue: aDecoder.decodeInteger(forKey: PropertyKeys.alertType)) else {
 			fatalError("Error while decoding object of class Notification")
 		}

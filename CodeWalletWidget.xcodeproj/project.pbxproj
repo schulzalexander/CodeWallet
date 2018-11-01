@@ -19,6 +19,8 @@
 		C9182BBB2180F48200B5872A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9182BBA2180F48200B5872A /* Utils.swift */; };
 		C92BCF8121675134004BDAEC /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BCF8021675134004BDAEC /* CoreExtensions.swift */; };
 		C92BCF8221675134004BDAEC /* CoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BCF8021675134004BDAEC /* CoreExtensions.swift */; };
+		C93433D8218B273900C2B966 /* LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E68112188567200272B9F /* LocationNotification.swift */; };
+		C93433D9218B278700C2B966 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E681321885E6700272B9F /* LocationService.swift */; };
 		C9473A5A21888EAC0027A85C /* LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E68112188567200272B9F /* LocationNotification.swift */; };
 		C9473A5B21888EC90027A85C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E681321885E6700272B9F /* LocationService.swift */; };
 		C9473A5D2188F9E90027A85C /* CodeSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9473A5C2188F9E90027A85C /* CodeSettingsTableViewController.swift */; };
@@ -562,6 +564,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 						};
 					};
 					C956DFC0215A9255005F1822 = {
@@ -819,6 +824,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C93433D9218B278700C2B966 /* LocationService.swift in Sources */,
+				C93433D8218B273900C2B966 /* LocationNotification.swift in Sources */,
 				C9182BB92180F47700B5872A /* CodeManagerArchive.swift in Sources */,
 				C9182BB72180F42300B5872A /* CodeManager.swift in Sources */,
 				C9182BB82180F42300B5872A /* Code.swift in Sources */,

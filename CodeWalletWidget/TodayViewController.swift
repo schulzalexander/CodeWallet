@@ -46,7 +46,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 			CodeManager.shared = savedCodeManager
 		}
 		
-		#if SCREENSHOTS || true
+		#if SCREENSHOTS
 			CodeManager.shared.deleteAllCodes()
 			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
 			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "weofi392bwwf", type: .code128, logo: nil))

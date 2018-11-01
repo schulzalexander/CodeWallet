@@ -31,7 +31,7 @@ class CodeTableViewController: UIViewController {
 		isSideMenuHidden = false
 		
 		// Preprocessor flag not working yet
-		#if SCREENSHOTS || true
+		#if SCREENSHOTS
 			CodeManager.shared.deleteAllCodes()
 			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
 			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "weofi39283hfoebwwf", type: .code128, logo: nil))
