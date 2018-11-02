@@ -32,6 +32,28 @@
 // Code Settings
 "CodeDeletionMessage" = "Are you sure?";
 
+// Tutorial
+"TutorialMainAddButtonTitle" = "New Barcode";
+"TutorialMainAddButtonExplanation" = "In order to add a code, click the '+' button on the right.";
+
+"TutorialOpenCodeSettingsTitle" = "Code Settings";
+"TutorialOpenCodeSettingsExplanation" = "You can access a settings page for each code, where you can e.g. change its displayed size, by clicking on the settings wheel of that code.";
+
+"TutorialAddCodeTitle" = "Add a Code";
+"TutorialAddCodeExplanation" = "When adding a code, you just have to give it a title and you're good to go. Additionally, you may link the code to a location, so that it will be shown in the notification center when entering an area.";
+
+"TutorialMapSelectLocationTitle" = "Selecting a Location";
+"TutorialMapSelectLocationExplanation" = "To select a location on the map, press and hold on the spot you want.";
+
+"TutorialMapRadiusTitle" = "Define Region";
+"TutorialMapRadiusExplanation" = "You can define the size of the region by using the slider on the bottom.";
+
+"TutorialWidgetShowCodeTitle" = "Widget";
+"TutorialWidgetShowCodeExplanation" = "In the widget, simply click on one of your codes to show it. Click it again to get back to the menu.";
+
+"TutorialWidgetShowSettingsTitle" = "Widget Settings";
+"TutorialWidgetShowSettingsExplanation" = "You can also access a code's settings within the widget by pressing and holding on it.";
+
 // Settings
 "Warning" = "Warning";
 "Reset" = "Reset";

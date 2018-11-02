@@ -63,8 +63,19 @@ class SettingsTableViewController: UITableViewController {
 			}
 		}
 		if indexPath.section == 2 {
-			// Privacy Policy
+			// Replay tutorial
 			if indexPath.row == 0 {
+				guard self.storyboard != nil else {
+					return
+				}
+				let viewController = self.storyboard!.instantiateViewController(withIdentifier: "TutorialPageViewController")
+				DispatchQueue.main.async {
+					self.present(viewController, animated: true, completion: nil)
+				}
+			}
+			
+			// Privacy Policy
+			if indexPath.row == 1 {
 				guard self.storyboard != nil else {
 					return
 				}
@@ -73,7 +84,7 @@ class SettingsTableViewController: UITableViewController {
 			}
 			
 			// Rate App
-			if indexPath.row == 1 {
+			if indexPath.row == 2 {
 				rateApp()
 			}
 			

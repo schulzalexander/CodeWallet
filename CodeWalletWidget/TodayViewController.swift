@@ -46,11 +46,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 			CodeManager.shared = savedCodeManager
 		}
 		
-		#if SCREENSHOTS
+		#if SCREENSHOTS || true
 			CodeManager.shared.deleteAllCodes()
-			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
-			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "weofi392bwwf", type: .code128, logo: nil))
-			CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "weofi39283hfoebwwf", type: .pdf417, logo: nil))
+			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "10985328140279", type: .qr, logo: nil))
+			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "10985328140279", type: .code128, logo: nil))
+			CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "10985328140279", type: .pdf417, logo: nil))
 		#endif
 		
 		collectionView.delegate = self

@@ -32,6 +32,28 @@
 // Code Settings
 "CodeDeletionMessage" = "Bist du sicher?";
 
+// Tutorial
+"TutorialMainAddButtonTitle" = "Neuer Barcode";
+"TutorialMainAddButtonExplanation" = "Um einen neuen Code hinzuzufügen, klicke auf den '+' Button rechts.";
+
+"TutorialOpenCodeSettingsTitle" = "Code Einstellungen";
+"TutorialOpenCodeSettingsExplanation" = "Für jeden Code gibt es eine eigene Seite mit Einstellungen, wo du z.B. die Anzeigegröße ändern kannst. Klicke dazu auf das Rad über dem jeweiligen Code.";
+
+"TutorialAddCodeTitle" = "Code hinzufügen";
+"TutorialAddCodeExplanation" = "Wenn du einen neuen Code erstellst, wird grundsätzlich nur ein Name benötigt. Zusätzlich kann eine Region definiert werden, bei deren Erreichen der Code in der Mitteilungszentrale angezeigt wird.";
+
+"TutorialMapSelectLocationTitle" = "Region auswählen";
+"TutorialMapSelectLocationExplanation" = "Um einen Ort auf der Karte festzulegen, klicke und halte auf dem jewiligen Punkt.";
+
+"TutorialMapRadiusTitle" = "Größe festlegen";
+"TutorialMapRadiusExplanation" = "Die Größe der festgelegten Region kann mit dem Slider unten festgelegt werden.";
+
+"TutorialWidgetShowCodeTitle" = "Widget";
+"TutorialWidgetShowCodeExplanation" = "Im Widget klickst du einfach auf einen Code, um ihn im Vollbild anzuzeigen. Klicke dann nochmal, um zurück ins Menü zu gelangen.";
+
+"TutorialWidgetShowSettingsTitle" = "Widget Einstellungen";
+"TutorialWidgetShowSettingsExplanation" = "Du kannst auch innerhalb des Widgets die Einstellungen eines Codes ändern. Klicke und halte dazu in der Vollbildansicht auf eine beliebige Stelle.";
+
 // Settings
 "Warning" = "Warnung";
 "Reset" = "Zurücksetzen";

@@ -47,6 +47,7 @@ class Code: NSObject, NSCoding {
 	
 	//MARK: NSCoding
 	func encode(with aCoder: NSCoder) {
+		NSKeyedArchiver.setClassName("LocationNotification", for: LocationNotification.self)
 		aCoder.encode(name, forKey: PropertyKeys.name)
 		aCoder.encode(value, forKey: PropertyKeys.value)
 		aCoder.encode(id, forKey: PropertyKeys.id)
@@ -58,6 +59,7 @@ class Code: NSObject, NSCoding {
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
+		NSKeyedUnarchiver.setClass(LocationNotification.self, forClassName: "LocationNotification")
 		guard let name = aDecoder.decodeObject(forKey: PropertyKeys.name) as? String,
 			let value = aDecoder.decodeObject(forKey: PropertyKeys.value) as? String,
 			let id = aDecoder.decodeObject(forKey: PropertyKeys.id) as? String,

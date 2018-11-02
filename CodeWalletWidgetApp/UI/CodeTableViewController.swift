@@ -33,15 +33,19 @@ class CodeTableViewController: UIViewController {
 		// Preprocessor flag not working yet
 		#if SCREENSHOTS
 			CodeManager.shared.deleteAllCodes()
-			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "weofi39283hfoebwwf", type: .qr, logo: nil))
-			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "weofi39283hfoebwwf", type: .code128, logo: nil))
-			CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "weofi39283hfoebwwf", type: .pdf417, logo: nil))
+			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "10985328140279", type: .qr, logo: nil))
+			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "10985328140279", type: .code128, logo: nil))
+			CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "10985328140279", type: .pdf417, logo: nil))
 		#endif
 		
 		tableView.delegate = self
 		tableView.dataSource = self
 		
 		updateAppearance()
+		
+		if Settings.shared.firstAppStart {
+			showTutorial()
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -90,6 +94,13 @@ class CodeTableViewController: UIViewController {
 			gradientBackgroundView!.layer.sublayers?.removeAll()
 		}
 		gradientBackgroundView!.layer.addSublayer(gradientLayer)
+	}
+	
+	private func showTutorial() {
+		guard let tutorial = storyboard?.instantiateViewController(withIdentifier: "TutorialPageViewController") as? TutorialPageViewController else {
+			fatalError("Failed to start tutorial on first app start!")
+		}
+		present(tutorial, animated: true, completion: nil)
 	}
 	
 }
