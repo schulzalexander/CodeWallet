@@ -31,11 +31,13 @@ class CodeTableViewController: UIViewController {
 		isSideMenuHidden = false
 		
 		// Preprocessor flag not working yet
-		#if SCREENSHOTS
+		#if SCREENSHOTS || true
 			CodeManager.shared.deleteAllCodes()
+			let code = Code(name: "Flight Ticket", value: "10985328140279", type: .pdf417, logo: nil)
 			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "10985328140279", type: .qr, logo: nil))
 			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "10985328140279", type: .code128, logo: nil))
-			CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "10985328140279", type: .pdf417, logo: nil))
+			CodeManager.shared.addCode(code: code)
+//			LocationService.shared.scheduleTestNotification(code: code)
 		#endif
 		
 		tableView.delegate = self
@@ -134,16 +136,7 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		var reload = [indexPath]
-		var newSelection: IndexPath? = indexPath
-		if selectedIndex != nil {
-			if selectedIndex!.row == indexPath.row {
-				newSelection = nil
-			}
-			reload.append(selectedIndex!)
-		}
-		selectedIndex = newSelection
-		tableView.reloadRows(at: reload, with: .fade)
+		selectCodeTableRow(indexPath: indexPath)
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -162,6 +155,19 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 		if editingStyle == .delete {
 			deleteCode(indexPath: indexPath)
 		}
+	}
+	
+	func selectCodeTableRow(indexPath: IndexPath) {
+		var reload = [indexPath]
+		var newSelection: IndexPath? = indexPath
+		if selectedIndex != nil {
+			if selectedIndex!.row == indexPath.row {
+				newSelection = nil
+			}
+			reload.append(selectedIndex!)
+		}
+		selectedIndex = newSelection
+		tableView.reloadRows(at: reload, with: .fade)
 	}
 	
 }

@@ -72,4 +72,21 @@ class LocationService: NSObject {
 	func unregisterLocalNotification(notification: LocationNotification) {
 		UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notification.codeID])
 	}
+	
+	func scheduleTestNotification(code: Code) {
+		let content = UNMutableNotificationContent()
+		content.body = NSLocalizedString("LocationNotificationMessage", comment: "")
+		content.title = code.name
+		content.sound = UNNotificationSound.default
+		
+		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+		let request = UNNotificationRequest(identifier: code.id, content: content, trigger: trigger)
+		
+		UNUserNotificationCenter.current().add(request) { (error) in
+			guard error == nil else {
+				print("Error with location notification: \(error!.localizedDescription).")
+				return
+			}
+		}
+	}
 }

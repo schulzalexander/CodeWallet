@@ -662,7 +662,7 @@
                                     <action selector="clearLocation:" destination="i4m-Ve-l7b" eventType="touchUpInside" id="B5P-po-4gk"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="X0M-Ex-d7G">
+                            <searchBar contentMode="redraw" placeholder="Search for location" translatesAutoresizingMaskIntoConstraints="NO" id="X0M-Ex-d7G">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search" textContentType="location"/>
                             </searchBar>

@@ -51,6 +51,7 @@ class CodeManager: NSObject, NSCoding {
 	func deleteCode(id: String) {
 		for i in 0..<codes.count {
 			if id == codes[i].id {
+				codes[i].notification?.isEnabled = false
 				codes.remove(at: i)
 				return
 			}
@@ -58,7 +59,11 @@ class CodeManager: NSObject, NSCoding {
 	}
 	
 	func deleteCode(index: Int) {
-		self.codes.remove(at: index)
+		guard index < codes.count else {
+			return
+		}
+		codes[index].notification?.isEnabled = false
+		codes.remove(at: index)
 	}
 	
 	func deleteAllCodes() {

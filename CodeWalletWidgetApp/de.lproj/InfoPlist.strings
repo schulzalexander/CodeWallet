@@ -6,6 +6,6 @@
   Copyright © 2018 Alexander Schulz. All rights reserved.
 */
 
-"NSLocationAlwaysUsageDescription" = "Dein Standort wird benötigt, um ortsspezifische Mitteilungen mit deinen Barcodes zu erlauben.";
-"NSLocationWhenInUseUsageDescription" = "Dein Standort wird benötigt, um ortsspezifische Mitteilungen mit deinen Barcodes zu erlauben.";
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "Dein Standort wird benötigt, um ortsspezifische Mitteilungen mit deinen Barcodes zu erlauben.";
+"NSLocationAlwaysUsageDescription" = "Dein Standort wird im Vor- und Hintergrund benötigt, um ortsspezifische Mitteilungen mit deinen Barcodes zu erlauben.";
+"NSLocationWhenInUseUsageDescription" = "Dein Standort wird im Vor- und Hintergrund benötigt, um ortsspezifische Mitteilungen mit deinen Barcodes zu erlauben.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Dein Standort wird im Vor- und Hintergrund benötigt, um ortsspezifische Mitteilungen mit deinen Barcodes zu erlauben.";

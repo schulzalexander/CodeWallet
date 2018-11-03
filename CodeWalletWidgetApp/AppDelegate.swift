@@ -69,6 +69,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
 		completionHandler([.alert, .sound])
 	}
+	
+	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+		guard let topController = UIApplication.shared.keyWindow?.rootViewController as? CodeTableViewNavigationController,
+			let codeTable = topController.viewControllers.first as? CodeTableViewController else {
+			return
+		}
+		topController.presentedViewController?.dismiss(animated: true, completion: nil)
+		topController.popToRootViewController(animated: true)
+		
+		let codes = CodeManager.shared.getCodes()
+		for i in 0..<codes.count {
+			if codes[i].id == response.notification.request.identifier {
+				codeTable.selectCodeTableRow(indexPath: IndexPath(row: i, section: 0))
+				break
+			}
+		}
+	}
 
 }
 
