@@ -437,7 +437,7 @@ extension AddCodeViewController: MKMapViewDelegate {
 	
 	private func initLocationTracking() {
 		if CLLocationManager.locationServicesEnabled() {
-			LocationService.shared.locationManager.requestAlwaysAuthorization()
+			LocationService.shared.locationManager.requestWhenInUseAuthorization()
 		} else {
 			//location services not available
 			//TODO: alert to user
