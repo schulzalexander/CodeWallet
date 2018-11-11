@@ -30,10 +30,6 @@ class LocationService: NSObject {
 			locationManager = CLLocationManager()
 			
 			locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//			locationManager.allowsBackgroundLocationUpdates = true
-//			if #available(iOS 11.0, *) {
-//				locationManager.showsBackgroundLocationIndicator = false
-//			}
 		}
 	}
 	
@@ -74,18 +70,20 @@ class LocationService: NSObject {
 	}
 	
 	func scheduleTestNotification(code: Code) {
-		let content = UNMutableNotificationContent()
-		content.body = NSLocalizedString("LocationNotificationMessage", comment: "")
-		content.title = code.name
-		content.sound = UNNotificationSound.default
-		
-		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-		let request = UNNotificationRequest(identifier: code.id, content: content, trigger: trigger)
-		
-		UNUserNotificationCenter.current().add(request) { (error) in
-			guard error == nil else {
-				print("Error with location notification: \(error!.localizedDescription).")
-				return
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
+			let content = UNMutableNotificationContent()
+			content.body = NSLocalizedString("LocationNotificationMessage", comment: "")
+			content.title = code.name
+			content.sound = UNNotificationSound.default
+			
+			let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+			let request = UNNotificationRequest(identifier: code.id, content: content, trigger: trigger)
+			
+			UNUserNotificationCenter.current().add(request) { (error) in
+				guard error == nil else {
+					print("Error with location notification: \(error!.localizedDescription).")
+					return
+				}
 			}
 		}
 	}

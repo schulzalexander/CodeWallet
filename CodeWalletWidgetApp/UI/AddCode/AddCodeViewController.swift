@@ -55,6 +55,8 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	var gradientBackgroundView: UIView?
 	var suggestionsLoadingIndicator: UIActivityIndicatorView?
 	
+	var nameEditDismissView: UIView! // Transparent view that is layed above all content when user is editing name; tapping it will dismiss the keyboard
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,8 +77,8 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		mapView.delegate = self
 		searchBar.delegate = self
 		
-		// Scan button
-		layoutBarcodeButton()
+		layoutBarcodeScanButton()
+		layoutNameTextField()
 		
 		// Logo ImageView that shows an image when selected from local library
 		logoImageResultButton.layer.cornerRadius = 10
@@ -104,6 +106,15 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	
 	//MARK: Layout Methods
 	
+	private func layoutNameTextField() {
+		nameEditDismissView = UIView(frame: view.frame)
+		nameEditDismissView.isHidden = true
+		view.addSubview(nameEditDismissView)
+		// Dismiss Keyboard, when user taps somewhere else
+		let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapOnView(_:)))
+		nameEditDismissView.addGestureRecognizer(gestureRecognizer)
+	}
+	
 	private func layoutSeperator() {
 		let space = (mapView.frame.minY - nameTextField.frame.maxY) / 2
 		seperator.center.y = nameTextField.frame.maxY + space
@@ -130,7 +141,7 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		gradientBackgroundView!.layer.addSublayer(gradientLayer)
 	}
 	
-	private func layoutBarcodeButton() {
+	private func layoutBarcodeScanButton() {
 		barcodeButton.layer.shadowOpacity = 1.0
 		barcodeButton.layer.shadowColor = UIColor.lightGray.cgColor
 		barcodeButton.layer.shadowRadius = 3.0
@@ -151,43 +162,6 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 			return
 		}
 		self.navigationController?.pushViewController(scanViewController, animated: true)
-//		let imagePickerController = UIImagePickerController()
-//		imagePickerController.delegate = self
-//
-//		// User can either scan a code, or load an image from the photo library
-//		let alertController = UIAlertController(title: NSLocalizedString("ImagePickerAlertControllerTitle", comment: ""), message: nil, preferredStyle: .actionSheet)
-//		let library = UIAlertAction(title: NSLocalizedString("PhotoLibrary", comment: ""), style: .default, handler: {(action) in
-//			if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-//				imagePickerController.sourceType = .photoLibrary
-//				self.present(imagePickerController, animated: true, completion: nil)
-//			} else {
-//				let failController = UIAlertController(title: NSLocalizedString("Oops", comment: ""), message: NSLocalizedString("LibraryFailAlertControllerText", comment: ""), preferredStyle: .alert)
-//				failController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
-//				self.present(failController, animated: true, completion: nil)
-//			}
-//		})
-//		let camera = UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .default, handler: {(action) in
-//			guard let scanViewController = self.storyboard!.instantiateViewController(withIdentifier: "ScanCodeViewController") as? ScanCodeViewController else {
-//				return
-//			}
-//			self.navigationController?.pushViewController(scanViewController, animated: true)
-//			if UIImagePickerController.isSourceTypeAvailable(.camera) {
-//				imagePickerController.showsCameraControls = false
-//				imagePickerController.sourceType = .camera
-//				self.present(imagePickerController, animated: true, completion: nil)
-//			} else {
-//				let failController = UIAlertController(title: NSLocalizedString("Oops", comment: ""), message: NSLocalizedString("CameraFailAlertControllerText", comment: ""), preferredStyle: .alert)
-//				failController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
-//				self.present(failController, animated: true, completion: nil)
-//			}
-//		})
-//		let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
-//		alertController.addAction(camera)
-//		alertController.addAction(library)
-//		alertController.addAction(cancel)
-//		DispatchQueue.main.async {
-//			self.present(alertController, animated: true, completion: nil)
-//		}
 	}
 	
 	// Called when the user wants to add a new code from the currently entered information
@@ -205,39 +179,11 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		} else {
 			nameTextField.layer.borderColor = UIColor.clear.cgColor
 		}
-//		if barcodeLogo == nil {
-//			if logoAreaHighlightView == nil {
-//				logoAreaHighlightView = UIView()
-//				view.insertSubview(logoAreaHighlightView!, aboveSubview: gradientBackgroundView!)
-//			}
-//			// If one of the buttons has been pressed (-> buttons will be hidden), take collectionview as frame, else make frame around buttons
-//			if logoLibraryButton.layer.opacity == 0 {
-//				let padding: CGFloat = 15
-//				logoAreaHighlightView!.frame = CGRect(
-//					x: logoCollectionView.frame.minX - padding,
-//					y: logoCollectionView.frame.minY - padding,
-//					width: logoCollectionView.frame.width + 2 * padding,
-//					height: logoCollectionView.frame.height + 2 * padding)
-//			} else {
-//				let padding: CGFloat = 30
-//				logoAreaHighlightView!.frame = CGRect(
-//					x: logoLibraryButton.frame.minX - padding,
-//					y: logoLibraryButton.frame.minY - padding,
-//					width: logoLibraryButton.frame.width + 2 * padding,
-//					height: logoSuggestionsButton.frame.maxY - logoLibraryButton.frame.minY + 2 * padding)
-//			}
-//			logoAreaHighlightView!.layer.borderWidth = 2.0
-//			logoAreaHighlightView!.layer.borderColor = UIColor.red.cgColor
-//			failed = true
-//		} else {
-//			logoAreaHighlightView?.layer.borderColor = UIColor.clear.cgColor
-//		}
 		if failed {
 			return
 		}
 
 		let code = Code(name: nameTextField.text!, value: barcodeValue!, type: barcodeType!, logo: barcodeLogo)
-//		let code = Code(name: nameTextField.text!, value: "oifeoefibwefoifhweofiwe", type: .qr, logo: barcodeLogo)
 		if selectedLocation != nil && selectedRadius != nil {
 			let notification = LocationNotification(codeID: code.id, location: selectedLocation!, radius: selectedRadius!, alertType: .onEntry, isEnabled: true)
 			code.notification = notification
@@ -375,6 +321,13 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		}
 	}
 	
+	//MARK: Barcode Name
+	
+	@objc func tapOnView(_ sender: UIGestureRecognizer) {
+		nameTextField.resignFirstResponder()
+		nameEditDismissView.isHidden = true
+	}
+	
 }
 
 extension AddCodeViewController: UITextFieldDelegate {
@@ -382,6 +335,10 @@ extension AddCodeViewController: UITextFieldDelegate {
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		textField.resignFirstResponder()
 		return true
+	}
+	
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		nameEditDismissView.isHidden = false
 	}
 	
 }

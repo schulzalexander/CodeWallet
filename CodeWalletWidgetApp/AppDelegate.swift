@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 		let codes = CodeManager.shared.getCodes()
 		for i in 0..<codes.count {
 			if codes[i].id == response.notification.request.identifier {
-				codeTable.selectCodeTableRow(indexPath: IndexPath(row: i, section: 0))
+				codeTable.openCodeTableRow(indexPath: IndexPath(row: i, section: 0))
 				break
 			}
 		}

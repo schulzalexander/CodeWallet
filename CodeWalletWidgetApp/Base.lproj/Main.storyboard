@@ -633,17 +633,17 @@
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhf-k0-L6Z">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                                 <items>
-                                    <barButtonItem title="╳" id="jL8-8o-ZPF">
+                                    <barButtonItem title="Item" image="LocationIcon" id="V8Q-3F-Mnv">
                                         <connections>
-                                            <action selector="hideMap:" destination="i4m-Ve-l7b" id="oCe-SZ-Mbr"/>
+                                            <action selector="showUserLocation:" destination="i4m-Ve-l7b" id="3bn-x5-8RY"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="mw0-1j-8ia"/>
                                     <barButtonItem style="plain" id="r12-UV-Sby">
                                         <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="10" maxValue="500" id="fFY-fB-i6u">
-                                            <rect key="frame" x="73" y="8" width="229" height="34"/>
+                                            <rect key="frame" x="71" y="33" width="229" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <connections>
                                                 <action selector="updateRadius:" destination="i4m-Ve-l7b" eventType="touchUpOutside" id="L9B-vJ-eSn"/>
@@ -652,9 +652,9 @@
                                         </slider>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="D0J-ig-zws"/>
-                                    <barButtonItem title="Item" image="LocationIcon" id="V8Q-3F-Mnv">
+                                    <barButtonItem image="CheckmarkIcon" id="jL8-8o-ZPF">
                                         <connections>
-                                            <action selector="showUserLocation:" destination="i4m-Ve-l7b" id="3bn-x5-8RY"/>
+                                            <action selector="hideMap:" destination="i4m-Ve-l7b" id="oCe-SZ-Mbr"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -811,6 +811,7 @@
     </scenes>
     <resources>
         <image name="CancelIcon" width="100" height="100"/>
+        <image name="CheckmarkIcon" width="100" height="100"/>
         <image name="LaunchScreenAppIcon" width="1400" height="1400"/>
         <image name="LocationIcon" width="50" height="50"/>
         <image name="MenuIcon" width="50" height="50"/>
