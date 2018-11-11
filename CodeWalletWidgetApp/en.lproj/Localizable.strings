@@ -25,6 +25,9 @@
 // Barcode logo
 "LogoSuggestionsNameMissingMessage" = "Please provide a name to search for.";
 
+// Map
+"SettingLocationExplanation" = "To select a location, press and hold on the map.";
+
 // Location Notification
 "LocationNotificationMessage" = "Show Barcode.";
 

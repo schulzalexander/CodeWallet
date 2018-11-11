@@ -238,12 +238,16 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 			self.locationDescriptionLabel.layer.opacity = 0.0
 			self.clearButton.layer.opacity = 0.0
 		}
-		UIView.animate(withDuration: 1.0) {
+		UIView.animate(withDuration: 1.0, animations: {
 			self.mapShrinkedAnchor.priority = UILayoutPriority.defaultLow
 			self.mapExpandedAnchor.priority = UILayoutPriority.defaultHigh
 			self.view.layoutIfNeeded()
 			self.mapToolbar.layer.opacity = 1.0
 			self.searchBar.layer.opacity = 1.0
+		}) { (result) in
+			if !Settings.shared.hasSetLocation {
+				self.showToast(message: NSLocalizedString("SettingLocationExplanation", comment: ""))
+			}
 		}
 		
 		initLocationTracking()
@@ -334,6 +338,7 @@ extension AddCodeViewController: UITextFieldDelegate {
 	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		textField.resignFirstResponder()
+		nameEditDismissView.isHidden = true
 		return true
 	}
 	
@@ -418,6 +423,10 @@ extension AddCodeViewController: MKMapViewDelegate {
 		mapView.addOverlay(selectedOverlay!)
 		
 		radiusSlider.isEnabled = true
+		
+		// Save in settings, so that explanation won't be shown next time user opens map
+		Settings.shared.hasSetLocation = true
+		SettingsArchive.save()
 	}
 	
 	private func showLocationOnMap(location: CLLocation, zoomLevel: Double) {

@@ -25,6 +25,8 @@
 // Barcode logo
 "LogoSuggestionsNameMissingMessage" = "Bitte gib erst einen Namen an, um Vorschläge zu laden.";
 
+// Map
+"SettingLocationExplanation" = "Um einen Ort auszuwählen, halte die Karte gedrückt.";
 
 // Location Notification
 "LocationNotificationMessage" = "Barcode anzeigen.";
