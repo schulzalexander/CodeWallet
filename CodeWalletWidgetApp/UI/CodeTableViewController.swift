@@ -136,7 +136,7 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		openCodeTableRow(indexPath: indexPath)
+		toggleCodeTableRow(indexPath: indexPath)
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -157,17 +157,24 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 		}
 	}
 	
-	func openCodeTableRow(indexPath: IndexPath) {
+	func toggleCodeTableRow(indexPath: IndexPath) {
 		var reload = [indexPath]
 		var newSelection: IndexPath? = indexPath
-		if selectedIndex != nil && selectedIndex != indexPath {
+		if selectedIndex != nil {
 			if selectedIndex!.row == indexPath.row {
 				newSelection = nil
+			} else {
+				reload.append(selectedIndex!)
 			}
-			reload.append(selectedIndex!)
 		}
 		selectedIndex = newSelection
 		tableView.reloadRows(at: reload, with: .fade)
+	}
+	
+	func openCodeTableRow(indexPath: IndexPath) {
+		if selectedIndex != nil && selectedIndex != indexPath {
+			toggleCodeTableRow(indexPath: indexPath)
+		}
 	}
 	
 }
