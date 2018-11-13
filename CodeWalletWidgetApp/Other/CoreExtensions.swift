@@ -79,6 +79,7 @@ extension UIImage {
 		UIGraphicsEndImageContext()
 		return imageWithInsets
 	}
+	
 }
 
 extension UIViewController {
@@ -109,4 +110,6 @@ extension UIViewController {
 				toastLabel.removeFromSuperview()
 			})
 		}
-	} }
+	}
+	
+}

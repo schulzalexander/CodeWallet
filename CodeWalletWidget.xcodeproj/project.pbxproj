@@ -12,6 +12,8 @@
 		1D87952E8DD094D22D3CA099 /* Pods_CodeWalletWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9276A70E3DD90805320F0CC4 /* Pods_CodeWalletWidget.framework */; };
 		451B4012681777AD8F7D7D8E /* Pods_CodeWalletWidgetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD0F6D0BFA6C15B4B7815F86 /* Pods_CodeWalletWidgetUITests.framework */; };
 		591A73A72E1548FCAAAD7F73 /* Pods_CodeWalletWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D2F5312166687800D9016B /* Pods_CodeWalletWidget.framework */; };
+		C90D4F4C219B5F2A00ABF9FC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C31216503BC00F9B67F /* Settings.swift */; };
+		C90D4F4D219B5F6100ABF9FC /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B7C33216503F300F9B67F /* Themes.swift */; };
 		C910656921674DAF00711099 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C910656821674DAE00711099 /* Localizable.strings */; };
 		C9182BB72180F42300B5872A /* CodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A93216348DE000533CE /* CodeManager.swift */; };
 		C9182BB82180F42300B5872A /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE2215A9673005F1822 /* Code.swift */; };
@@ -832,6 +834,8 @@
 				C9473A5B21888EC90027A85C /* LocationService.swift in Sources */,
 				C9D2F53B2166923D00D9016B /* Utils.swift in Sources */,
 				C96B7C642166676900F9B67F /* Code.swift in Sources */,
+				C90D4F4C219B5F2A00ABF9FC /* Settings.swift in Sources */,
+				C90D4F4D219B5F6100ABF9FC /* Themes.swift in Sources */,
 				C96B7C632166676900F9B67F /* CodeManager.swift in Sources */,
 				C96B7C622166676900F9B67F /* CodeManagerArchive.swift in Sources */,
 				C96B7C4E2166464500F9B67F /* TodayViewController.swift in Sources */,

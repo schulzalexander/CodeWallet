@@ -31,7 +31,7 @@ class CodeTableViewController: UIViewController {
 		isSideMenuHidden = false
 		
 		// Preprocessor flag not working yet
-		#if SCREENSHOTS
+		#if SCREENSHOTS || true
 			CodeManager.shared.deleteAllCodes()
 			let code = Code(name: "Flight Ticket", value: "10985328140279", type: .pdf417, logo: nil)
 			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "10985328140279", type: .qr, logo: nil))
@@ -48,6 +48,10 @@ class CodeTableViewController: UIViewController {
 		if Settings.shared.firstAppStart {
 			showTutorial()
 		}
+		
+		Settings.shared.openingCount += 1
+		SettingsArchive.save()
+		Utils.requestAppStoreRating()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

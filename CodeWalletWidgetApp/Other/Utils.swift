@@ -10,6 +10,7 @@ import Foundation
 import AVFoundation
 import UIKit
 import RSBarcodes_Swift
+import StoreKit
 
 class Utils {
 	
@@ -93,6 +94,22 @@ class Utils {
 				completionHandler(image)
 			}
 		}).resume()
+	}
+	
+	static func requestAppStoreRating() {
+		let count = Settings.shared.openingCount
+		switch count {
+			case 4, 25:
+				if #available(iOS 10.3, *) {
+					SKStoreReviewController.requestReview()
+				}
+			case _ where count % 50 == 0 :
+				if #available(iOS 10.3, *) {
+					SKStoreReviewController.requestReview()
+				}
+			default:
+				break
+		}
 	}
 	
 }
