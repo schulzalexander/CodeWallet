@@ -37,7 +37,8 @@ class CodeTableViewController: UIViewController {
 			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "10985328140279", type: .qr, logo: nil))
 			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "10985328140279", type: .code128, logo: nil))
 			CodeManager.shared.addCode(code: code)
-//			LocationService.shared.scheduleTestNotification(code: code)
+//			CodeManagerArchive.saveCodeManager()
+			LocationService.shared.scheduleTestNotification(code: code)
 		#endif
 		
 		tableView.delegate = self
@@ -176,7 +177,7 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func openCodeTableRow(indexPath: IndexPath) {
-		if selectedIndex != nil && selectedIndex != indexPath {
+		if selectedIndex == nil || selectedIndex != indexPath {
 			toggleCodeTableRow(indexPath: indexPath)
 		}
 	}
