@@ -42,10 +42,7 @@ class ScanCodeViewController: UIViewController {
 			currVal != nil, currType != nil else {
 			return
 		}
-		dest.barcodeValue = currVal
-		dest.barcodeType = currType
-		dest.codeSelectionLabel.isHidden = true
-		dest.barcodeButton.setImage(Utils.generateCode(value: currVal!, codeType: currType!, targetSize: dest.barcodeButton.frame.size), for: .normal)
+		dest.setBarcode(value: currVal!, type: currType!)
 		navigationController?.popViewController(animated: true)
 	}
 	

@@ -11,6 +11,7 @@
 "Oops" = "Oops";
 "Cancel" = "Cancel";
 "Delete" = "Delete";
+"Save" = "Speichern";
 
 // Barcode Table
 "TableViewEmptyMessage" = "There have been no barcodes added yet.";

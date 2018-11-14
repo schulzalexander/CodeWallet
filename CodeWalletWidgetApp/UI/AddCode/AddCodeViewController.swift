@@ -28,6 +28,8 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	var layedOutSeperator: Bool = false
 	let defaultZoomLevel: Double = 0.005
 	
+	var initialCodeData: Code?
+	
 	//MARK: Outlets
 	@IBOutlet weak var logoImageResultButton: UIButton!
 	@IBOutlet weak var nameTextField: UITextField!
@@ -50,6 +52,7 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 	@IBOutlet weak var mapExpandedAnchor: NSLayoutConstraint!
 	
 	@IBOutlet weak var doneButton: UIBarButtonItem!
+	var saveButton: UIBarButtonItem?
 	
 	var logoAreaHighlightView: UIView? // A view that covers the logo area, that is used to show a red border when a logo selection is missing
 	var gradientBackgroundView: UIView?
@@ -89,6 +92,10 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		radiusSlider.isEnabled = false
 		
 		setupGradientBackground()
+		
+		if initialCodeData != nil {
+			setupForCodeModification(code: initialCodeData!)
+		}
     }
 	
 	override func viewDidLayoutSubviews() {
@@ -152,20 +159,47 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		codeSelectionLabel.textColor = Theme.buttonTextColor
 	}
 	
-	//MARK: Barcode
+	func setupForCodeModification(code: Code) {
+		nameTextField.text = code.name
+		logoImageResultButton.setImage(code.logo, for: .normal)
+		setBarcode(value: code.value, type: code.type)
+		if code.notification != nil {
+			setNewLocation(location: code.notification!.location, distance: code.notification!.radius)
+			showLocationOnMap(location: code.notification!.location, zoomLevel: calcZoomLevelForRadius(radius: code.notification!.radius))
+			
+		}
+		
+		setLocationButton.layer.opacity = 0.0
+		clearButton.layer.opacity = 1.0
+		
+		saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save(_:)))
+		navigationItem.rightBarButtonItem = saveButton
+	}
 	
-	// Called when user clicks on the button that holds the barcode (if selected)
-	@IBAction func selectBarcode(_ sender: UIButton) {
-		//TODO: For now, directly go to scanning VC
-		// in future, user should be able to select a picture from local library to scan it
-		guard let scanViewController = self.storyboard!.instantiateViewController(withIdentifier: "ScanCodeViewController") as? ScanCodeViewController else {
+	//MARK: Done & Save
+	
+	// Save an existing code that was modified in this session
+	@IBAction func save(_ sender: UIBarButtonItem) {
+		guard initialCodeData != nil,
+			barcodeType != nil,
+			barcodeValue != nil,
+			nameTextField.text != nil else {
 			return
 		}
-		self.navigationController?.pushViewController(scanViewController, animated: true)
+		initialCodeData?.type = barcodeType!
+		initialCodeData?.value = barcodeValue!
+		initialCodeData?.logo = barcodeLogo
+		initialCodeData?.name = nameTextField.text!
+		if selectedLocation != nil && selectedRadius != nil {
+			let notification = LocationNotification(codeID: initialCodeData!.id, location: selectedLocation!, radius: selectedRadius!, alertType: .onEntry, isEnabled: true)
+			initialCodeData?.notification = notification
+		}
+		CodeManagerArchive.saveCodeManager()
+		performSegue(withIdentifier: "unwindToCodeTableViewController", sender: sender)
 	}
 	
 	// Called when the user wants to add a new code from the currently entered information
-	@IBAction func addBarcode(_ sender: UIBarButtonItem) {
+	@IBAction func done(_ sender: UIBarButtonItem) {
 		var failed = false
 		if barcodeValue == nil || barcodeType == nil {
 			barcodeButton.layer.borderColor = UIColor.red.cgColor
@@ -182,7 +216,7 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		if failed {
 			return
 		}
-
+		
 		let code = Code(name: nameTextField.text!, value: barcodeValue!, type: barcodeType!, logo: barcodeLogo)
 		if selectedLocation != nil && selectedRadius != nil {
 			let notification = LocationNotification(codeID: code.id, location: selectedLocation!, radius: selectedRadius!, alertType: .onEntry, isEnabled: true)
@@ -192,6 +226,25 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		CodeManagerArchive.saveCodeManager()
 		
 		self.dismiss(animated: true, completion: nil)
+	}
+	
+	//MARK: Barcode
+	
+	// Called when user clicks on the button that holds the barcode (if selected)
+	@IBAction func selectBarcode(_ sender: UIButton) {
+		//TODO: For now, directly go to scanning VC
+		// in future, user should be able to select a picture from local library to scan it
+		guard let scanViewController = self.storyboard!.instantiateViewController(withIdentifier: "ScanCodeViewController") as? ScanCodeViewController else {
+			return
+		}
+		self.navigationController?.pushViewController(scanViewController, animated: true)
+	}
+	
+	func setBarcode(value: String, type: AVMetadataObject.ObjectType) {
+		barcodeValue = value
+		barcodeType = type
+		codeSelectionLabel.isHidden = true
+		barcodeButton.setImage(Utils.generateCode(value: value, codeType: type, targetSize: barcodeButton.frame.size), for: .normal)
 	}
 	
 	//MARK: Logo
@@ -256,12 +309,15 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 			mapView.userTrackingMode = .follow
 		} // else, the mapview will already be focused on the location, which happens when calling hideMap()
 		allowMapInteraction(allow: true)
-		doneButton.isEnabled = false
+		
+		doneButton?.isEnabled = false
+		saveButton?.isEnabled = false
 	}
 	
 	@IBAction func hideMap(_ sender: UIBarButtonItem) {
 		allowMapInteraction(allow: false)
-		doneButton.isEnabled = true
+		doneButton?.isEnabled = true
+		saveButton?.isEnabled = true
 		
 		UIView.animate(withDuration: 1.0, animations: {
 			self.mapShrinkedAnchor.priority = UILayoutPriority.defaultHigh
@@ -414,19 +470,26 @@ extension AddCodeViewController: MKMapViewDelegate {
 		}
 		let point = sender.location(in: mapView)
 		let coordinates = mapView.convert(point, toCoordinateFrom: mapView)
-		self.selectedLocation = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
-		self.selectedRadius = CLLocationDistance(exactly: radiusSlider.value)
+		setNewLocation(location: CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude),
+					   distance: CLLocationDistance(exactly: radiusSlider.value)!)
+	}
+	
+	private func setNewLocation(location: CLLocation, distance: CLLocationDistance) {
+		self.selectedLocation = location
+		self.selectedRadius = distance
 		if selectedOverlay != nil {
 			mapView.removeOverlay(selectedOverlay!)
 		}
-		selectedOverlay = MKCircle(center: coordinates, radius: self.selectedRadius!)
+		selectedOverlay = MKCircle(center: location.coordinate, radius: self.selectedRadius!)
 		mapView.addOverlay(selectedOverlay!)
 		
 		radiusSlider.isEnabled = true
 		
-		// Save in settings, so that explanation won't be shown next time user opens map
-		Settings.shared.hasSetLocation = true
-		SettingsArchive.save()
+		if !Settings.shared.hasSetLocation {
+			// Save in settings, so that explanation won't be shown next time user opens map
+			Settings.shared.hasSetLocation = true
+			SettingsArchive.save()
+		}
 	}
 	
 	private func showLocationOnMap(location: CLLocation, zoomLevel: Double) {

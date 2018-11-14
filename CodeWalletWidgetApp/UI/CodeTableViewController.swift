@@ -32,13 +32,13 @@ class CodeTableViewController: UIViewController {
 		
 		// Preprocessor flag not working yet
 		#if SCREENSHOTS || true
-			CodeManager.shared.deleteAllCodes()
-			let code = Code(name: "Flight Ticket", value: "10985328140279", type: .pdf417, logo: nil)
-			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "10985328140279", type: .qr, logo: nil))
-			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "10985328140279", type: .code128, logo: nil))
-			CodeManager.shared.addCode(code: code)
+//			CodeManager.shared.deleteAllCodes()
+//			let code = Code(name: "Flight Ticket", value: "10985328140279", type: .pdf417, logo: nil)
+//			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "10985328140279", type: .qr, logo: nil))
+//			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "10985328140279", type: .code128, logo: nil))
+//			CodeManager.shared.addCode(code: code)
 //			CodeManagerArchive.saveCodeManager()
-			LocationService.shared.scheduleTestNotification(code: code)
+//			LocationService.shared.scheduleTestNotification(code: code)
 		#endif
 		
 		tableView.delegate = self
@@ -77,6 +77,13 @@ class CodeTableViewController: UIViewController {
 		tableView.deleteRows(at: [indexPath], with: .automatic)
 		if selectedIndex == indexPath {
 			selectedIndex = nil
+		}
+	}
+	
+	@IBAction func unwindToCodeTableViewController(_ segue: UIStoryboardSegue) {
+		if segue.identifier == "unwindToCodeTableViewController" {
+			selectedIndex = nil
+			tableView.reloadData()
 		}
 	}
 	

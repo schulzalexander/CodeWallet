@@ -20,6 +20,7 @@ class CodeSettingsTableViewController: UITableViewController {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var sizeLabel: UILabel!
 	@IBOutlet weak var showValueSwitch: UISwitch!
+	@IBOutlet weak var changeButton: UIButton!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,7 @@ class CodeSettingsTableViewController: UITableViewController {
 		showValueSwitch.isOn = code.showValue
 		updateSizeLabel()
 		
-		deleteButton.layer.cornerRadius = deleteButton.frame.height / 2
-		deleteButton.clipsToBounds = true
+		locationSwitch.isEnabled = code.notification != nil
     }
 	
 	override func viewDidLayoutSubviews() {
@@ -46,6 +46,16 @@ class CodeSettingsTableViewController: UITableViewController {
 		CodeManagerArchive.saveCodeManager()
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "CodeSettingsToAddCode" {
+			guard let navigationController = segue.destination as? UINavigationController,
+				let viewController = navigationController.viewControllers.first as? AddCodeViewController else {
+				return
+			}
+			viewController.initialCodeData = code
+		}
+	}
+	
 	@IBAction func didChangeLocationEnabled(_ sender: UISwitch) {
 		guard code.notification != nil else {
 			return
@@ -58,6 +68,10 @@ class CodeSettingsTableViewController: UITableViewController {
 		code.showValue = sender.isOn
 		changed = true
 		updateCodeTableCellValue()
+	}
+	
+	@IBAction func changeCode(_ sender: UIButton) {
+		performSegue(withIdentifier: "CodeSettingsToAddCode", sender: sender)
 	}
 	
 	@IBAction func deleteCode(_ sender: UIButton) {
