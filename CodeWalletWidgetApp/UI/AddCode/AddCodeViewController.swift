@@ -167,10 +167,9 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 			setNewLocation(location: code.notification!.location, distance: code.notification!.radius)
 			showLocationOnMap(location: code.notification!.location, zoomLevel: calcZoomLevelForRadius(radius: code.notification!.radius))
 			
+			setLocationButton.layer.opacity = 0.0
+			clearButton.layer.opacity = 1.0
 		}
-		
-		setLocationButton.layer.opacity = 0.0
-		clearButton.layer.opacity = 1.0
 		
 		saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save(_:)))
 		navigationItem.rightBarButtonItem = saveButton
