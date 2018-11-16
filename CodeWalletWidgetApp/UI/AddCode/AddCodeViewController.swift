@@ -189,9 +189,13 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 		initialCodeData?.value = barcodeValue!
 		initialCodeData?.logo = barcodeLogo
 		initialCodeData?.name = nameTextField.text!
+		if initialCodeData?.notification != nil {
+			LocationService.shared.unregisterLocalNotification(notification: initialCodeData!.notification!)
+		}
 		if selectedLocation != nil && selectedRadius != nil {
 			let notification = LocationNotification(codeID: initialCodeData!.id, location: selectedLocation!, radius: selectedRadius!, alertType: .onEntry, isEnabled: true)
 			initialCodeData?.notification = notification
+			LocationService.shared.registerLocalNotification(notification: notification)
 		}
 		CodeManagerArchive.saveCodeManager()
 		performSegue(withIdentifier: "unwindToCodeTableViewController", sender: sender)

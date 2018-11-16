@@ -31,15 +31,16 @@ class CodeTableViewController: UIViewController {
 		isSideMenuHidden = false
 		
 		// Preprocessor flag not working yet
-		#if SCREENSHOTS || true
+//		#if SCREENSHOTS || true
 //			CodeManager.shared.deleteAllCodes()
 //			let code = Code(name: "Flight Ticket", value: "10985328140279", type: .pdf417, logo: nil)
+//			code.id = "123"
 //			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "10985328140279", type: .qr, logo: nil))
 //			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "10985328140279", type: .code128, logo: nil))
 //			CodeManager.shared.addCode(code: code)
 //			CodeManagerArchive.saveCodeManager()
 //			LocationService.shared.scheduleTestNotification(code: code)
-		#endif
+//		#endif
 		
 		tableView.delegate = self
 		tableView.dataSource = self

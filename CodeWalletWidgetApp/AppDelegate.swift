@@ -71,17 +71,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 	}
 	
 	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+		
 		guard let topController = UIApplication.shared.keyWindow?.rootViewController as? CodeTableViewNavigationController,
 			let codeTable = topController.viewControllers.first as? CodeTableViewController else {
 			return
 		}
-		topController.presentedViewController?.dismiss(animated: true, completion: nil)
-		topController.popToRootViewController(animated: true)
-		
+
+		if topController.viewControllers.count > 1 {
+			topController.presentedViewController?.dismiss(animated: true, completion: nil)
+			topController.popToRootViewController(animated: true)
+		}
+
 		let codes = CodeManager.shared.getCodes()
 		for i in 0..<codes.count {
 			if codes[i].id == response.notification.request.identifier {
-				codeTable.openCodeTableRow(indexPath: IndexPath(row: i, section: 0))
+				codeTable.selectedIndex = IndexPath(row: i, section: 0)
 				break
 			}
 		}
