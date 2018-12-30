@@ -17,6 +17,8 @@ class ScanCodeViewController: UIViewController {
 	var codeHighlightView: UIView!
 	var addButton: UIButton!
 	
+	var infoPanel: BarcodeInfoPanel!
+	
 	var currVal: String?
 	var currType: AVMetadataObject.ObjectType?
 	
@@ -32,21 +34,35 @@ class ScanCodeViewController: UIViewController {
 		codeHighlightView = UIView()
 		initHighlightView()
 		
-		setupAddButton()
+//		setupAddButton()
+		setupInfoPanel()
 		
 		captureSession.startRunning()
     }
 	
-	@objc private func didSelectCode(_ sender: UIButton) {
-		guard let dest = navigationController?.viewControllers.first as? AddCodeViewController,
-			currVal != nil, currType != nil else {
-			return
-		}
-		dest.setBarcode(value: currVal!, type: currType!)
-		navigationController?.popViewController(animated: true)
-	}
+//	@objc private func didSelectCode(_ sender: UIButton) {
+//		guard let dest = navigationController?.viewControllers.first as? AddCodeViewController,
+//			currVal != nil, currType != nil else {
+//			return
+//		}
+//		dest.setBarcode(value: currVal!, type: currType!)
+//		navigationController?.popViewController(animated: true)
+//	}
 	
 	//MARK: Setup Methods
+	
+	private func setupInfoPanel() {
+		infoPanel = BarcodeInfoPanel(frame: CGRect(x: 10, y: view.frame.height - 70, width: view.frame.width - 20, height: 50))
+		infoPanel.layer.borderColor = UIColor.lightGray.cgColor
+		infoPanel.layer.borderWidth = 1
+		view.addSubview(infoPanel)
+		infoPanel.delegate = self
+		
+		infoPanel.layer.shadowRadius = 3
+		infoPanel.layer.shadowOpacity = 1
+		infoPanel.layer.shadowOffset = CGSize(width: 0, height: 0)
+		infoPanel.layer.shadowColor = UIColor.gray.cgColor
+	}
 	
 	private func initHighlightView() {
 		codeHighlightView.layer.borderColor = UIColor.green.cgColor
@@ -108,7 +124,7 @@ class ScanCodeViewController: UIViewController {
 		let size = 60
 		addButton.frame = CGRect(x: 0, y: 0, width: size, height: size)
 		self.view.insertSubview(addButton, aboveSubview: self.view)
-		setAddButtonActive(active: false)
+//		setAddButtonActive(active: false)
 		addButton.center = CGPoint(x: self.view.frame.width - 30 - (self.addButton.frame.width / 2), y: self.view.frame.height - 80 - (self.addButton.frame.height / 2))
 		if UIScreen.main.nativeBounds.height == 2436 {
 			//iPhone X
@@ -119,24 +135,24 @@ class ScanCodeViewController: UIViewController {
 		addButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
 		addButton.layer.shadowOpacity = 1.0
 		addButton.layer.shadowRadius = 3.0
-		addButton.addTarget(self, action: #selector(self.didSelectCode(_:)), for: UIControl.Event.touchUpInside)
+//		addButton.addTarget(self, action: #selector(self.didSelectCode(_:)), for: UIControl.Event.touchUpInside)
 	}
 	
-	private func setAddButtonActive(active: Bool) {
-		addButton.isEnabled = active
-		if active {
-			addButton.backgroundColor = .green
-		} else {
-			addButton.backgroundColor = .lightGray
-		}
-	}
+//	private func setAddButtonActive(active: Bool) {
+//		addButton.isEnabled = active
+//		if active {
+//			addButton.backgroundColor = .green
+//		} else {
+//			addButton.backgroundColor = .lightGray
+//		}
+//	}
 
 }
 
 extension ScanCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
 	
 	func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-		setAddButtonActive(active: metadataObjects.count > 0)
+//		setAddButtonActive(active: metadataObjects.count > 0)
 		guard metadataObjects.count > 0 else {
 			codeHighlightView.frame = CGRect.zero
 			return
@@ -145,11 +161,24 @@ extension ScanCodeViewController: AVCaptureMetadataOutputObjectsDelegate {
 		// Get the metadata object.
 		let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
 		
-		currVal = metadataObj.stringValue
-		currType = metadataObj.type
+		infoPanel.currVal = metadataObj.stringValue
+		infoPanel.currType = metadataObj.type
+		infoPanel.updateContinueButton(value: nil)
 		
 		let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
 		codeHighlightView.frame = barCodeObject!.bounds
+	}
+	
+}
+
+extension ScanCodeViewController: BarcodeInfoPanelDelegate {
+	
+	func didPressContinue(value: String, type: AVMetadataObject.ObjectType) {
+		guard let dest = navigationController?.viewControllers.first as? AddCodeViewController else {
+				return
+		}
+		dest.setBarcode(value: value, type: type)
+		navigationController?.popViewController(animated: true)
 	}
 	
 }

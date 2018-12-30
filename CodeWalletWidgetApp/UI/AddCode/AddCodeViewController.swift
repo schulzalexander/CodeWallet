@@ -63,6 +63,19 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		/* TEST */
+//		var a = BarcodeInfoPanel(frame: CGRect(x: 10, y: view.frame.height - 70, width: view.frame.width - 20, height: 50))
+////		a.layer.masksToBounds = false
+////		a.layer.shadowColor = UIColor.black.cgColor
+////		a.layer.shadowOpacity = 1
+////		a.layer.shadowOffset = CGSize(width: 0, height: 0)
+////		a.layer.shadowRadius = 5
+//		a.layer.borderColor = UIColor.lightGray.cgColor
+//		a.layer.borderWidth = 1
+//		view.addSubview(a)
+//		view.bringSubviewToFront(a)
+		/* TEST */
+		
 		// to highlight when user wants to create code, but barcode info is missing
 		barcodeButton.layer.borderWidth = 2.0
 		nameTextField.layer.borderWidth = 2.0
@@ -169,6 +182,8 @@ class AddCodeViewController: UIViewController, CLLocationManagerDelegate {
 			
 			setLocationButton.layer.opacity = 0.0
 			clearButton.layer.opacity = 1.0
+			
+			allowMapInteraction(allow: false)
 		}
 		
 		saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save(_:)))

@@ -55,6 +55,7 @@
 		C96B7C642166676900F9B67F /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956DFE2215A9673005F1822 /* Code.swift */; };
 		C97E68122188567200272B9F /* LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E68112188567200272B9F /* LocationNotification.swift */; };
 		C97E681421885E6700272B9F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E681321885E6700272B9F /* LocationService.swift */; };
+		C97F6E9021D520BD0076881C /* BarcodeInfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97F6E8F21D520BD0076881C /* BarcodeInfoPanel.swift */; };
 		C998D5D5218C4FEB0072F733 /* LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E68112188567200272B9F /* LocationNotification.swift */; };
 		C998D5DB218CE1D90072F733 /* TutorialPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998D5D8218CE1D90072F733 /* TutorialPage.swift */; };
 		C998D5DC218CE1D90072F733 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998D5D9218CE1D90072F733 /* TutorialPageViewController.swift */; };
@@ -170,6 +171,7 @@
 		C96B7C60216665D000F9B67F /* CodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		C97E68112188567200272B9F /* LocationNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotification.swift; sourceTree = "<group>"; };
 		C97E681321885E6700272B9F /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		C97F6E8F21D520BD0076881C /* BarcodeInfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeInfoPanel.swift; sourceTree = "<group>"; };
 		C998D5D8218CE1D90072F733 /* TutorialPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPage.swift; sourceTree = "<group>"; };
 		C998D5D9218CE1D90072F733 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		C998D5DA218CE1D90072F733 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 			children = (
 				C956DFE6215AA0F3005F1822 /* AddCodeViewController.swift */,
 				C9C03A9E2163597D000533CE /* ScanCodeViewController.swift */,
+				C97F6E8F21D520BD0076881C /* BarcodeInfoPanel.swift */,
 			);
 			path = AddCode;
 			sourceTree = "<group>";
@@ -805,6 +808,7 @@
 				C956DFB3215A9253005F1822 /* CodeTableViewController.swift in Sources */,
 				C9473A5D2188F9E90027A85C /* CodeSettingsTableViewController.swift in Sources */,
 				C96B7C3821650ECD00F9B67F /* PrivacyPolicyViewController.swift in Sources */,
+				C97F6E9021D520BD0076881C /* BarcodeInfoPanel.swift in Sources */,
 				C956DFB1215A9253005F1822 /* AppDelegate.swift in Sources */,
 				C96B7C362165042400F9B67F /* SettingsArchive.swift in Sources */,
 			);
