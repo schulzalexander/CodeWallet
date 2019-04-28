@@ -56,6 +56,19 @@
 		C97E68122188567200272B9F /* LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E68112188567200272B9F /* LocationNotification.swift */; };
 		C97E681421885E6700272B9F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E681321885E6700272B9F /* LocationService.swift */; };
 		C97F6E9021D520BD0076881C /* BarcodeInfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97F6E8F21D520BD0076881C /* BarcodeInfoPanel.swift */; };
+		C986A41322747E51005ACAB0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C986A41122747E51005ACAB0 /* Interface.storyboard */; };
+		C986A41522747E53005ACAB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C986A41422747E53005ACAB0 /* Assets.xcassets */; };
+		C986A41C22747E53005ACAB0 /* CodeWalletWidgetWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C986A41B22747E53005ACAB0 /* CodeWalletWidgetWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C986A42122747E53005ACAB0 /* CodeTableInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C986A42022747E53005ACAB0 /* CodeTableInterfaceController.swift */; };
+		C986A42322747E53005ACAB0 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C986A42222747E53005ACAB0 /* ExtensionDelegate.swift */; };
+		C986A42522747E53005ACAB0 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C986A42422747E53005ACAB0 /* NotificationController.swift */; };
+		C986A42722747E53005ACAB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C986A42622747E53005ACAB0 /* Assets.xcassets */; };
+		C986A42C22747E53005ACAB0 /* CodeWalletWidgetWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C986A40F22747E51005ACAB0 /* CodeWalletWidgetWatch.app */; };
+		C986A4372275A92A005ACAB0 /* CodeRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C986A4362275A92A005ACAB0 /* CodeRowController.swift */; };
+		C986A43A2275AAFD005ACAB0 /* WatchCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C986A4392275AAFD005ACAB0 /* WatchCode.swift */; };
+		C986A43D2275AD38005ACAB0 /* CodeDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C986A43C2275AD38005ACAB0 /* CodeDetailInterfaceController.swift */; };
+		C986A43F2275B17F005ACAB0 /* ConnectivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C986A43E2275B17F005ACAB0 /* ConnectivityHandler.swift */; };
+		C986A4402275B3A3005ACAB0 /* WatchCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C986A4392275AAFD005ACAB0 /* WatchCode.swift */; };
 		C998D5D5218C4FEB0072F733 /* LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E68112188567200272B9F /* LocationNotification.swift */; };
 		C998D5DB218CE1D90072F733 /* TutorialPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998D5D8218CE1D90072F733 /* TutorialPage.swift */; };
 		C998D5DC218CE1D90072F733 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998D5D9218CE1D90072F733 /* TutorialPageViewController.swift */; };
@@ -94,6 +107,20 @@
 			remoteGlobalIDString = C96B7C482166464500F9B67F;
 			remoteInfo = TodayExtension;
 		};
+		C986A41D22747E53005ACAB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C956DFA5215A9253005F1822 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C986A41A22747E53005ACAB0;
+			remoteInfo = "CodeWalletWidgetWatch Extension";
+		};
+		C986A42A22747E53005ACAB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C956DFA5215A9253005F1822 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C986A40E22747E51005ACAB0;
+			remoteInfo = CodeWalletWidgetWatch;
+		};
 		C9F014F32180F04200EF2F5C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C956DFA5215A9253005F1822 /* Project object */;
@@ -113,6 +140,28 @@
 				C96B7C552166464500F9B67F /* CodeWalletWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C986A43222747E53005ACAB0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C986A41C22747E53005ACAB0 /* CodeWalletWidgetWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C986A43422747E53005ACAB0 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C986A42C22747E53005ACAB0 /* CodeWalletWidgetWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -172,6 +221,21 @@
 		C97E68112188567200272B9F /* LocationNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotification.swift; sourceTree = "<group>"; };
 		C97E681321885E6700272B9F /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		C97F6E8F21D520BD0076881C /* BarcodeInfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeInfoPanel.swift; sourceTree = "<group>"; };
+		C986A40F22747E51005ACAB0 /* CodeWalletWidgetWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeWalletWidgetWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C986A41222747E51005ACAB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		C986A41422747E53005ACAB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C986A41622747E53005ACAB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C986A41B22747E53005ACAB0 /* CodeWalletWidgetWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CodeWalletWidgetWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C986A42022747E53005ACAB0 /* CodeTableInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableInterfaceController.swift; sourceTree = "<group>"; };
+		C986A42222747E53005ACAB0 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		C986A42422747E53005ACAB0 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		C986A42622747E53005ACAB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C986A42822747E53005ACAB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C986A42922747E53005ACAB0 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C986A4362275A92A005ACAB0 /* CodeRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeRowController.swift; sourceTree = "<group>"; };
+		C986A4392275AAFD005ACAB0 /* WatchCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCode.swift; sourceTree = "<group>"; };
+		C986A43C2275AD38005ACAB0 /* CodeDetailInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeDetailInterfaceController.swift; sourceTree = "<group>"; };
+		C986A43E2275B17F005ACAB0 /* ConnectivityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityHandler.swift; sourceTree = "<group>"; };
 		C998D5D8218CE1D90072F733 /* TutorialPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPage.swift; sourceTree = "<group>"; };
 		C998D5D9218CE1D90072F733 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		C998D5DA218CE1D90072F733 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +303,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C986A41822747E53005ACAB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9F014EB2180F04200EF2F5C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -298,6 +369,8 @@
 				C956DFCF215A9255005F1822 /* CodeWalletWidgetUITests */,
 				C96B7C4C2166464500F9B67F /* CodeWalletWidget */,
 				C9F014EF2180F04200EF2F5C /* FastlaneScreenshots */,
+				C986A41022747E51005ACAB0 /* CodeWalletWidgetWatch */,
+				C986A41F22747E53005ACAB0 /* CodeWalletWidgetWatch Extension */,
 				C956DFAE215A9253005F1822 /* Products */,
 				BB55BBAB76BC985594D0F58A /* Pods */,
 				5DBE81031A8BC8F8DF8D14B9 /* Frameworks */,
@@ -312,6 +385,8 @@
 				C956DFCC215A9255005F1822 /* CodeWalletWidgetUITests.xctest */,
 				C96B7C492166464500F9B67F /* CodeWalletWidget.appex */,
 				C9F014EE2180F04200EF2F5C /* FastlaneScreenshots.xctest */,
+				C986A40F22747E51005ACAB0 /* CodeWalletWidgetWatch.app */,
+				C986A41B22747E53005ACAB0 /* CodeWalletWidgetWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -412,6 +487,40 @@
 			path = CodeWalletWidget;
 			sourceTree = "<group>";
 		};
+		C986A41022747E51005ACAB0 /* CodeWalletWidgetWatch */ = {
+			isa = PBXGroup;
+			children = (
+				C986A41122747E51005ACAB0 /* Interface.storyboard */,
+				C986A41422747E53005ACAB0 /* Assets.xcassets */,
+				C986A41622747E53005ACAB0 /* Info.plist */,
+			);
+			path = CodeWalletWidgetWatch;
+			sourceTree = "<group>";
+		};
+		C986A41F22747E53005ACAB0 /* CodeWalletWidgetWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C986A4382275AAEE005ACAB0 /* Model */,
+				C986A42022747E53005ACAB0 /* CodeTableInterfaceController.swift */,
+				C986A42222747E53005ACAB0 /* ExtensionDelegate.swift */,
+				C986A42422747E53005ACAB0 /* NotificationController.swift */,
+				C986A42622747E53005ACAB0 /* Assets.xcassets */,
+				C986A42822747E53005ACAB0 /* Info.plist */,
+				C986A42922747E53005ACAB0 /* PushNotificationPayload.apns */,
+				C986A4362275A92A005ACAB0 /* CodeRowController.swift */,
+				C986A43C2275AD38005ACAB0 /* CodeDetailInterfaceController.swift */,
+			);
+			path = "CodeWalletWidgetWatch Extension";
+			sourceTree = "<group>";
+		};
+		C986A4382275AAEE005ACAB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C986A4392275AAFD005ACAB0 /* WatchCode.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C998D5D7218CE18F0072F733 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +556,7 @@
 				C96B7C31216503BC00F9B67F /* Settings.swift */,
 				C96B7C33216503F300F9B67F /* Themes.swift */,
 				C92BCF8021675134004BDAEC /* CoreExtensions.swift */,
+				C986A43E2275B17F005ACAB0 /* ConnectivityHandler.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -485,11 +595,13 @@
 				C956DFAB215A9253005F1822 /* Resources */,
 				22CC5DBD7C6BCD94AE918EF5 /* [CP] Embed Pods Frameworks */,
 				C96B7C592166464500F9B67F /* Embed App Extensions */,
+				C986A43422747E53005ACAB0 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				C96B7C542166464500F9B67F /* PBXTargetDependency */,
+				C986A42B22747E53005ACAB0 /* PBXTargetDependency */,
 			);
 			name = CodeWalletWidgetApp;
 			productName = CodeWalletWidget;
@@ -552,6 +664,40 @@
 			productReference = C96B7C492166464500F9B67F /* CodeWalletWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		C986A40E22747E51005ACAB0 /* CodeWalletWidgetWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C986A43322747E53005ACAB0 /* Build configuration list for PBXNativeTarget "CodeWalletWidgetWatch" */;
+			buildPhases = (
+				C986A40D22747E51005ACAB0 /* Resources */,
+				C986A43222747E53005ACAB0 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C986A41E22747E53005ACAB0 /* PBXTargetDependency */,
+			);
+			name = CodeWalletWidgetWatch;
+			productName = CodeWalletWidgetWatch;
+			productReference = C986A40F22747E51005ACAB0 /* CodeWalletWidgetWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		C986A41A22747E53005ACAB0 /* CodeWalletWidgetWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C986A43122747E53005ACAB0 /* Build configuration list for PBXNativeTarget "CodeWalletWidgetWatch Extension" */;
+			buildPhases = (
+				C986A41722747E53005ACAB0 /* Sources */,
+				C986A41822747E53005ACAB0 /* Frameworks */,
+				C986A41922747E53005ACAB0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CodeWalletWidgetWatch Extension";
+			productName = "CodeWalletWidgetWatch Extension";
+			productReference = C986A41B22747E53005ACAB0 /* CodeWalletWidgetWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		C9F014ED2180F04200EF2F5C /* FastlaneScreenshots */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9F014F72180F04200EF2F5C /* Build configuration list for PBXNativeTarget "FastlaneScreenshots" */;
@@ -576,7 +722,7 @@
 		C956DFA5215A9253005F1822 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Alexander Schulz";
 				TargetAttributes = {
@@ -607,6 +753,12 @@
 							};
 						};
 					};
+					C986A40E22747E51005ACAB0 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					C986A41A22747E53005ACAB0 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					C9F014ED2180F04200EF2F5C = {
 						CreatedOnToolsVersion = 10.0;
 						TestTargetID = C956DFAC215A9253005F1822;
@@ -632,6 +784,8 @@
 				C956DFCB215A9255005F1822 /* CodeWalletWidgetUITests */,
 				C96B7C482166464500F9B67F /* CodeWalletWidget */,
 				C9F014ED2180F04200EF2F5C /* FastlaneScreenshots */,
+				C986A40E22747E51005ACAB0 /* CodeWalletWidgetWatch */,
+				C986A41A22747E53005ACAB0 /* CodeWalletWidgetWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -672,6 +826,23 @@
 				C96B7C512166464500F9B67F /* MainInterface.storyboard in Resources */,
 				C9F48E772167D7FD00695393 /* Media.xcassets in Resources */,
 				C910656921674DAF00711099 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C986A40D22747E51005ACAB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C986A41522747E53005ACAB0 /* Assets.xcassets in Resources */,
+				C986A41322747E51005ACAB0 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C986A41922747E53005ACAB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C986A42722747E53005ACAB0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,6 +957,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C986A4402275B3A3005ACAB0 /* WatchCode.swift in Sources */,
 				C9C03A94216348DE000533CE /* CodeManager.swift in Sources */,
 				C956DFE5215A97C0005F1822 /* CodeTableViewNavigationController.swift in Sources */,
 				C998D5DB218CE1D90072F733 /* TutorialPage.swift in Sources */,
@@ -811,6 +983,7 @@
 				C97F6E9021D520BD0076881C /* BarcodeInfoPanel.swift in Sources */,
 				C956DFB1215A9253005F1822 /* AppDelegate.swift in Sources */,
 				C96B7C362165042400F9B67F /* SettingsArchive.swift in Sources */,
+				C986A43F2275B17F005ACAB0 /* ConnectivityHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,6 +1021,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C986A41722747E53005ACAB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C986A4372275A92A005ACAB0 /* CodeRowController.swift in Sources */,
+				C986A43D2275AD38005ACAB0 /* CodeDetailInterfaceController.swift in Sources */,
+				C986A42522747E53005ACAB0 /* NotificationController.swift in Sources */,
+				C986A43A2275AAFD005ACAB0 /* WatchCode.swift in Sources */,
+				C986A42322747E53005ACAB0 /* ExtensionDelegate.swift in Sources */,
+				C986A42122747E53005ACAB0 /* CodeTableInterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9F014EA2180F04200EF2F5C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -880,6 +1066,16 @@
 			isa = PBXTargetDependency;
 			target = C96B7C482166464500F9B67F /* CodeWalletWidget */;
 			targetProxy = C96B7C532166464500F9B67F /* PBXContainerItemProxy */;
+		};
+		C986A41E22747E53005ACAB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C986A41A22747E53005ACAB0 /* CodeWalletWidgetWatch Extension */;
+			targetProxy = C986A41D22747E53005ACAB0 /* PBXContainerItemProxy */;
+		};
+		C986A42B22747E53005ACAB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C986A40E22747E51005ACAB0 /* CodeWalletWidgetWatch */;
+			targetProxy = C986A42A22747E53005ACAB0 /* PBXContainerItemProxy */;
 		};
 		C9F014F42180F04200EF2F5C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -921,6 +1117,14 @@
 				C96B7C502166464500F9B67F /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		C986A41122747E51005ACAB0 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C986A41222747E51005ACAB0 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 		C99B936D218B1A8A002A4FCD /* InfoPlist.strings */ = {
@@ -1227,6 +1431,88 @@
 			};
 			name = Release;
 		};
+		C986A42D22747E53005ACAB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9WWSXM777M;
+				IBSC_MODULE = CodeWalletWidgetWatch_Extension;
+				INFOPLIST_FILE = CodeWalletWidgetWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		C986A42E22747E53005ACAB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9WWSXM777M;
+				IBSC_MODULE = CodeWalletWidgetWatch_Extension;
+				INFOPLIST_FILE = CodeWalletWidgetWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		C986A42F22747E53005ACAB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9WWSXM777M;
+				INFOPLIST_FILE = "CodeWalletWidgetWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		C986A43022747E53005ACAB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9WWSXM777M;
+				INFOPLIST_FILE = "CodeWalletWidgetWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
 		C9F014F52180F04200EF2F5C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1314,6 +1600,24 @@
 			buildConfigurations = (
 				C96B7C572166464500F9B67F /* Debug */,
 				C96B7C582166464500F9B67F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C986A43122747E53005ACAB0 /* Build configuration list for PBXNativeTarget "CodeWalletWidgetWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C986A42F22747E53005ACAB0 /* Debug */,
+				C986A43022747E53005ACAB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C986A43322747E53005ACAB0 /* Build configuration list for PBXNativeTarget "CodeWalletWidgetWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C986A42D22747E53005ACAB0 /* Debug */,
+				C986A42E22747E53005ACAB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

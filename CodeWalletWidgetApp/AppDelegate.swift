@@ -9,18 +9,25 @@
 import UIKit
 import Firebase
 import UserNotifications
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 	var window: UIWindow?
-
+	var connectivityHandler : ConnectivityHandler?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
 		#if !DEBUG
 			FirebaseApp.configure()
 		#endif
+		
+		if WCSession.isSupported() {
+			self.connectivityHandler = ConnectivityHandler()
+		} else {
+			NSLog("WCSession not supported (f.e. on iPad).")
+		}
 		
 		// Load Code Manager if saved
 		if let savedCodeManager = CodeManagerArchive.loadCodeManager() {

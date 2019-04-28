@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Code Wallet</string>
+	<string>CodeWalletWidgetApp</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,32 +20,14 @@
 	<string>1.0.8</string>
 	<key>CFBundleVersion</key>
 	<string>11</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>NSCameraUsageDescription</key>
-	<string>In order to scan a barcode, please give access to your camera.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>${NSLocationWhenInUseUsageDescription}</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>In order to select a barcode, please give access to your photo library.</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>WKCompanionAppBundleIdentifier</key>
+	<string>com.alexanderschulz.CodeWalletWidget</string>
+	<key>WKWatchKitApp</key>
+	<true/>
 </dict>
 </plist>
