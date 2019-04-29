@@ -14,7 +14,19 @@ import WatchConnectivity
 class CodeTableInterfaceController: WKInterfaceController, WCSessionDelegate {
 
 	//MARK: Properties
-	var codes: [WatchCode]!
+	var codes: [WatchCode]! {
+		didSet {
+			// Configure interface objects here.
+			barcodeTable.setNumberOfRows(codes.count, withRowType: "CodeRow")
+			
+			for index in 0..<barcodeTable.numberOfRows {
+				guard let controller = barcodeTable.rowController(at: index) as? CodeRowController else {
+					continue
+				}
+				controller.code = codes[index]
+			}
+		}
+	}
 	var session : WCSession?
 	
 	//MARK: Outlets
@@ -28,15 +40,7 @@ class CodeTableInterfaceController: WKInterfaceController, WCSessionDelegate {
 		session?.delegate = self
 		session?.activate()
 		
-        // Configure interface objects here.
-		barcodeTable.setNumberOfRows(codes.count, withRowType: "CodeRow")
-		
-		for index in 0..<barcodeTable.numberOfRows {
-			guard let controller = barcodeTable.rowController(at: index) as? CodeRowController else {
-				continue
-			}
-			controller.code = codes[index]
-		}
+		requestInfo()
     }
     
     override func willActivate() {
@@ -63,7 +67,7 @@ class CodeTableInterfaceController: WKInterfaceController, WCSessionDelegate {
 	}
 	
 	func requestInfo() {
-		session?.sendMessage(["request" : "codes"], replyHandler: { (response) in
+		session?.sendMessage(["request" : "date"], replyHandler: { (response) in
 			guard let codes = response as? [WatchCode] else {
 				return
 			}

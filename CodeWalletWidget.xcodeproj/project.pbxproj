@@ -502,13 +502,13 @@
 			children = (
 				C986A4382275AAEE005ACAB0 /* Model */,
 				C986A42022747E53005ACAB0 /* CodeTableInterfaceController.swift */,
+				C986A43C2275AD38005ACAB0 /* CodeDetailInterfaceController.swift */,
+				C986A4362275A92A005ACAB0 /* CodeRowController.swift */,
 				C986A42222747E53005ACAB0 /* ExtensionDelegate.swift */,
 				C986A42422747E53005ACAB0 /* NotificationController.swift */,
 				C986A42622747E53005ACAB0 /* Assets.xcassets */,
 				C986A42822747E53005ACAB0 /* Info.plist */,
 				C986A42922747E53005ACAB0 /* PushNotificationPayload.apns */,
-				C986A4362275A92A005ACAB0 /* CodeRowController.swift */,
-				C986A43C2275AD38005ACAB0 /* CodeDetailInterfaceController.swift */,
 			);
 			path = "CodeWalletWidgetWatch Extension";
 			sourceTree = "<group>";

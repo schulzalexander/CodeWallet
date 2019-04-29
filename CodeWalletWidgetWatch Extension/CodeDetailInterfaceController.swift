@@ -20,6 +20,7 @@ class CodeDetailInterfaceController: WKInterfaceController {
 	}
 	
 	//MARK: Outlets
+	@IBOutlet weak var imageView: WKInterfaceImage!
 	
 	
     override func awake(withContext context: Any?) {

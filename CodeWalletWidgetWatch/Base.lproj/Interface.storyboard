@@ -12,7 +12,14 @@
         <!--CodeDetailInterfaceController-->
         <scene sceneID="ch0-b4-tlA">
             <objects>
-                <controller identifier="CodeDetailInterfaceController" id="rJ3-lz-0tc"/>
+                <controller identifier="CodeDetailInterfaceController" id="rJ3-lz-0tc" customClass="CodeDetailInterfaceController" customModule="CodeWalletWidgetWatch_Extension">
+                    <items>
+                        <imageView width="1" height="1" alignment="left" id="H5L-HL-Kn3"/>
+                    </items>
+                    <connections>
+                        <outlet property="imageView" destination="H5L-HL-Kn3" id="EXp-4X-MFi"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="220" y="29"/>
         </scene>

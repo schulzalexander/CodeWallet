@@ -42,6 +42,7 @@ class ConnectivityHandler : NSObject, WCSessionDelegate {
 	
 	func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
 		NSLog("didReceiveMessage: %@", message)
+		print("got it")
 		if message["request"] as? String == "codes" {
 			let codes = CodeManager.shared.getCodes()
 			var watchCodes = [WatchCode]()
