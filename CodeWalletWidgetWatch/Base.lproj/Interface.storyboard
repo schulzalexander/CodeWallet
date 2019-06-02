@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
     </dependencies>
     <scenes>
         <!--CodeDetailInterfaceController-->
@@ -30,7 +30,7 @@
                     <items>
                         <table alignment="left" id="G0r-5t-5dl">
                             <items>
-                                <tableRow identifier="CodeRow" id="eFT-rP-TM7" customClass="CodeRowController" customModule="CodeWalletWidgetWatch_Extension">
+                                <tableRow identifier="CodeRowController" id="eFT-rP-TM7" customClass="CodeRowController" customModule="CodeWalletWidgetWatch_Extension">
                                     <group key="rootItem" width="1" alignment="left" spacing="6" id="Rqb-gf-ssa">
                                         <items>
                                             <separator alignment="left" id="KvA-g0-Mcn">

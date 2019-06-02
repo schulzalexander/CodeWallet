@@ -11,7 +11,7 @@ import Foundation
 import WatchConnectivity
 
 
-class CodeTableInterfaceController: WKInterfaceController, WCSessionDelegate {
+class CodeTableInterfaceController: WKInterfaceController {
 
 	//MARK: Properties
 	var codes: [WatchCode]! {
@@ -36,21 +36,8 @@ class CodeTableInterfaceController: WKInterfaceController, WCSessionDelegate {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
 		
-		session = WCSession.default
-		session?.delegate = self
-		session?.activate()
-		
-		requestInfo()
-    }
-    
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
+		WatchSessionManager.shared.delegate = self
+		WatchSessionManager.shared.activateWCSession()
     }
 	
 	//MARK: Table
@@ -59,23 +46,24 @@ class CodeTableInterfaceController: WKInterfaceController, WCSessionDelegate {
 		presentController(withName: "CodeDetailInterfaceController", context: code)
 	}
 	
-	
-	// MARK: - WCSessionDelegate
-	
-	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-		NSLog("%@", "activationDidCompleteWith activationState:\(activationState) error:\(error)")
-	}
-	
-	func requestInfo() {
-		session?.sendMessage(["request" : "date"], replyHandler: { (response) in
-			guard let codes = response as? [WatchCode] else {
-				return
+	func populateTable() {
+		let codes = WatchCodeManager.shared.getCodes()
+		barcodeTable.setNumberOfRows(codes.count, withRowType: "CodeRowController")
+		
+		for i in 0..<codes.count {
+			guard let controller = barcodeTable.rowController(at: i) as? CodeRowController else {
+				fatalError("Receiver row controller has unknown type.")
 			}
-			self.codes = codes
-		}, errorHandler: { (error) in
-			print("Error sending message: %@", error)
-		})
+			controller.code = codes[i]
+		}
 	}
 	
+}
 
+extension CodeTableInterfaceController: WatchSessionManagerDelegate {
+	
+	func didUpdateTimerManager() {
+		populateTable()
+	}
+	
 }

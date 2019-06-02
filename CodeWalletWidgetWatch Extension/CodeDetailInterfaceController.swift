@@ -15,7 +15,7 @@ class CodeDetailInterfaceController: WKInterfaceController {
 	//MARK: Properties
 	var code: WatchCode! {
 		didSet {
-			
+			imageView.setImage(code.codeImage)
 		}
 	}
 	

@@ -22,6 +22,8 @@ class Code: NSObject, NSCoding {
 	var notification: LocationNotification?
 	var showValue: Bool
 	
+	
+	//MARK: Keys NSCoding
 	struct PropertyKeys {
 		static let name = "name"
 		static let value = "value"
@@ -79,6 +81,5 @@ class Code: NSObject, NSCoding {
 			self.displaySize = 0.9
 		}
 	}
-	
 	
 }

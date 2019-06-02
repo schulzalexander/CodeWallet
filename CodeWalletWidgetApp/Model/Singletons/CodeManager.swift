@@ -12,16 +12,19 @@ class CodeManager: NSObject, NSCoding {
 	
 	//MARK: Properties
 	private var codes: [Code]!
+	private var lastUpdateTimestamp: Double
 	
 	static var shared: CodeManager = CodeManager()
 	
 	
 	struct PropertyKeys {
 		static let codes = "codes"
+		static let lastUpdateTimestamp = "lastUpdateTimestamp"
 	}
 	
 	private override init() {
 		codes = [Code]()
+		lastUpdateTimestamp = Date().timeIntervalSince1970.binade
 		super.init()
 	}
 	
@@ -71,11 +74,20 @@ class CodeManager: NSObject, NSCoding {
 		CodeManagerArchive.saveCodeManager()
 	}
 	
+	func setLastUpdateTimestamp(timestamp: Double) {
+		lastUpdateTimestamp = timestamp
+	}
+	
+	func getLastUpdateTimestamp() -> Double {
+		return lastUpdateTimestamp
+	}
+	
 	//MARK: NSCoding
 	
 	func encode(with aCoder: NSCoder) {
 		NSKeyedArchiver.setClassName("Code", for: Code.self)
 		aCoder.encode(codes, forKey: PropertyKeys.codes)
+		aCoder.encode(lastUpdateTimestamp, forKey: PropertyKeys.lastUpdateTimestamp)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -84,6 +96,7 @@ class CodeManager: NSObject, NSCoding {
 			fatalError("Error while decoding object of class ClassName")
 		}
 		self.codes = codes
+		self.lastUpdateTimestamp = aDecoder.decodeDouble(forKey: PropertyKeys.lastUpdateTimestamp)
 	}
 	
 }
