@@ -61,11 +61,22 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
 		
 	}
 	
+//	func sessionWatchStateDidChange(_ session: WCSession) {
+//		if session.isPaired && session.isWatchAppInstalled {
+//			sendUpdate()
+//		}
+//	}
+	
+	func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+		sendUpdate()
+	}
+	
 	#else
 	func receiveUpdate(applicationContext: [String: Any]) {
 		let decoder = JSONDecoder()
 		guard let codesData = applicationContext["codes"] as? Data,
 			let timestamp = applicationContext["timestamp"] as? Double else {
+				sendUpdateRequest()
 				return
 		}
 		
@@ -87,6 +98,12 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
 	
 	func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
 		receiveUpdate(applicationContext: applicationContext)
+	}
+	
+	func sendUpdateRequest() {
+		let session = WCSession.default
+		session.sendMessage([String: Any](), replyHandler: nil, errorHandler: nil)
+		print("Sent Update Request.")
 	}
 	
 	#endif
