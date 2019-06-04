@@ -70,3 +70,6 @@
 "Type" = "Type";
 "Value" = "Value";
 
+
+// Watch
+"WatchCountLabelText" = "%d saved";

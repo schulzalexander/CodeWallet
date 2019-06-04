@@ -257,6 +257,8 @@ extension TodayViewController: UICollectionViewDelegate, UICollectionViewDataSou
 //			let averageColor = code.logo?.averageColor ?? .white
 			barcodeBackButton.backgroundColor = .white
 			barcodeTitleLabel.backgroundColor = .white
+			
+			code.logUsage()
 		} else {
 			//TODO: Error
 		}

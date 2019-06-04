@@ -21,7 +21,10 @@ class Code: NSObject, NSCoding {
 	var displaySize: Float
 	var notification: LocationNotification?
 	var showValue: Bool
+	var usages: [Double]
 	
+	
+	//MARK: Keys NSCoding
 	struct PropertyKeys {
 		static let name = "name"
 		static let value = "value"
@@ -31,6 +34,7 @@ class Code: NSObject, NSCoding {
 		static let displaySize = "displaySize"
 		static let notification = "notification"
 		static let showValue = "showValue"
+		static let usages = "usages"
 	}
 	
 	init(name: String, value: String, type: AVMetadataObject.ObjectType, logo: UIImage?) {
@@ -41,8 +45,20 @@ class Code: NSObject, NSCoding {
 		self.logo = logo
 		self.displaySize = 0.9
 		self.showValue = true
+		self.usages = [Double]()
 		
 		super.init()
+	}
+	
+	func logUsage() {
+		let currTime = Date().timeIntervalSince1970
+		// Only Log if the last usages is older than 30 seconds, otherwise
+		// the user might just be messing around
+		if let last = usages.last, currTime < last + 30 {
+			return
+		}
+		usages.append(currTime)
+		CodeManagerArchive.saveCodeManager()
 	}
 	
 	//MARK: NSCoding
@@ -56,6 +72,7 @@ class Code: NSObject, NSCoding {
 		aCoder.encode(displaySize, forKey: PropertyKeys.displaySize)
 		aCoder.encode(notification, forKey: PropertyKeys.notification)
 		aCoder.encode(showValue, forKey: PropertyKeys.showValue)
+		aCoder.encode(usages, forKey: PropertyKeys.usages)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -78,7 +95,7 @@ class Code: NSObject, NSCoding {
 			// error loading float
 			self.displaySize = 0.9
 		}
+		self.usages = (aDecoder.decodeObject(forKey: PropertyKeys.usages) as? [Double]) ?? [Double]()
 	}
-	
 	
 }
