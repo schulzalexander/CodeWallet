@@ -47,7 +47,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 		}
 		
 //		#if SCREENSHOTS || true
-//			CodeManager.shared.deleteAllCodes()
+////			CodeManager.shared.deleteAllCodes()
 //			CodeManager.shared.addCode(code: Code(name: "Coupon", value: "10985328140279", type: .qr, logo: nil))
 //			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "10985328140279", type: .code128, logo: nil))
 //			CodeManager.shared.addCode(code: Code(name: "Flight Ticket", value: "10985328140279", type: .pdf417, logo: nil))
@@ -55,6 +55,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 		
 		collectionView.delegate = self
 		collectionView.dataSource = self
+		// When collectionview has loaded, update the arrow appearance
+		collectionView.performBatchUpdates(nil, completion: {
+			(result) in
+			self.updatePagingButtonAppearance()
+		})
 		
 		initInstruments()
 		
@@ -181,10 +186,26 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 	}
 	
 	@IBAction func pageForward(_ sender: UIButton) {
+		if !shouldScrollFurther() {
+			return
+		}
+		
 		let newIndexPath = IndexPath(row: min(currIndexPath.row + 1, collectionView.numberOfItems(inSection: 0) - 1), section: 0)
+		
 		collectionView.scrollToItem(at: newIndexPath, at: .left, animated: true)
 		currIndexPath = newIndexPath
 		updatePagingButtonAppearance()
+	}
+	
+	private func shouldScrollFurther() -> Bool {
+		// Do not scroll further if last item is already visible
+		guard let exampleCell = collectionView.visibleCells.first as? CodeCollectionViewCell else {
+			return true
+		}
+		
+		let maxVisibleCells = Int(collectionView.frame.width / (exampleCell.frame.width + 10))
+		
+		return currIndexPath.row < collectionView.numberOfItems(inSection: 0) - maxVisibleCells
 	}
 	
 	private func updatePagingButtonAppearance() {
@@ -196,7 +217,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 			collectionViewBackButton.isEnabled = true
 			collectionViewBackButton.setTitleColor(.black, for: .normal)
 		}
-		if currIndexPath.row == collectionView.numberOfItems(inSection: 0) - 1 {
+		if !shouldScrollFurther() {
 			collectionViewForwardButton.isEnabled = false
 			collectionViewForwardButton.setTitleColor(.gray, for: .normal)
 		} else {
