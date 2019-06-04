@@ -175,12 +175,18 @@ extension CodeTableViewController: UITableViewDelegate, UITableViewDataSource {
 	func toggleCodeTableRow(indexPath: IndexPath) {
 		var reload = [indexPath]
 		var newSelection: IndexPath? = indexPath
+		
 		if selectedIndex != nil {
+			// Check if an opened row was tapped again -> close it
 			if selectedIndex!.row == indexPath.row {
 				newSelection = nil
 			} else {
 				reload.append(selectedIndex!)
 			}
+		}
+		if newSelection != nil {
+			let code = CodeManager.shared.getCodes()[newSelection!.row]
+			code.logUsage()
 		}
 		selectedIndex = newSelection
 		tableView.reloadRows(at: reload, with: .fade)

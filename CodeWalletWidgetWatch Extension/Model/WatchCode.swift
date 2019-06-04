@@ -19,14 +19,16 @@ class WatchCode: Codable {
 	var displaySize: Float
 	var showValue: Bool
 	var codeImage: UIImage
+	var usages: [Double]
 	
-	init(name: String, value: String, id: String, displaySize: Float, showValue: Bool, codeImage: UIImage) {
+	init(name: String, value: String, id: String, displaySize: Float, showValue: Bool, codeImage: UIImage, usages: [Double]) {
 		self.name = name
 		self.value = value
 		self.id = id
 		self.displaySize = displaySize
 		self.showValue = showValue
 		self.codeImage = codeImage
+		self.usages = usages
 	}
 	
 	#if os(iOS)
@@ -37,6 +39,7 @@ class WatchCode: Codable {
 		self.displaySize = code.displaySize
 		self.showValue = code.showValue
 		self.codeImage = Utils.generateCode(value: code.value, codeType: code.type, targetSize: CGSize(width: 100, height: 100))!
+		self.usages = code.usages
 	}
 	#endif
 	
@@ -49,6 +52,7 @@ class WatchCode: Codable {
 		case displaySize
 		case showValue
 		case codeImage
+		case usages
 	}
 	
 	//MARK: Codable
@@ -61,6 +65,7 @@ class WatchCode: Codable {
 		try container.encode(displaySize, forKey: .displaySize)
 		try container.encode(showValue, forKey: .showValue)
 		try container.encode(codeImage.pngData(), forKey: .codeImage)
+		try container.encode(usages, forKey: .usages)
 	}
 	
 	required init(from decoder: Decoder) throws
@@ -76,5 +81,6 @@ class WatchCode: Codable {
 			fatalError("Failed to decode code image!")
 		}
 		codeImage = image
+		usages = try values.decode([Double].self, forKey: .usages)
 	}
 }

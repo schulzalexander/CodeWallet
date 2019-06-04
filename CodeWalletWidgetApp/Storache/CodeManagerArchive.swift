@@ -26,6 +26,7 @@ class CodeManagerArchive {
 		if !success {
 			fatalError("Error while saving task manager!")
 		}
+		WatchSessionManager.shared.sendUpdate()
 	}
 	
 	static func loadCodeManager() -> CodeManager? {
