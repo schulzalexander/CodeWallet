@@ -60,14 +60,14 @@ class WatchCode: Codable {
 		try container.encode(id, forKey: .id)
 		try container.encode(displaySize, forKey: .displaySize)
 		try container.encode(showValue, forKey: .showValue)
-		try container.encode(codeImage.pngData()?.base64EncodedData(), forKey: .codeImage)
+		try container.encode(codeImage.pngData(), forKey: .codeImage)
 	}
 	
 	required init(from decoder: Decoder) throws
 	{
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		name = try values.decode(String.self, forKey: .value)
-		value = try values.decode(String.self, forKey: .id)
+		name = try values.decode(String.self, forKey: .name)
+		value = try values.decode(String.self, forKey: .value)
 		id = try values.decode(String.self, forKey: .id)
 		displaySize = try values.decode(Float.self, forKey: .displaySize)
 		showValue = try values.decode(Bool.self, forKey: .showValue)

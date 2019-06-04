@@ -56,6 +56,7 @@
 		C96DA9EC22A3C5340085B97E /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A531F22A3B98D0084EBBF /* WatchSessionManager.swift */; };
 		C96DA9ED22A3C5350085B97E /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A531F22A3B98D0084EBBF /* WatchSessionManager.swift */; };
 		C96DA9EF22A3C68F0085B97E /* WatchCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96DA9EE22A3C68F0085B97E /* WatchCodeManager.swift */; };
+		C96DA9F222A68E580085B97E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C96B7C4321660DC300F9B67F /* Localizable.strings */; };
 		C97E68122188567200272B9F /* LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E68112188567200272B9F /* LocationNotification.swift */; };
 		C97E681421885E6700272B9F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E681321885E6700272B9F /* LocationService.swift */; };
 		C97F6E9021D520BD0076881C /* BarcodeInfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97F6E8F21D520BD0076881C /* BarcodeInfoPanel.swift */; };
@@ -226,6 +227,7 @@
 		C96DA9E822A3C29D0085B97E /* Pods_CodeWalletWidgetApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CodeWalletWidgetApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96DA9EA22A3C2B10085B97E /* RSBarcodes_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RSBarcodes_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96DA9EE22A3C68F0085B97E /* WatchCodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCodeManager.swift; sourceTree = "<group>"; };
+		C96DA9F122A68B2C0085B97E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Interface.strings; sourceTree = "<group>"; };
 		C97E68112188567200272B9F /* LocationNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotification.swift; sourceTree = "<group>"; };
 		C97E681321885E6700272B9F /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		C97F6E8F21D520BD0076881C /* BarcodeInfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeInfoPanel.swift; sourceTree = "<group>"; };
@@ -863,6 +865,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C986A42722747E53005ACAB0 /* Assets.xcassets in Resources */,
+				C96DA9F222A68E580085B97E /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1145,6 +1148,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C986A41222747E51005ACAB0 /* Base */,
+				C96DA9F122A68B2C0085B97E /* de */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";

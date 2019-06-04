@@ -14,23 +14,11 @@ import WatchConnectivity
 class CodeTableInterfaceController: WKInterfaceController {
 
 	//MARK: Properties
-	var codes: [WatchCode]! {
-		didSet {
-			// Configure interface objects here.
-			barcodeTable.setNumberOfRows(codes.count, withRowType: "CodeRow")
-			
-			for index in 0..<barcodeTable.numberOfRows {
-				guard let controller = barcodeTable.rowController(at: index) as? CodeRowController else {
-					continue
-				}
-				controller.code = codes[index]
-			}
-		}
-	}
 	var session : WCSession?
 	
 	//MARK: Outlets
 	@IBOutlet weak var barcodeTable: WKInterfaceTable!
+	@IBOutlet weak var countLabel: WKInterfaceLabel!
 	
 	
     override func awake(withContext context: Any?) {
@@ -42,7 +30,7 @@ class CodeTableInterfaceController: WKInterfaceController {
 	
 	//MARK: Table
 	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
-		let code = codes[rowIndex]
+		let code = WatchCodeManager.shared.getCodes()[rowIndex]
 		presentController(withName: "CodeDetailInterfaceController", context: code)
 	}
 	
@@ -56,6 +44,8 @@ class CodeTableInterfaceController: WKInterfaceController {
 			}
 			controller.code = codes[i]
 		}
+		
+		countLabel.setText(String(format: NSLocalizedString("WatchCountLabelText", comment: ""), arguments: [codes.count]))
 	}
 	
 }

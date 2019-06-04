@@ -14,7 +14,7 @@
             <objects>
                 <controller identifier="CodeDetailInterfaceController" id="rJ3-lz-0tc" customClass="CodeDetailInterfaceController" customModule="CodeWalletWidgetWatch_Extension">
                     <items>
-                        <imageView width="1" height="1" alignment="left" id="H5L-HL-Kn3"/>
+                        <imageView width="0.94999999999999996" height="0.94999999999999996" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="H5L-HL-Kn3"/>
                     </items>
                     <connections>
                         <outlet property="imageView" destination="H5L-HL-Kn3" id="EXp-4X-MFi"/>
@@ -28,18 +28,31 @@
             <objects>
                 <controller title="CodeWallet" id="AgC-eL-Hgc" customClass="CodeTableInterfaceController" customModule="CodeWalletWidgetWatch" customModuleProvider="target">
                     <items>
+                        <group width="1" alignment="left" layout="vertical" spacing="0.0" id="Dd2-c8-a8d">
+                            <items>
+                                <label alignment="left" text="My Barcodes" id="XNW-Id-a7W">
+                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                </label>
+                                <label alignment="left" id="qHr-2B-XQx">
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                </label>
+                            </items>
+                        </group>
                         <table alignment="left" id="G0r-5t-5dl">
                             <items>
                                 <tableRow identifier="CodeRowController" id="eFT-rP-TM7" customClass="CodeRowController" customModule="CodeWalletWidgetWatch_Extension">
                                     <group key="rootItem" width="1" alignment="left" spacing="6" id="Rqb-gf-ssa">
                                         <items>
-                                            <separator alignment="left" id="KvA-g0-Mcn">
+                                            <separator height="0.69999999999999996" alignment="left" verticalAlignment="center" id="KvA-g0-Mcn">
                                                 <color key="color" red="0.30001619460000001" green="0.6880967617" blue="0.99971204999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </separator>
-                                            <label width="107" height="37" alignment="left" text="Name" id="kaI-kb-SzU"/>
+                                            <label height="37" alignment="left" id="kaI-kb-SzU"/>
+                                            <imageView width="30" height="30" alignment="right" verticalAlignment="center" contentMode="scaleAspectFit" id="VHo-qA-Uwi"/>
                                         </items>
                                     </group>
                                     <connections>
+                                        <outlet property="image" destination="VHo-qA-Uwi" id="8yY-II-5sd"/>
                                         <outlet property="nameLabel" destination="kaI-kb-SzU" id="Fj6-F6-pQO"/>
                                     </connections>
                                 </tableRow>
@@ -48,6 +61,7 @@
                     </items>
                     <connections>
                         <outlet property="barcodeTable" destination="G0r-5t-5dl" id="bVJ-tf-tQV"/>
+                        <outlet property="countLabel" destination="qHr-2B-XQx" id="soa-cV-ZHR"/>
                     </connections>
                 </controller>
             </objects>

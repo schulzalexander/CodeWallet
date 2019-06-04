@@ -27,6 +27,8 @@ class CodeTableViewController: UIViewController {
 			self.navigationItem.largeTitleDisplayMode = .automatic
 		}
 		
+		WatchSessionManager.shared.activateWCSession()
+		
 		// SideMenu is shown in the CodeTable VC
 		isSideMenuHidden = false
 		

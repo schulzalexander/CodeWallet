@@ -1,0 +1,12 @@
+
+/* Class = "WKInterfaceController"; title = "CodeWallet"; ObjectID = "AgC-eL-Hgc"; */
+"AgC-eL-Hgc.title" = "CodeWallet";
+
+/* Class = "WKInterfaceLabel"; text = "Alert Label"; ObjectID = "IdU-wH-bcW"; */
+"IdU-wH-bcW.text" = "Alert Label";
+
+/* Class = "WKInterfaceLabel"; text = "My Barcodes"; ObjectID = "XNW-Id-a7W"; */
+"XNW-Id-a7W.text" = "Meine Barcodes";
+
+/* Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "qHr-2B-XQx"; */
+"qHr-2B-XQx.text" = "Label";

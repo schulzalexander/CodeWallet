@@ -68,3 +68,6 @@
 "BarcodeValue" = "Barcode Wert";
 "Type" = "Typ";
 "Value" = "Wert";
+
+// Watch
+"WatchCountLabelText" = "%d gespeichert";

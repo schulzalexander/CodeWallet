@@ -93,11 +93,15 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
 	
 	
 	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-		#if !os(iOS)
+		
 		if activationState == .activated {
-			receiveUpdate(applicationContext: session.applicationContext)
+			#if os(iOS)
+			sendUpdate()
+			#else
+			receiveUpdate(applicationContext: session.receivedApplicationContext)
+			#endif
 		}
-		#endif
+		
 	}
 }
 

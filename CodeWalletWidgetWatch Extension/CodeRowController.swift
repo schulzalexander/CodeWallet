@@ -14,11 +14,13 @@ class CodeRowController: NSObject {
 	var code: WatchCode! {
 		didSet {
 			nameLabel.setText(code.name)
+			image.setImage(code.codeImage)
 		}
 	}
 	
 	//MARK: Outlets
 	@IBOutlet weak var nameLabel: WKInterfaceLabel!
+	@IBOutlet weak var image: WKInterfaceImage!
 	
 	
 
