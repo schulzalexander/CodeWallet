@@ -6,4 +6,4 @@
   Copyright © 2018 Alexander Schulz. All rights reserved.
 */
 
-"NSLocationWhenInUseUsageDescription" = "Fore- and Background location is needed to provide location specific notifications with your barcodes.";
+NSLocationWhenInUseUsageDescription = "Fore- and Background location is needed to provide location specific notifications with your barcodes.";

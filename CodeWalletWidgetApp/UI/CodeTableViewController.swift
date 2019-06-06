@@ -27,7 +27,9 @@ class CodeTableViewController: UIViewController {
 			self.navigationItem.largeTitleDisplayMode = .automatic
 		}
 		
+		#if App
 		WatchSessionManager.shared.activateWCSession()
+		#endif
 		
 		// SideMenu is shown in the CodeTable VC
 		isSideMenuHidden = false
@@ -41,7 +43,7 @@ class CodeTableViewController: UIViewController {
 //			CodeManager.shared.addCode(code: Code(name: "Coffee Shop", value: "10985328140279", type: .code128, logo: nil))
 //			CodeManager.shared.addCode(code: code)
 //			CodeManagerArchive.saveCodeManager()
-//			LocationService.shared.scheduleTestNotification(code: code)
+//			//LocationService.shared.scheduleTestNotification(code: code)
 //		#endif
 		
 		tableView.delegate = self

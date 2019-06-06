@@ -19,13 +19,13 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>12</string>
+	<string>13</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>In order to scan a barcode, please give access to your camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>${NSLocationWhenInUseUsageDescription}</string>
+	<string>Fore- and Background location is needed to provide location specific notifications with your barcodes.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>In order to select a barcode, please give access to your photo library.</string>
 	<key>UILaunchStoryboardName</key>

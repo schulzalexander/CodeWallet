@@ -58,9 +58,10 @@
 		C96DA9EF22A3C68F0085B97E /* WatchCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96DA9EE22A3C68F0085B97E /* WatchCodeManager.swift */; };
 		C96DA9F222A68E580085B97E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C96B7C4321660DC300F9B67F /* Localizable.strings */; };
 		C96DA9F322A692F90085B97E /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A531F22A3B98D0084EBBF /* WatchSessionManager.swift */; };
-		C96DA9F422A693080085B97E /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A531F22A3B98D0084EBBF /* WatchSessionManager.swift */; };
 		C96DA9F522A6930D0085B97E /* WatchCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C986A4392275AAFD005ACAB0 /* WatchCode.swift */; };
-		C96DA9F622A6930E0085B97E /* WatchCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C986A4392275AAFD005ACAB0 /* WatchCode.swift */; };
+		C96DA9F922A982C90085B97E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C99B936D218B1A8A002A4FCD /* InfoPlist.strings */; };
+		C96DA9FA22A982CD0085B97E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C99B936D218B1A8A002A4FCD /* InfoPlist.strings */; };
+		C96DA9FB22A982D00085B97E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C99B936D218B1A8A002A4FCD /* InfoPlist.strings */; };
 		C97E68122188567200272B9F /* LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E68112188567200272B9F /* LocationNotification.swift */; };
 		C97E681421885E6700272B9F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E681321885E6700272B9F /* LocationService.swift */; };
 		C97F6E9021D520BD0076881C /* BarcodeInfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97F6E8F21D520BD0076881C /* BarcodeInfoPanel.swift */; };
@@ -850,6 +851,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96B7C512166464500F9B67F /* MainInterface.storyboard in Resources */,
+				C96DA9FB22A982D00085B97E /* InfoPlist.strings in Resources */,
 				C9F48E772167D7FD00695393 /* Media.xcassets in Resources */,
 				C910656921674DAF00711099 /* Localizable.strings in Resources */,
 			);
@@ -860,6 +862,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C986A41522747E53005ACAB0 /* Assets.xcassets in Resources */,
+				C96DA9FA22A982CD0085B97E /* InfoPlist.strings in Resources */,
 				C986A41322747E51005ACAB0 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -869,6 +872,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C986A42722747E53005ACAB0 /* Assets.xcassets in Resources */,
+				C96DA9F922A982C90085B97E /* InfoPlist.strings in Resources */,
 				C96DA9F222A68E580085B97E /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1071,12 +1075,10 @@
 			files = (
 				C93433D9218B278700C2B966 /* LocationService.swift in Sources */,
 				C93433D8218B273900C2B966 /* LocationNotification.swift in Sources */,
-				C96DA9F622A6930E0085B97E /* WatchCode.swift in Sources */,
 				C9182BB92180F47700B5872A /* CodeManagerArchive.swift in Sources */,
 				C9182BB72180F42300B5872A /* CodeManager.swift in Sources */,
 				C9182BB82180F42300B5872A /* Code.swift in Sources */,
 				C9F014F12180F04200EF2F5C /* FastlaneScreenshots.swift in Sources */,
-				C96DA9F422A693080085B97E /* WatchSessionManager.swift in Sources */,
 				C9F014F92180F15B00EF2F5C /* SnapshotHelper.swift in Sources */,
 				C9182BBB2180F48200B5872A /* Utils.swift in Sources */,
 			);
@@ -1306,6 +1308,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-D App";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -1328,6 +1331,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-D App";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
