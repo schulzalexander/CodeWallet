@@ -87,7 +87,7 @@ class TutorialPageViewController: UIPageViewController {
 extension TutorialPageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 	
 	func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-		guard let index = controllers.index(of: viewController) else {
+		guard let index = controllers.firstIndex(of: viewController) else {
 			return nil
 		}
 		
@@ -104,7 +104,7 @@ extension TutorialPageViewController: UIPageViewControllerDelegate, UIPageViewCo
 	}
 	
 	func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-		guard let index = controllers.index(of: viewController) else {
+		guard let index = controllers.firstIndex(of: viewController) else {
 			return nil
 		}
 		
@@ -126,7 +126,7 @@ extension TutorialPageViewController: UIPageViewControllerDelegate, UIPageViewCo
 	
 	func presentationIndex(for pageViewController: UIPageViewController) -> Int {
 		guard let firstViewController = viewControllers?.first,
-			let index = controllers.index(of: firstViewController) else {
+			let index = controllers.firstIndex(of: firstViewController) else {
 				return 0
 		}
 		return index

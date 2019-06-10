@@ -31,5 +31,17 @@ class CodeDetailInterfaceController: WKInterfaceController {
 			self.code = code
 		}
     }
+	
+	override func willActivate() {
+		super.willActivate()
+		
+		WKExtension.shared().isAutorotating = true
+	}
+	
+	override func willDisappear() {
+		super.willDisappear()
+		
+		WKExtension.shared().isAutorotating = false
+	}
 
 }

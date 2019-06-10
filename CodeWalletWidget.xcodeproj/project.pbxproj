@@ -755,6 +755,7 @@
 				TargetAttributes = {
 					C956DFAC215A9253005F1822 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -774,6 +775,7 @@
 					};
 					C96B7C482166464500F9B67F = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -785,6 +787,7 @@
 					};
 					C986A41A22747E53005ACAB0 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					C9F014ED2180F04200EF2F5C = {
 						CreatedOnToolsVersion = 10.0;
@@ -1311,7 +1314,7 @@
 				OTHER_SWIFT_FLAGS = "-D App";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1334,7 +1337,7 @@
 				OTHER_SWIFT_FLAGS = "-D App";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1442,7 +1445,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1464,7 +1467,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderschulz.CodeWalletWidget.TodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1532,7 +1535,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
@@ -1555,7 +1558,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
