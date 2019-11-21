@@ -31,13 +31,13 @@ extension UIImage {
 extension UICollectionView {
 	
 	func setEmptyMessage(_ text: String) {
-		let label = UILabel(frame: self.frame)
+        let label = UILabel(frame: self.frame)
 		label.text = text
 		label.textColor = .darkGray
 		label.textAlignment = .center
 		label.numberOfLines = 0
 		label.font = label.font.withSize(16)
-		label.sizeToFit()
+//		label.sizeToFit()
 		self.backgroundView = label
 	}
 	

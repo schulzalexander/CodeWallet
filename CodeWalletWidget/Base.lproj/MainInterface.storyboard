@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pJ8-CT-iI1">
-                                <rect key="frame" x="0.0" y="0.0" width="280" height="110"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="F8F-gH-wYa">
                                     <size key="itemSize" width="85" height="110"/>
@@ -55,11 +53,12 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tUc-tA-PiW">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tUc-tA-PiW">
                                 <rect key="frame" x="280" y="0.0" width="40" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZM-iB-EfQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="55"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="51"/>
+                                        <color key="backgroundColor" white="1" alpha="0.90358164612676062" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                         <state key="normal" title="←">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,7 +68,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DId-m2-Gdk">
-                                        <rect key="frame" x="0.0" y="55" width="40" height="55"/>
+                                        <rect key="frame" x="0.0" y="59" width="40" height="51"/>
+                                        <color key="backgroundColor" white="1" alpha="0.90358164612676062" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                         <state key="normal" title="→">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -79,6 +79,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Hvy-9s-6wU"/>
                                 </constraints>
@@ -117,7 +118,6 @@
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mYV-ER-WRC">
                                         <rect key="frame" x="106" y="30" width="136" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owb-rh-huO">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="72"/>
@@ -171,7 +171,7 @@
                             <constraint firstItem="pJ8-CT-iI1" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="JUd-G5-yLK"/>
                             <constraint firstItem="YDB-YB-KE9" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="OVN-La-xCO"/>
                             <constraint firstItem="tUc-tA-PiW" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="Qd0-E3-NcJ"/>
-                            <constraint firstItem="pJ8-CT-iI1" firstAttribute="trailing" secondItem="tUc-tA-PiW" secondAttribute="leading" id="ZPT-aV-dVg"/>
+                            <constraint firstItem="pJ8-CT-iI1" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="ZPT-aV-dVg"/>
                             <constraint firstItem="vp2-jU-BYy" firstAttribute="leading" secondItem="A1I-yM-IHJ" secondAttribute="trailing" id="dmE-X1-Ie1"/>
                             <constraint firstItem="YDB-YB-KE9" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="gKW-tj-pNl"/>
                             <constraint firstItem="vp2-jU-BYy" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="iT2-5E-5uK"/>
