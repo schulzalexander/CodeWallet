@@ -36,6 +36,7 @@ extension UICollectionView {
 		label.textColor = .darkGray
 		label.textAlignment = .center
 		label.numberOfLines = 0
+        label.layer.opacity = 0.7
 		label.font = label.font.withSize(16)
 //		label.sizeToFit()
 		self.backgroundView = label

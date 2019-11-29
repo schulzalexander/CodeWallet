@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -83,6 +83,8 @@
 		C998D5DC218CE1D90072F733 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998D5D9218CE1D90072F733 /* TutorialPageViewController.swift */; };
 		C998D5DD218CE1D90072F733 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998D5DA218CE1D90072F733 /* TutorialViewController.swift */; };
 		C99B936B218B1A8A002A4FCD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C99B936D218B1A8A002A4FCD /* InfoPlist.strings */; };
+		C9A1AAD923916A2C0034DA99 /* CodeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A1AAD823916A2C0034DA99 /* CodeAction.swift */; };
+		C9A1AADA23916C0A0034DA99 /* CodeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A1AAD823916A2C0034DA99 /* CodeAction.swift */; };
 		C9C03A94216348DE000533CE /* CodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A93216348DE000533CE /* CodeManager.swift */; };
 		C9C03A97216349E8000533CE /* CodeManagerArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A96216349E8000533CE /* CodeManagerArchive.swift */; };
 		C9C03A9A21634B8F000533CE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C03A9921634B8F000533CE /* Utils.swift */; };
@@ -257,6 +259,7 @@
 		C998D5DA218CE1D90072F733 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		C99B936C218B1A8A002A4FCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C99B936E218B1AF8002A4FCD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C9A1AAD823916A2C0034DA99 /* CodeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeAction.swift; sourceTree = "<group>"; };
 		C9C03A93216348DE000533CE /* CodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManager.swift; sourceTree = "<group>"; };
 		C9C03A96216349E8000533CE /* CodeManagerArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeManagerArchive.swift; sourceTree = "<group>"; };
 		C9C03A9921634B8F000533CE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -480,6 +483,7 @@
 				C9C03A92216348BA000533CE /* Singletons */,
 				C956DFE2215A9673005F1822 /* Code.swift */,
 				C97E68112188567200272B9F /* LocationNotification.swift */,
+				C9A1AAD823916A2C0034DA99 /* CodeAction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1002,6 +1006,7 @@
 				C9C03A9A21634B8F000533CE /* Utils.swift in Sources */,
 				C96B7C3E2166094200F9B67F /* SideMenuButton.swift in Sources */,
 				C956DFE7215AA0F3005F1822 /* AddCodeViewController.swift in Sources */,
+				C9A1AAD923916A2C0034DA99 /* CodeAction.swift in Sources */,
 				C998D5DD218CE1D90072F733 /* TutorialViewController.swift in Sources */,
 				C998D5DC218CE1D90072F733 /* TutorialPageViewController.swift in Sources */,
 				C96B7C32216503BC00F9B67F /* Settings.swift in Sources */,
@@ -1052,6 +1057,7 @@
 				C96B7C622166676900F9B67F /* CodeManagerArchive.swift in Sources */,
 				C96B7C4E2166464500F9B67F /* TodayViewController.swift in Sources */,
 				C96B7C61216665D000F9B67F /* CodeCollectionViewCell.swift in Sources */,
+				C9A1AADA23916C0A0034DA99 /* CodeAction.swift in Sources */,
 				C92BCF8221675134004BDAEC /* CoreExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

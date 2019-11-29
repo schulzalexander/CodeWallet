@@ -60,6 +60,11 @@ class Code: NSObject, NSCoding {
 		usages.append(currTime)
 		CodeManagerArchive.saveCodeManager()
 	}
+    
+    //MARK: CodeAction, e.g. add to calendar for dates, open for links
+    func getCodeAction() -> CodeAction? {
+        return nil
+    }
 	
 	//MARK: NSCoding
 	func encode(with aCoder: NSCoder) {

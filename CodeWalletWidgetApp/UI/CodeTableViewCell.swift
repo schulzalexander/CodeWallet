@@ -62,7 +62,7 @@ class CodeTableViewCell: UITableViewCell {
 		codeImageView.contentScaleFactor = defaultContentScale! + defaultContentScale! * CGFloat(1.0 - code.displaySize)
 	}
 	
-	@IBAction func openSettings(_ sender: UIButton) {
+	func openSettings() {
 		guard let tableView = getTableView(),
 			let codeTableVC = tableView.delegate as? CodeTableViewController,
 			let viewController = codeTableVC.storyboard?.instantiateViewController(withIdentifier: "CodeSettingsViewController") as? CodeSettingsTableViewController else {
@@ -82,6 +82,32 @@ class CodeTableViewCell: UITableViewCell {
 			codeTableVC.present(viewController, animated: true, completion: nil)
 		}
 	}
+    
+    @IBAction func showBarcodeActions(_ sender: UIButton) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let openSettings = UIAlertAction(title: NSLocalizedString("CodeTableViewCellOpenSettings", comment: ""), style: .default) { (action) in
+            self.openSettings()
+        }
+        let addToWallet = UIAlertAction(title: NSLocalizedString("CodeTableViewCellAddToWallet", comment: ""), style: .default) { (action) in
+            //TODO
+        }
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+        alertController.addAction(openSettings)
+        alertController.addAction(addToWallet)
+        alertController.addAction(cancel)
+        
+        if let codeAction = self.code.getCodeAction() {
+            let alertCodeAction = UIAlertAction(title: codeAction.title, style: .default) { (action) in
+                codeAction.action()
+            }
+            alertController.addAction(alertCodeAction)
+        }
+        
+        DispatchQueue.main.async {
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
+
 	
 	private func getTableView() -> UITableView? {
 		let tableView: UITableView?
